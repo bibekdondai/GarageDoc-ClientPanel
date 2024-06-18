@@ -1,0 +1,163 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+	<!-- 
+	/*
+	 *	This content is generated from the API File Info.
+	 *	(Alt+Shift+Ctrl+I).
+	 *
+	 *	@desc 		
+	 *	@file 		extra_page_
+	 *	@date 		Monday 17th of June 2024 06:12:58 PM
+	 *	@title 		Page 1
+	 *	@author 	
+	 *	@keywords 	
+	 *	@generator 	Export Kit v1.3.figma
+	 *
+	 */
+	-->
+	<ScrollView android:id="@+id/verification" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<RelativeLayout android:id="@+id/page_verification_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/_bg__verification_ek2"
+					android:background="@drawable/_bg__verification_ek2_shape"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="360dp"
+					android:layout_height="800dp" />
+
+				<View   android:id="@+id/_rectangle_30_ek1"
+					android:background="@drawable/_rectangle_30_ek1_shape"
+					 android:layout_marginStart="22dp"
+					android:layout_marginTop="330dp"
+					android:layout_width="316dp"
+					android:layout_height="45dp" />
+
+				<TextView android:id="@+id/verify_phone"
+					android:fontFamily="Poppins"
+					android:textStyle="bold"
+					android:layout_gravity="center_horizontal|center"
+					android:gravity="center"
+					android:textSize="24sp"
+					android:textColor="@color/payment_methods_color"
+					android:layout_marginLeft="93dp"
+					android:layout_marginTop="334dp"
+					android:layout_width="184dp"
+					android:layout_height="53dp"
+					android:text="@string/verify_phone_string"
+					 />
+
+				<TextView android:id="@+id/didn_t_receive_a_code__click"
+					android:fontFamily="Poppins"
+					android:textSize="14sp"
+					android:textColor="@color/didn_t_receive_a_code__click_color"
+					android:layout_marginLeft="22dp"
+					android:layout_marginTop="288dp"
+					android:layout_width="211dp"
+					android:layout_height="31dp"
+					android:text="@string/didn_t_receive_a_code__click_string"
+					 />
+
+				<View   android:id="@+id/rectangle_32_ek1"
+					android:background="@drawable/rectangle_32_ek1_shape"
+					 android:layout_marginStart="25dp"
+					android:layout_marginTop="221dp"
+					android:layout_width="45dp"
+					android:layout_height="45dp" />
+
+				<View   android:id="@+id/rectangle_33"
+					android:background="@drawable/rectangle_33_shape"
+					 android:layout_marginStart="91dp"
+					android:layout_marginTop="221dp"
+					android:layout_width="45dp"
+					android:layout_height="45dp" />
+
+				<View   android:id="@+id/rectangle_34"
+					android:background="@drawable/rectangle_34_shape"
+					 android:layout_marginStart="157dp"
+					android:layout_marginTop="221dp"
+					android:layout_width="45dp"
+					android:layout_height="45dp" />
+
+				<View   android:id="@+id/rectangle_35"
+					android:background="@drawable/rectangle_35_shape"
+					 android:layout_marginStart="223dp"
+					android:layout_marginTop="221dp"
+					android:layout_width="45dp"
+					android:layout_height="45dp" />
+
+				<View   android:id="@+id/rectangle_36"
+					android:background="@drawable/rectangle_36_shape"
+					 android:layout_marginStart="289dp"
+					android:layout_marginTop="221dp"
+					android:layout_width="45dp"
+					android:layout_height="45dp" />
+
+				<TextView android:id="@+id/a_verification_code_has_been_sent_to_the_phone_number_listed_prior__please_type_in_your_code_below_to_get_started_with_garagedoc_"
+					android:fontFamily="Poppins"
+					android:textSize="14sp"
+					android:textColor="@color/rectangle_1_color"
+					android:layout_marginLeft="22dp"
+					android:layout_marginTop="128dp"
+					android:layout_width="349dp"
+					android:layout_height="75dp"
+					android:text="@string/a_verification_code_has_been_sent_to_the_phone_number_listed_prior__please_type_in_your_code_below_to_get_started_with_garagedoc__string"
+					 />
+
+				<TextView android:id="@+id/verification_ek3"
+					android:fontFamily="Poppins"
+					android:layout_gravity="center_horizontal|center"
+					android:gravity="center"
+					android:textSize="24sp"
+					android:textColor="@color/rectangle_1_color"
+					android:layout_marginLeft="18dp"
+					android:layout_marginTop="84dp"
+					android:layout_width="153dp"
+					android:layout_height="53dp"
+					android:text="@string/verification_ek3_string"
+					 />
+
+			</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>

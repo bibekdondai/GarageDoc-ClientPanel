@@ -1,0 +1,169 @@
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<ScrollView android:id="@+id/signin_2" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent"
+		android:background="@drawable/_bg__signin_2_ek2_shape"
+		>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<RelativeLayout android:id="@+id/page_signin_2_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/_bg__signin_2_ek2"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="360dp"
+					android:layout_height="800dp" />
+
+				<ImageView
+					android:id="@+id/ellipse_2"
+					android:layout_width="505dp"
+					android:layout_height="475dp"
+					android:layout_alignParentTop="true"
+					android:layout_alignParentEnd="true"
+					android:layout_centerHorizontal="true"
+					android:layout_marginStart="-72dp"
+					android:layout_marginTop="406dp"
+					android:layout_marginEnd="-54dp"
+					android:contentDescription="ellipse_2"
+					android:scaleType="fitXY"
+					android:src="@drawable/ellipse_2" />
+
+
+
+
+				<TextView android:id="@+id/terms_and_conditions___privacy_policy"
+
+					android:layout_gravity="center_horizontal|center"
+					android:gravity="center"
+					android:textSize="14sp"
+					android:textColor="@color/terms_and_conditions___privacy_policy_color"
+					android:layout_marginStart="44dp"
+					android:layout_marginTop="647dp"
+					android:layout_width="280dp"
+					android:layout_height="31dp"
+					android:text="@string/terms_and_conditions___privacy_policy_string"
+					 />
+
+				<TextView android:id="@+id/_use_email_instead__"
+
+					android:textSize="16sp"
+					android:textColor="@color/rectangle_1_color"
+					android:layout_marginStart="225dp"
+					android:layout_marginTop="270dp"
+					android:layout_width="149dp"
+					android:layout_height="30dp"
+					android:text="@string/_use_email_instead___string"
+					 />
+
+				<ImageView android:id="@+id/line_13"
+					android:src="@drawable/line_13"
+					android:contentDescription="line_13"
+					 android:layout_marginStart="106dp"
+					android:layout_marginTop="266dp"
+					android:layout_width="247dp"
+					android:layout_height="0dp" />
+
+				<EditText
+					android:id="@+id/use_phone_instead"
+					android:layout_width="350dp"
+					android:layout_height="48dp"
+
+					android:layout_alignParentTop="true"
+					android:layout_centerHorizontal="true"
+					android:layout_marginStart="61dp"
+					android:layout_marginTop="220dp"
+					android:autofillHints=""
+					android:hint="@string/phone_number_string"
+					android:inputType="text"
+					android:textColor="@color/black"
+					android:textSize="22sp" />
+
+
+
+
+
+
+
+				<TextView android:id="@+id/you_ll_get_an_sms_to"
+					android:textSize="24sp"
+					android:textColor="@color/rectangle_1_color"
+					android:layout_marginStart="78dp"
+					android:layout_marginTop="132dp"
+					android:layout_width="233dp"
+					android:layout_height="46dp"
+					android:text="@string/you_ll_get_an_sms_to_string"
+					 />
+
+				<ImageView android:id="@+id/_back_arrow_ek3"
+					android:src="@drawable/_back_arrow_ek3"
+					android:contentDescription="_back_arrow_ek3"
+					 android:layout_marginStart="10dp"
+					android:layout_marginTop="59dp"
+					android:layout_width="39dp"
+					android:layout_height="45dp" />
+
+			</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+	</ScrollView>
+	<RelativeLayout
+
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="20dp"
+		android:layout_marginEnd="20dp"
+		android:layout_gravity="bottom|center_horizontal"
+		android:layout_alignParentBottom="true"
+		>
+
+		<Button
+			android:id="@+id/next"
+			android:layout_width="164dp"
+			android:layout_height="52dp"
+			android:layout_centerHorizontal="true"
+			android:layout_marginStart="61dp"
+			android:background="@drawable/_rectangle_30_ek1_shape"
+			android:text="NEXT" />
+
+
+	</RelativeLayout>
+</FrameLayout>

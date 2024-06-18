@@ -1,0 +1,71 @@
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	>
+
+	
+
+	<application
+		android:allowBackup="true"
+		android:theme="@style/AppTheme"
+		android:label="ClientPanel" >
+		<activity
+		android:name=".signin_1_activity"
+		android:configChanges="orientation|keyboardHidden|screenSize"
+
+		android:exported="true"  >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+			<activity android:name=".support_activity"></activity>
+			<activity android:name=".mark_as_read_notification__activity"></activity>
+			<activity android:name=".notification_activity"></activity>
+			<activity android:name=".fqas_activity"></activity>
+			<activity android:name="settings_activity"></activity>
+			<activity android:name=".status_of_vehicles_activity"></activity>
+			<activity android:name="._emergency_activity"></activity>
+			<activity android:name=".bike_scooter_details_activity"></activity>
+			<activity android:name=".add_bike_scooter_activity"></activity>
+			<activity android:name=".payment_options_activity"></activity>
+			<activity android:name=".receipt_activity"></activity>
+			<activity android:name=".details_to_be_filled_activity"></activity>
+			<activity android:name="._drop__activity"></activity>
+			<activity android:name=".time_activity"></activity>
+			<activity android:name=".token_activity"></activity>
+			<activity android:name=".part_maintainence_activity"></activity>
+			<activity android:name=".part_replacement_activity"></activity>
+			<activity android:name=".more_option_activity"></activity>
+			<activity android:name=".pickup_activity"></activity>
+			<activity android:name=".services_activity"></activity>
+			<activity android:name=".vehicle_info_activity"></activity>
+			<activity android:name=".user_profile_activity"></activity>
+			<activity android:name=".landing_home_page_1_activity"></activity>
+			<activity android:name=".info_activity"></activity>
+			<activity android:name=".password_activity"></activity>
+			<activity android:name=".verification_activity"></activity>
+			<activity android:name=".signin_2_activity"></activity>
+		    <activity android:name=".extra_page__activity"></activity>
+			<activity android:name=".starting_page_activity"></activity>
+			<activity android:name=".slash_page_10_activity"></activity>
+			<activity android:name=".slash_page_9_activity"></activity>
+			<activity android:name=".slash_page_8_activity"></activity>
+			<activity android:name=".slash_page_7_activity"></activity>
+			<activity android:name=".slash_page_6_activity"></activity>
+			<activity android:name=".slash_page_5_activity"></activity>
+			<activity android:name=".slash_page_4_activity"></activity>
+			<activity android:name=".slash_page_3_activity"></activity>
+			<activity android:name=".slash_page_2_activity"></activity>
+			<activity android:name=".slash_page_1_activity"></activity>
+			<activity android:name=".call_popup_activity"></activity>
+			<activity android:name=".frame_25_activity"></activity>
+
+		<meta-data
+			android:name="preloaded_fonts"
+			android:resource="@array/preloaded_fonts" />
+	</application>
+
+</manifest>
+	
+	

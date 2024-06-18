@@ -1,0 +1,129 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+	<!-- 
+	/*
+	 *	This content is generated from the API File Info.
+	 *	(Alt+Shift+Ctrl+I).
+	 *
+	 *	@desc 		
+	 *	@file 		extra_page_
+	 *	@date 		Monday 17th of June 2024 06:12:58 PM
+	 *	@title 		Page 1
+	 *	@author 	
+	 *	@keywords 	
+	 *	@generator 	Export Kit v1.3.figma
+	 *
+	 */
+	-->
+	<ScrollView android:id="@+id/call_popup" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<RelativeLayout android:id="@+id/page_call_popup_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/_bg__call_popup_ek2"
+					android:background="@drawable/_bg__call_popup_ek2_shape"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="360dp"
+					android:layout_height="800dp" />
+
+				<View   android:id="@+id/rectangle_101"
+					android:background="@drawable/rectangle_101_shape"
+					 android:alpha="0.5799999833107"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="620dp"
+					android:layout_width="360dp"
+					android:layout_height="70dp" />
+
+				<View   android:id="@+id/rectangle_102"
+					android:background="@drawable/rectangle_102_shape"
+					 android:layout_marginStart="73dp"
+					android:layout_marginTop="700dp"
+					android:layout_width="214dp"
+					android:layout_height="76dp" />
+
+				<TextView android:id="@+id/cancel"
+					android:fontFamily="Poppins"
+					android:textSize="32sp"
+					android:textColor="@color/cancel_color"
+					android:layout_marginLeft="122dp"
+					android:layout_marginTop="716dp"
+					android:layout_width="151dp"
+					android:layout_height="70dp"
+					android:text="@string/cancel_string"
+					 />
+
+				<TextView android:id="@+id/__977_9865006402"
+					android:fontFamily="Poppins"
+					android:textSize="32sp"
+					android:textColor="@color/__977_9865006402_color"
+					android:layout_marginLeft="47dp"
+					android:layout_marginTop="636dp"
+					android:layout_width="323dp"
+					android:layout_height="70dp"
+					android:text="@string/__977_9865006402_string"
+					 />
+
+
+				<RelativeLayout android:id="@+id/fluent_call_16_regular"
+					android:layout_marginTop="647dp"
+					android:layout_marginStart="7dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<ImageView android:id="@+id/vector_ek130"
+						android:src="@drawable/vector_ek130"
+						android:contentDescription="vector_ek130"
+						 android:layout_marginStart="6.72dp"
+						android:layout_marginTop="2.21dp"
+						android:layout_width="25.93dp"
+						android:layout_height="20.71dp" />
+
+				</RelativeLayout>
+
+			</RelativeLayout>
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>
