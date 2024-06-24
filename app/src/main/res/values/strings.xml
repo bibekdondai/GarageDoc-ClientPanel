@@ -294,4 +294,6 @@
 	<string name="vehicles_string">Vehicles</string>
 	<string name="history_string">History</string>
 	<string name="log_out_ek1_string">Log out</string>
+    <string name="proceed_with_your_phone">Proceed with your phone</string>
+    <string name="use_mobile_number_instead_string" />
 </resources>

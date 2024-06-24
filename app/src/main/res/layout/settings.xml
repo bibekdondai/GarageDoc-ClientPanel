@@ -228,28 +228,29 @@
 						>
 
 
-						<RelativeLayout android:id="@+id/group"
-							android:layout_marginTop="1.94dp"
-							android:layout_marginStart="dp"
+						<RelativeLayout
+							android:id="@+id/group"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							>
+							android:layout_marginTop="1.94dp">
 
-							<ImageView android:id="@+id/vector_ek27"
-								android:src="@drawable/vector_ek27"
-								android:contentDescription="vector_ek27"
-								 android:layout_marginStart="8dp"
-								android:layout_marginTop="0dp"
+							<ImageView
+								android:id="@+id/vector_ek27"
 								android:layout_width="22dp"
-								android:layout_height="17.15dp" />
+								android:layout_height="17.15dp"
+								android:layout_marginStart="8dp"
+								android:layout_marginTop="0dp"
+								android:contentDescription="vector_ek27"
+								android:src="@drawable/vector_ek27" />
 
-							<ImageView android:id="@+id/vector_ek28"
-								android:src="@drawable/vector_ek28"
-								android:contentDescription="vector_ek28"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="6dp"
+							<ImageView
+								android:id="@+id/vector_ek28"
 								android:layout_width="18dp"
-								android:layout_height="21.31dp" />
+								android:layout_height="21.31dp"
+								android:layout_marginStart="0dp"
+								android:layout_marginTop="6dp"
+								android:contentDescription="vector_ek28"
+								android:src="@drawable/vector_ek28" />
 
 						</RelativeLayout>
 

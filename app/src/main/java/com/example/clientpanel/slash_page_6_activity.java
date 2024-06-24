@@ -37,7 +37,6 @@ public class slash_page_6_activity extends Activity {
 		setContentView(R.layout.slash_page_6);
 
 		
-		_bg__slash_page_6_ek2 = (View) findViewById(R.id._bg__slash_page_6_ek2);
 		black_and_white_modern_typographic_simple_virus_apparel_logo__7__1 = (ImageView) findViewById(R.id.black_and_white_modern_typographic_simple_virus_apparel_logo__7__1);
 	
 		

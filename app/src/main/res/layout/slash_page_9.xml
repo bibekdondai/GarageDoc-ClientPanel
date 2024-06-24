@@ -63,15 +63,16 @@
 					android:text="@string/get_started_string"
 					 />
 
-				<TextView android:id="@+id/welcome"
-					android:textSize="44sp"
-					android:textColor="@color/rectangle_1_color"
-					android:layout_marginStart="63dp"
-					android:layout_marginTop="146dp"
+				<TextView
+					android:id="@+id/welcome"
 					android:layout_width="284dp"
 					android:layout_height="79dp"
+					android:layout_marginStart="63dp"
+					android:layout_marginTop="146dp"
+					android:fontFamily="@font/ruslan_display"
 					android:text="@string/welcome_string"
-					 />
+					android:textColor="@color/rectangle_1_color"
+					android:textSize="44sp" />
 
 				<ImageView android:id="@+id/clipart1403668_1"
 					android:src="@drawable/clipart1403668_1"

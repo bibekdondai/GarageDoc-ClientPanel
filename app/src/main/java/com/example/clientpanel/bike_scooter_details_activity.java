@@ -1,143 +1,165 @@
-
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		extra_page_
-	 *	@date 		Monday 17th of June 2024 06:12:58 PM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package com.example.clientpanel;
+package com.example.clientpanel;
 
 import android.app.Activity;
-import android.os.Bundle;
-
-
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
 import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class bike_scooter_details_activity extends Activity {
 
-	
-	private View _bg__bike_scooter_details_ek2;
-	private View rectangle_1_ek4;
-	private TextView garage_doc_ek1;
-	private View rectangle_93;
-	private TextView bike_details;
-	private TextView bike_model_;
-	private TextView number_plate_;
-	private TextView choose_bike_color_;
-	private View rectangle_97;
-	private View rectangle_98;
-	private View rectangle_100;
-	private View rectangle_99;
-	private TextView black;
-	private TextView blue;
-	private TextView red;
-	private TextView orange;
-	private View line_21;
-	private View line_22;
-	private TextView home_ek7;
-	private TextView notification_ek14;
-	private TextView call_ek8;
-	private TextView setting_ek7;
-	private ImageView vector_ek52;
-	private ImageView vector_ek53;
-	private ImageView _vector_ek54;
-	private ImageView vector_ek55;
-	private ImageView _vector_ek56;
-	private ImageView _vector_ek57;
-	private View rectangle_115;
-	private TextView done;
+	private EditText bikeModelEditText, numberPlateEditText;
+	private TextView blackTextView, blueTextView, redTextView, orangeTextView;
+	private Button doneButton;
+	private String selectedColor;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bike_scooter_details);
 
-		
-		_bg__bike_scooter_details_ek2 = (View) findViewById(R.id._bg__bike_scooter_details_ek2);
-		rectangle_1_ek4 = (View) findViewById(R.id.rectangle_1_ek4);
-		garage_doc_ek1 = (TextView) findViewById(R.id.garage_doc_ek1);
-		rectangle_93 = (View) findViewById(R.id.rectangle_93);
-		bike_details = (TextView) findViewById(R.id.bike_details);
-		bike_model_ = (TextView) findViewById(R.id.bike_model_);
-		number_plate_ = (TextView) findViewById(R.id.number_plate_);
-		choose_bike_color_ = (TextView) findViewById(R.id.choose_bike_color_);
-		rectangle_97 = (View) findViewById(R.id.rectangle_97);
-		rectangle_98 = (View) findViewById(R.id.rectangle_98);
-		rectangle_100 = (View) findViewById(R.id.rectangle_100);
-		rectangle_99 = (View) findViewById(R.id.rectangle_99);
-		black = (TextView) findViewById(R.id.black);
-		blue = (TextView) findViewById(R.id.blue);
-		red = (TextView) findViewById(R.id.red);
-		orange = (TextView) findViewById(R.id.orange);
-		line_21 = (View) findViewById(R.id.line_21);
-		line_22 = (View) findViewById(R.id.line_22);
-		home_ek7 = (TextView) findViewById(R.id.home_ek7);
-		notification_ek14 = (TextView) findViewById(R.id.notification_ek14);
-		call_ek8 = (TextView) findViewById(R.id.call_ek8);
-		setting_ek7 = (TextView) findViewById(R.id.setting_ek7);
-		vector_ek52 = (ImageView) findViewById(R.id.vector_ek52);
-		vector_ek53 = (ImageView) findViewById(R.id.vector_ek53);
-		_vector_ek54 = (ImageView) findViewById(R.id._vector_ek54);
-		vector_ek55 = (ImageView) findViewById(R.id.vector_ek55);
-		_vector_ek56 = (ImageView) findViewById(R.id._vector_ek56);
-		_vector_ek57 = (ImageView) findViewById(R.id._vector_ek57);
-		rectangle_115 = (View) findViewById(R.id.rectangle_115);
-		done = (TextView) findViewById(R.id.done);
-	
-		
-		_vector_ek54.setOnClickListener(new View.OnClickListener() {
-		
+		bikeModelEditText = findViewById(R.id.bike_model);
+		numberPlateEditText = findViewById(R.id.number_plate);
+		blackTextView = findViewById(R.id.black);
+		blueTextView = findViewById(R.id.blue);
+		redTextView = findViewById(R.id.red);
+		orangeTextView = findViewById(R.id.orange);
+		doneButton = findViewById(R.id.done);
+
+		// Add TextWatchers to EditTexts
+		bikeModelEditText.addTextChangedListener(textWatcher);
+		numberPlateEditText.addTextChangedListener(textWatcher);
+
+		// Add click listeners to color TextViews
+		blackTextView.setOnClickListener(colorClickListener);
+		blueTextView.setOnClickListener(colorClickListener);
+		redTextView.setOnClickListener(colorClickListener);
+		orangeTextView.setOnClickListener(colorClickListener);
+
+		// Add click listener to Done button
+		doneButton.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
-				
+				checkForDuplicateAndSave();
+			}
+		});
+
+		// Your existing code for imageView click listeners
+		findViewById(R.id._vector_ek54).setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
 				Intent nextScreen = new Intent(getApplicationContext(), landing_home_page_1_activity.class);
 				startActivity(nextScreen);
-			
-		
 			}
 		});
-		
-		
-		_vector_ek56.setOnClickListener(new View.OnClickListener() {
-		
+
+		findViewById(R.id._vector_ek56).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				
 				Intent nextScreen = new Intent(getApplicationContext(), settings_activity.class);
 				startActivity(nextScreen);
-			
-		
 			}
 		});
-		
-		
-		_vector_ek57.setOnClickListener(new View.OnClickListener() {
-		
+
+		findViewById(R.id._vector_ek57).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				
 				Intent nextScreen = new Intent(getApplicationContext(), notification_activity.class);
 				startActivity(nextScreen);
-			
-		
 			}
 		});
-		
-		
-		//custom code goes here
-	
+	}
+
+	private TextWatcher textWatcher = new TextWatcher() {
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {
+			validateInputs();
+		}
+
+		@Override
+		public void afterTextChanged(Editable s) {}
+	};
+
+	private View.OnClickListener colorClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			selectedColor = ((TextView) v).getText().toString();
+			validateInputs();
+		}
+	};
+
+	private void validateInputs() {
+		String bikeModel = bikeModelEditText.getText().toString().trim();
+		String numberPlate = numberPlateEditText.getText().toString().trim();
+		doneButton.setEnabled(!bikeModel.isEmpty() && !numberPlate.isEmpty() && selectedColor != null);
+	}
+
+	private void checkForDuplicateAndSave() {
+		String bikeModel = bikeModelEditText.getText().toString().trim();
+		String numberPlate = numberPlateEditText.getText().toString().trim();
+
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("garagedoc").child("client_side").child("bike_details");
+
+		databaseReference.orderByChild("numberPlate").equalTo(numberPlate).addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				boolean duplicateFound = false;
+				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+					BikeScooterDetails existingDetails = snapshot.getValue(BikeScooterDetails.class);
+					if (existingDetails != null && existingDetails.bikeModel.equals(bikeModel)) {
+						duplicateFound = true;
+						break;
+					}
+				}
+
+				if (duplicateFound) {
+					Toast.makeText(bike_scooter_details_activity.this, "Bike details already exist!", Toast.LENGTH_SHORT).show();
+				} else {
+					saveDataToFirebase(bikeModel, numberPlate, selectedColor);
+				}
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+				Toast.makeText(bike_scooter_details_activity.this, "Error checking for duplicates", Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
+	private void saveDataToFirebase(String bikeModel, String numberPlate, String color) {
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("client_side").child("bike_details");
+		String id = databaseReference.push().getKey();
+		BikeScooterDetails details = new BikeScooterDetails(bikeModel, numberPlate, color);
+		databaseReference.child(id).setValue(details);
+
+		Toast.makeText(this, "Data saved successfully!", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(this, vehicle_info_activity.class);
+		startActivity(intent);
+	}
+
+	public static class BikeScooterDetails {
+		public String bikeModel;
+		public String numberPlate;
+		public String color;
+
+		public BikeScooterDetails() {}
+
+		public BikeScooterDetails(String bikeModel, String numberPlate, String color) {
+			this.bikeModel = bikeModel;
+			this.numberPlate = numberPlate;
+			this.color = color;
+		}
 	}
 }
-	
-	

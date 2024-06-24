@@ -61,21 +61,12 @@ public class add_bike_scooter_activity extends Activity {
 
 		
 		_bg__add_bike_scooter_ek2 = (View) findViewById(R.id._bg__add_bike_scooter_ek2);
-		ca_ek1 = (TextView) findViewById(R.id.ca_ek1);
 		rectangle_1_ek5 = (View) findViewById(R.id.rectangle_1_ek5);
 		garage_doc_ek2 = (TextView) findViewById(R.id.garage_doc_ek2);
 		rectangle_93_ek1 = (View) findViewById(R.id.rectangle_93_ek1);
-		rectangle_94 = (View) findViewById(R.id.rectangle_94);
-		rectangle_95 = (View) findViewById(R.id.rectangle_95);
-		rectangle_96 = (View) findViewById(R.id.rectangle_96);
+
 		yamaha_alpha = (TextView) findViewById(R.id.yamaha_alpha);
-		yamaha_fascino = (TextView) findViewById(R.id.yamaha_fascino);
-		yamaha_mt_15 = (TextView) findViewById(R.id.yamaha_mt_15);
-		yamaha_fzs = (TextView) findViewById(R.id.yamaha_fzs);
-		home_ek8 = (TextView) findViewById(R.id.home_ek8);
-		notification_ek15 = (TextView) findViewById(R.id.notification_ek15);
-		call_ek9 = (TextView) findViewById(R.id.call_ek9);
-		setting_ek8 = (TextView) findViewById(R.id.setting_ek8);
+
 		vector_ek58 = (ImageView) findViewById(R.id.vector_ek58);
 		vector_ek59 = (ImageView) findViewById(R.id.vector_ek59);
 		_vector_ek60 = (ImageView) findViewById(R.id._vector_ek60);

@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "144202873723",
+    "firebase_url": "https://garagedoc-547e4-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "garagedoc-547e4",
+    "storage_bucket": "garagedoc-547e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144202873723:android:397411f5b70ae9b1fddbde",
+        "android_client_info": {
+          "package_name": "com.example.clientpanel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATp7zXOtoKd7tRQGDGu5Dk-7Hyc0aaUqY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144202873723:android:dca42343d2ab865ffddbde",
+        "android_client_info": {
+          "package_name": "com.example.garagedoc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATp7zXOtoKd7tRQGDGu5Dk-7Hyc0aaUqY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

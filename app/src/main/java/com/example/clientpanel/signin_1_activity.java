@@ -1,103 +1,101 @@
-
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		extra_page_
-	 *	@date 		Monday 17th of June 2024 06:12:58 PM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package com.example.clientpanel;
+package com.example.clientpanel;
 
 import android.app.Activity;
-import android.os.Bundle;
-
-
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class signin_1_activity extends Activity {
 
-	
-	private View _bg__signin_1_ek2;
-	private ImageView ellipse_2;
-	private TextView terms_and_conditions___privacy_policy_ek1;
-	private View _rectangle_21_ek2;
-	private TextView next_ek3;
-	private TextView _use_mobile_number_instead__;
-	private ImageView line_13_ek1;
-	private TextView email_address;
-	private TextView proceed_with_your_email;
-	private ImageView _back_arrow_ek4;
+	private EditText email_address;
+	private Button next;
+	private TextView use_mobile_number_instead;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.signin_1);
 
-		
-		_bg__signin_1_ek2 = (View) findViewById(R.id._bg__signin_1_ek2);
-		ellipse_2 = (ImageView) findViewById(R.id.ellipse_2);
-		terms_and_conditions___privacy_policy_ek1 = (TextView) findViewById(R.id.terms_and_conditions___privacy_policy_ek1);
-		_rectangle_21_ek2 = (View) findViewById(R.id._rectangle_21_ek2);
-		next_ek3 = (TextView) findViewById(R.id.next_ek3);
-		_use_mobile_number_instead__ = (TextView) findViewById(R.id._use_mobile_number_instead__);
-		line_13_ek1 = (ImageView) findViewById(R.id.line_13_ek1);
-		email_address = (TextView) findViewById(R.id.email_address);
-		proceed_with_your_email = (TextView) findViewById(R.id.proceed_with_your_email);
-		_back_arrow_ek4 = (ImageView) findViewById(R.id._back_arrow_ek4);
-	
-		
-		_rectangle_21_ek2.setOnClickListener(new View.OnClickListener() {
-		
+		email_address = findViewById(R.id.email_address);
+		next = findViewById(R.id.next);
+		use_mobile_number_instead = findViewById(R.id.use_mobile_number_instead);
+
+		next.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), verification_activity.class);
-				startActivity(nextScreen);
-			
-		
+				String email = email_address.getText().toString().trim();
+
+				if (!email.isEmpty() && isValidEmail(email)) {
+					checkEmailInDatabase(email);
+				} else {
+					Toast.makeText(signin_1_activity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
-		
-		
-		_use_mobile_number_instead__.setOnClickListener(new View.OnClickListener() {
-		
+
+		use_mobile_number_instead.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), signin_2_activity.class);
-				startActivity(nextScreen);
-			
-		
+				Intent intent = new Intent(signin_1_activity.this, signin_2_activity.class);
+				startActivity(intent);
 			}
 		});
-		
-		
-		_back_arrow_ek4.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), starting_page_activity.class);
-				startActivity(nextScreen);
-			
-		
+	}
+
+	private void checkEmailInDatabase(final String email) {
+		FirebaseDatabase database = FirebaseDatabase.getInstance();
+		DatabaseReference usersRef = database.getReference("client_side");
+
+		usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+				boolean emailExists = false;
+
+				for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+					String storedEmail = userSnapshot.child("email_address").getValue(String.class);
+					Log.d("checkEmailInDatabase", "Checking email: " + storedEmail);
+					if (storedEmail != null && storedEmail.equals(email)) {
+						emailExists = true;
+						break;
+					}
+				}
+
+				if (emailExists) {
+					Log.d("checkEmailInDatabase", "Email exists: " + email);
+
+					Intent intent = new Intent(signin_1_activity.this, password_activity.class);
+					intent.putExtra("email_address", email);
+					startActivity(intent);
+				} else {
+					Log.d("checkEmailInDatabase", "Email does not exist: " + email);
+
+					Toast.makeText(signin_1_activity.this, "Email not registered", Toast.LENGTH_SHORT).show();
+				}
+			}
+
+			@Override
+			public void onCancelled(@NonNull DatabaseError databaseError) {
+				Log.e("checkEmailInDatabase", "Database error: " + databaseError.getMessage());
+
+				Toast.makeText(signin_1_activity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 		});
-		
-		
-		//custom code goes here
-	
+	}
+
+	private boolean isValidEmail(CharSequence email) {
+		return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
 	}
 }
-	
-	

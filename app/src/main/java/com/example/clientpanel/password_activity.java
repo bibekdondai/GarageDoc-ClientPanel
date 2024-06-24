@@ -1,75 +1,81 @@
-
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		extra_page_
-	 *	@date 		Monday 17th of June 2024 06:12:58 PM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package com.example.clientpanel;
+package com.example.clientpanel;
 
 import android.app.Activity;
-import android.os.Bundle;
-
-
-import android.view.View;
-import android.widget.ImageView;
 import android.content.Intent;
-import android.widget.TextView;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class password_activity extends Activity {
 
-	
-	private View _bg__password_ek2;
-	private ImageView ellipse_4;
-	private View _rectangle_24_ek1;
-	private TextView login;
-	private TextView forgot_password__;
-	private View line_14;
-	private TextView password_ek4;
-	private TextView enter_your_password_for_login;
+	private EditText password_ek3;
+	private Button login;
+	private String emailAddress;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.password);
 
-		
-		_bg__password_ek2 = (View) findViewById(R.id._bg__password_ek2);
-		ellipse_4 = (ImageView) findViewById(R.id.ellipse_4);
-		_rectangle_24_ek1 = (View) findViewById(R.id._rectangle_24_ek1);
-		login = (TextView) findViewById(R.id.login);
-		forgot_password__ = (TextView) findViewById(R.id.forgot_password__);
-		line_14 = (View) findViewById(R.id.line_14);
-		password_ek4 = (TextView) findViewById(R.id.password_ek4);
-		enter_your_password_for_login = (TextView) findViewById(R.id.enter_your_password_for_login);
-	
-		
-		_rectangle_24_ek1.setOnClickListener(new View.OnClickListener() {
-		
+		password_ek3 = findViewById(R.id.password_ek3);
+		login = findViewById(R.id.login);
+
+		// Get email address from intent
+		emailAddress = getIntent().getStringExtra("email_address");
+
+		login.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), info_activity.class);
-				startActivity(nextScreen);
-			
-		
+				String inputPassword = password_ek3.getText().toString().trim();
+
+				if (!inputPassword.isEmpty()) {
+					verifyPassword(inputPassword);
+				} else {
+					Toast.makeText(password_activity.this, "Please enter your password", Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
-		
-		
-		//custom code goes here
-	
+	}
+
+	private void verifyPassword(final String inputPassword) {
+		FirebaseDatabase database = FirebaseDatabase.getInstance();
+		DatabaseReference usersRef = database.getReference("client_side");
+
+		usersRef.orderByChild("email_address").equalTo(emailAddress).addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+				if (dataSnapshot.exists()) {
+					for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+						String correctPassword = userSnapshot.child("password").getValue(String.class);
+
+						if (correctPassword != null && correctPassword.equals(inputPassword)) {
+							Toast.makeText(password_activity.this, "Login successful", Toast.LENGTH_SHORT).show();
+							// Proceed to next activity
+							Intent intent = new Intent(password_activity.this, landing_home_page_1_activity.class);
+							startActivity(intent);
+						} else {
+							Toast.makeText(password_activity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
+						}
+					}
+				} else {
+					Toast.makeText(password_activity.this, "User data not found", Toast.LENGTH_SHORT).show();
+				}
+			}
+
+			@Override
+			public void onCancelled(@NonNull DatabaseError databaseError) {
+				Toast.makeText(password_activity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 }
-	
-	

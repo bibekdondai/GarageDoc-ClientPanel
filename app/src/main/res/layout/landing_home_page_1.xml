@@ -19,13 +19,16 @@
 				>
 
 
-
-				<View   android:id="@+id/rectangle_1_ek10"
+				<View
+					android:id="@+id/rectangle_1_ek10"
+					android:layout_width="match_parent"
+					android:layout_height="274dp"
+					android:layout_alignParentTop="true"
+					android:layout_centerHorizontal="true"
+					android:layout_marginStart="0dp"
+					android:layout_marginTop="-23dp"
 					android:background="@drawable/rectangle_1_ek10_shape"
-					 android:layout_marginStart="-2dp"
-					android:layout_marginTop="-10dp"
-					android:layout_width="364dp"
-					android:layout_height="274dp" />
+					android:scaleType="fitXY" />
 
 				<TextView android:id="@+id/hi"
 					android:textSize="39sp"
@@ -197,9 +200,14 @@
 
 				<RelativeLayout android:id="@+id/frame_23_ek16"
 					android:layout_marginTop="729dp"
-					android:layout_marginStart="3dp"
+					android:layout_marginStart="4dp"
+					android:background="@drawable/rectangle_1_ek10_shape"
+
+
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:layout_centerHorizontal="true"
+
 					>
 
 
@@ -212,7 +220,8 @@
 						 android:layout_marginStart="30dp"
 						android:layout_marginTop="7dp"
 						android:layout_width="29dp"
-						android:layout_height="31dp" />
+						android:layout_height="31dp"
+						/>
 
 					<ImageView android:id="@+id/vector_ek125"
 						android:src="@drawable/vector_ek125"

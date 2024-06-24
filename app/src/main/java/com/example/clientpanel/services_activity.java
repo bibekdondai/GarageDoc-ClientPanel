@@ -87,24 +87,7 @@ public class services_activity extends Activity {
 		part_maintainence_ek3 = (TextView) findViewById(R.id.part_maintainence_ek3);
 		rectangle_59 = (View) findViewById(R.id.rectangle_59);
 		submit = (TextView) findViewById(R.id.submit);
-		text_ek28 = (TextView) findViewById(R.id.text_ek28);
-		text_ek29 = (TextView) findViewById(R.id.text_ek29);
-		text_ek30 = (TextView) findViewById(R.id.text_ek30);
-		text_ek31 = (TextView) findViewById(R.id.text_ek31);
-		text_ek32 = (TextView) findViewById(R.id.text_ek32);
-		text_ek34 = (TextView) findViewById(R.id.text_ek34);
-		text_ek35 = (TextView) findViewById(R.id.text_ek35);
-		text_ek36 = (TextView) findViewById(R.id.text_ek36);
-		text_ek37 = (TextView) findViewById(R.id.text_ek37);
-		text_ek38 = (TextView) findViewById(R.id.text_ek38);
-		text_ek39 = (TextView) findViewById(R.id.text_ek39);
-		text_ek40 = (TextView) findViewById(R.id.text_ek40);
-		hhhh_ek2 = (TextView) findViewById(R.id.hhhh_ek2);
-		text_ek41 = (TextView) findViewById(R.id.text_ek41);
-		home_ek14 = (TextView) findViewById(R.id.home_ek14);
-		notification_ek21 = (TextView) findViewById(R.id.notification_ek21);
-		call_ek15 = (TextView) findViewById(R.id.call_ek15);
-		setting_ek14 = (TextView) findViewById(R.id.setting_ek14);
+
 		vector_ek99 = (ImageView) findViewById(R.id.vector_ek99);
 		vector_ek100 = (ImageView) findViewById(R.id.vector_ek100);
 		_vector_ek101 = (ImageView) findViewById(R.id._vector_ek101);
