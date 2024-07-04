@@ -1,21 +1,22 @@
 package com.example.clientpanel;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.Fragment;
-
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
-import android.content.Intent;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
 
 public class landing_home_page_1_activity extends FragmentActivity {
 
-	private View rectangle_1_ek10;
 	private TextView hi;
 	private TextView garage_doc_ek6;
-	private View rectangle_37;
+	private ImageView vector_ek134;
 	private ImageView repair_removebg_preview_1;
 	private TextView services_ek3;
 	private ImageView vector_ek118;
@@ -32,15 +33,38 @@ public class landing_home_page_1_activity extends FragmentActivity {
 	private ImageView vector_ek128;
 	private ImageView vector_ek129;
 
+	private SessionManager sessionManager;
+	private Handler sessionTimeoutHandler;
+	private Runnable sessionTimeoutRunnable;
+
+	private static final long SESSION_TIMEOUT_MS = 25 * 60 * 1000; // 5 minutes in milliseconds
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.landing_home_page_1);
 
-		rectangle_1_ek10 = findViewById(R.id.rectangle_1_ek10);
+		sessionManager = new SessionManager(this);
+
+		initializeViews();
+
+		// Check if user is logged in
+		if (!sessionManager.isLoggedIn()) {
+			navigateToSignInActivity();
+			return;
+		}
+
+		// Start session timeout countdown
+		startSessionTimeout();
+
+		// Set click listeners for various buttons and views
+		setClickListeners();
+	}
+
+	private void initializeViews() {
 		hi = findViewById(R.id.hi);
 		garage_doc_ek6 = findViewById(R.id.garage_doc_ek6);
-		rectangle_37 = findViewById(R.id.rectangle_37);
+		vector_ek134 = findViewById(R.id.vector_ek134);
 		repair_removebg_preview_1 = findViewById(R.id.repair_removebg_preview_1);
 		services_ek3 = findViewById(R.id.services_ek3);
 		vector_ek118 = findViewById(R.id.vector_ek118);
@@ -56,25 +80,23 @@ public class landing_home_page_1_activity extends FragmentActivity {
 		_vector_ek127 = findViewById(R.id._vector_ek127);
 		vector_ek128 = findViewById(R.id.vector_ek128);
 		vector_ek129 = findViewById(R.id.vector_ek129);
+	}
 
+	private void setClickListeners() {
 		_vector_ek126.setOnClickListener(v -> {
-			Intent nextScreen = new Intent(getApplicationContext(), settings_activity.class);
-			startActivity(nextScreen);
+			startActivity(new Intent(getApplicationContext(), settings_activity.class));
 		});
 
 		_vector_ek127.setOnClickListener(v -> {
-			Intent nextScreen = new Intent(getApplicationContext(), notification_activity.class);
-			startActivity(nextScreen);
+			startActivity(new Intent(getApplicationContext(), notification_activity.class));
 		});
 
 		repair_removebg_preview_1.setOnClickListener(v -> {
-			Intent nextScreen = new Intent(getApplicationContext(), services_activity.class);
-			startActivity(nextScreen);
+			startActivity(new Intent(getApplicationContext(), services_activity.class));
 		});
 
 		vector_ek118.setOnClickListener(v -> {
-			Intent nextScreen = new Intent(getApplicationContext(), _emergency_activity.class);
-			startActivity(nextScreen);
+			startActivity(new Intent(getApplicationContext(), _emergency_activity.class));
 		});
 
 		vector_ek119.setOnClickListener(v -> {
@@ -83,30 +105,79 @@ public class landing_home_page_1_activity extends FragmentActivity {
 		});
 
 		vector_ek120.setOnClickListener(v -> {
-			Intent nextScreen = new Intent(getApplicationContext(), status_of_vehicles_activity.class);
-			startActivity(nextScreen);
+			startActivity(new Intent(getApplicationContext(), status_of_vehicles_activity.class));
 		});
 
 
-		vector_ek129.setOnClickListener(v -> {
-			frame_25_activity dialog = new frame_25_activity();
-//			dialog.show(getSupportFragmentManager(), "MoreOptionsBottomSheet");
-
-		});
-
-//		vector_ek129.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				Fragment frame25Fragment = new frame_25_activity();
-//				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//				transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_right,
-//						R.anim.slide_in_right, R.anim.slide_out_right);
-//				transaction.replace(R.id.frame_25_root, frame25Fragment);
-//				transaction.addToBackStack(null);
-//				transaction.commit();
-//			}
+//		vector_ek134.setOnClickListener(v -> {
+//			showLogoutConfirmationDialog();
 //		});
+	}
 
-		// Custom code goes here
+	@Override
+	public void onBackPressed() {
+		showLogoutConfirmationDialog();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		startSessionTimeout();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		stopSessionTimeout();
+	}
+
+	private void startSessionTimeout() {
+		if (sessionTimeoutHandler == null) {
+			sessionTimeoutHandler = new Handler();
+		}
+		if (sessionTimeoutRunnable == null) {
+			sessionTimeoutRunnable = new Runnable() {
+				@Override
+				public void run() {
+					sessionManager.clearSession();
+					Toast.makeText(landing_home_page_1_activity.this, "Session expired. Please login again.", Toast.LENGTH_SHORT).show();
+					navigateToSignInActivity();
+				}
+			};
+		}
+		sessionTimeoutHandler.postDelayed(sessionTimeoutRunnable, SESSION_TIMEOUT_MS);
+	}
+
+	private void stopSessionTimeout() {
+		if (sessionTimeoutHandler != null && sessionTimeoutRunnable != null) {
+			sessionTimeoutHandler.removeCallbacks(sessionTimeoutRunnable);
+		}
+	}
+
+	private void showLogoutConfirmationDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Logout Confirmation");
+		builder.setMessage("Are you sure you want to logout?");
+		builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				sessionManager.clearSession();
+				Toast.makeText(landing_home_page_1_activity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+				navigateToSignInActivity();
+			}
+		});
+		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+		builder.show();
+	}
+
+	private void navigateToSignInActivity() {
+		Intent intent = new Intent(landing_home_page_1_activity.this, signin_1_activity.class);
+		startActivity(intent);
+		finish(); // Finish current activity to prevent back button from returning here
 	}
 }

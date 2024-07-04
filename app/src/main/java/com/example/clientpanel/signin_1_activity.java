@@ -3,7 +3,6 @@ package com.example.clientpanel;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,35 +22,40 @@ public class signin_1_activity extends Activity {
 	private EditText email_address;
 	private Button next;
 	private TextView use_mobile_number_instead;
+	private SessionManager sessionManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.signin_1);
 
+		sessionManager = new SessionManager(this);
+
+		// Check if user is already logged in
+		if (sessionManager.isLoggedIn()) {
+			Intent intent = new Intent(signin_1_activity.this, landing_home_page_1_activity.class);
+			startActivity(intent);
+			finish();
+			return;
+		}
+
 		email_address = findViewById(R.id.email_address);
 		next = findViewById(R.id.next);
 		use_mobile_number_instead = findViewById(R.id.use_mobile_number_instead);
 
-		next.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				String email = email_address.getText().toString().trim();
+		next.setOnClickListener(v -> {
+			String email = email_address.getText().toString().trim();
 
-				if (!email.isEmpty() && isValidEmail(email)) {
-					checkEmailInDatabase(email);
-				} else {
-					Toast.makeText(signin_1_activity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
-				}
+			if (!email.isEmpty() && isValidEmail(email)) {
+				checkEmailInDatabase(email);
+			} else {
+				Toast.makeText(signin_1_activity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
 			}
 		});
 
-		use_mobile_number_instead.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(signin_1_activity.this, signin_2_activity.class);
-				startActivity(intent);
-			}
+		use_mobile_number_instead.setOnClickListener(v -> {
+			Intent intent = new Intent(signin_1_activity.this, signin_2_activity.class);
+			startActivity(intent);
 		});
 	}
 
@@ -66,7 +70,6 @@ public class signin_1_activity extends Activity {
 
 				for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
 					String storedEmail = userSnapshot.child("email_address").getValue(String.class);
-					Log.d("checkEmailInDatabase", "Checking email: " + storedEmail);
 					if (storedEmail != null && storedEmail.equals(email)) {
 						emailExists = true;
 						break;
@@ -74,22 +77,16 @@ public class signin_1_activity extends Activity {
 				}
 
 				if (emailExists) {
-					Log.d("checkEmailInDatabase", "Email exists: " + email);
-
 					Intent intent = new Intent(signin_1_activity.this, password_activity.class);
 					intent.putExtra("email_address", email);
 					startActivity(intent);
 				} else {
-					Log.d("checkEmailInDatabase", "Email does not exist: " + email);
-
 					Toast.makeText(signin_1_activity.this, "Email not registered", Toast.LENGTH_SHORT).show();
 				}
 			}
 
 			@Override
 			public void onCancelled(@NonNull DatabaseError databaseError) {
-				Log.e("checkEmailInDatabase", "Database error: " + databaseError.getMessage());
-
 				Toast.makeText(signin_1_activity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 		});

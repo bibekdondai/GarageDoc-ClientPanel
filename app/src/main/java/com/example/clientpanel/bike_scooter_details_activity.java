@@ -8,14 +8,16 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class bike_scooter_details_activity extends Activity {
@@ -24,11 +26,16 @@ public class bike_scooter_details_activity extends Activity {
 	private TextView blackTextView, blueTextView, redTextView, orangeTextView;
 	private Button doneButton;
 	private String selectedColor;
+	private FirebaseAuth mAuth;
+	private FirebaseUser currentUser;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bike_scooter_details);
+
+		mAuth = FirebaseAuth.getInstance();
+		currentUser = mAuth.getCurrentUser();
 
 		bikeModelEditText = findViewById(R.id.bike_model);
 		numberPlateEditText = findViewById(R.id.number_plate);
@@ -81,7 +88,8 @@ public class bike_scooter_details_activity extends Activity {
 
 	private TextWatcher textWatcher = new TextWatcher() {
 		@Override
-		public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+		}
 
 		@Override
 		public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -89,7 +97,8 @@ public class bike_scooter_details_activity extends Activity {
 		}
 
 		@Override
-		public void afterTextChanged(Editable s) {}
+		public void afterTextChanged(Editable s) {
+		}
 	};
 
 	private View.OnClickListener colorClickListener = new View.OnClickListener() {
@@ -110,36 +119,48 @@ public class bike_scooter_details_activity extends Activity {
 		String bikeModel = bikeModelEditText.getText().toString().trim();
 		String numberPlate = numberPlateEditText.getText().toString().trim();
 
-		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("garagedoc").child("client_side").child("bike_details");
+		if (currentUser != null) {
+			String uid = currentUser.getEmail(); // Use email as UID
 
-		databaseReference.orderByChild("numberPlate").equalTo(numberPlate).addListenerForSingleValueEvent(new ValueEventListener() {
-			@Override
-			public void onDataChange(DataSnapshot dataSnapshot) {
-				boolean duplicateFound = false;
-				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					BikeScooterDetails existingDetails = snapshot.getValue(BikeScooterDetails.class);
-					if (existingDetails != null && existingDetails.bikeModel.equals(bikeModel)) {
-						duplicateFound = true;
-						break;
+			DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("client_side")
+					.child(uid)
+					.child("bike_details");
+
+			Query query = databaseReference.orderByChild("numberPlate").equalTo(numberPlate);
+			query.addListenerForSingleValueEvent(new ValueEventListener() {
+				@Override
+				public void onDataChange(DataSnapshot dataSnapshot) {
+					boolean duplicateFound = false;
+					for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+						BikeScooterDetails existingDetails = snapshot.getValue(BikeScooterDetails.class);
+						if (existingDetails != null && existingDetails.bikeModel.equals(bikeModel)) {
+							duplicateFound = true;
+							break;
+						}
+					}
+
+					if (duplicateFound) {
+						Toast.makeText(bike_scooter_details_activity.this, "Bike details already exist!", Toast.LENGTH_SHORT).show();
+					} else {
+						saveDataToFirebase(uid, bikeModel, numberPlate, selectedColor);
 					}
 				}
 
-				if (duplicateFound) {
-					Toast.makeText(bike_scooter_details_activity.this, "Bike details already exist!", Toast.LENGTH_SHORT).show();
-				} else {
-					saveDataToFirebase(bikeModel, numberPlate, selectedColor);
+				@Override
+				public void onCancelled(DatabaseError databaseError) {
+					Toast.makeText(bike_scooter_details_activity.this, "Error checking for duplicates", Toast.LENGTH_SHORT).show();
 				}
-			}
-
-			@Override
-			public void onCancelled(DatabaseError databaseError) {
-				Toast.makeText(bike_scooter_details_activity.this, "Error checking for duplicates", Toast.LENGTH_SHORT).show();
-			}
-		});
+			});
+		} else {
+			Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+		}
 	}
 
-	private void saveDataToFirebase(String bikeModel, String numberPlate, String color) {
-		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("client_side").child("bike_details");
+	private void saveDataToFirebase(String uid, String bikeModel, String numberPlate, String color) {
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("client_side")
+				.child(uid)
+				.child("bike_details");
+
 		String id = databaseReference.push().getKey();
 		BikeScooterDetails details = new BikeScooterDetails(bikeModel, numberPlate, color);
 		databaseReference.child(id).setValue(details);
@@ -154,7 +175,8 @@ public class bike_scooter_details_activity extends Activity {
 		public String numberPlate;
 		public String color;
 
-		public BikeScooterDetails() {}
+		public BikeScooterDetails() {
+		}
 
 		public BikeScooterDetails(String bikeModel, String numberPlate, String color) {
 			this.bikeModel = bikeModel;
