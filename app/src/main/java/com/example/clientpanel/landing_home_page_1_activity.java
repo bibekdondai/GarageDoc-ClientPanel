@@ -37,7 +37,7 @@ public class landing_home_page_1_activity extends FragmentActivity {
 	private Handler sessionTimeoutHandler;
 	private Runnable sessionTimeoutRunnable;
 
-	private static final long SESSION_TIMEOUT_MS = 25 * 60 * 1000; // 5 minutes in milliseconds
+	private static final long SESSION_TIMEOUT_MS = 1 * 60 * 1000; // 5 minutes in milliseconds
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -51,8 +51,7 @@ public class password_activity extends Activity {
 	}
 
 	private void verifyPassword(final String inputPassword) {
-		FirebaseDatabase database = FirebaseDatabase.getInstance();
-		DatabaseReference usersRef = database.getReference("client_side");
+		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("client_side");
 
 		usersRef.orderByChild("email_address").equalTo(emailAddress).addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
@@ -84,6 +83,7 @@ public class password_activity extends Activity {
 
 	private void navigateToLandingPage() {
 		Intent intent = new Intent(password_activity.this, landing_home_page_1_activity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
 		startActivity(intent);
 		finish(); // Finish current activity to prevent back button from returning here
 	}
