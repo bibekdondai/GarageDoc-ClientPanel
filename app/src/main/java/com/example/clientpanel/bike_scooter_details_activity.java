@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.FirebaseApp;
 
 public class bike_scooter_details_activity extends Activity {
 
@@ -26,16 +29,25 @@ public class bike_scooter_details_activity extends Activity {
 	private TextView blackTextView, blueTextView, redTextView, orangeTextView;
 	private Button doneButton;
 	private String selectedColor;
-	private FirebaseAuth mAuth;
 	private FirebaseUser currentUser;
+
+	private static final String TAG = "BikeScooterDetailsActivity";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bike_scooter_details);
 
-		mAuth = FirebaseAuth.getInstance();
-		currentUser = mAuth.getCurrentUser();
+		// Initialize Firebase
+		FirebaseApp.initializeApp(this);
+
+		currentUser = FirebaseAuth.getInstance().getCurrentUser();
+		if (currentUser == null) {
+			Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
+			Log.e(TAG, "User not authenticated");
+			finish();
+			return;
+		}
 
 		bikeModelEditText = findViewById(R.id.bike_model);
 		numberPlateEditText = findViewById(R.id.number_plate);
@@ -120,7 +132,7 @@ public class bike_scooter_details_activity extends Activity {
 		String numberPlate = numberPlateEditText.getText().toString().trim();
 
 		if (currentUser != null) {
-			String uid = currentUser.getEmail(); // Use email as UID
+			String uid = currentUser.getUid(); // Use UID as user identifier
 
 			DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("client_side")
 					.child(uid)
@@ -141,6 +153,7 @@ public class bike_scooter_details_activity extends Activity {
 
 					if (duplicateFound) {
 						Toast.makeText(bike_scooter_details_activity.this, "Bike details already exist!", Toast.LENGTH_SHORT).show();
+						Log.e(TAG, "Bike details already exist");
 					} else {
 						saveDataToFirebase(uid, bikeModel, numberPlate, selectedColor);
 					}
@@ -149,10 +162,12 @@ public class bike_scooter_details_activity extends Activity {
 				@Override
 				public void onCancelled(DatabaseError databaseError) {
 					Toast.makeText(bike_scooter_details_activity.this, "Error checking for duplicates", Toast.LENGTH_SHORT).show();
+					Log.e(TAG, "Error checking for duplicates: " + databaseError.getMessage());
 				}
 			});
 		} else {
-			Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
+			Log.e(TAG, "User not authenticated");
 		}
 	}
 
@@ -163,11 +178,19 @@ public class bike_scooter_details_activity extends Activity {
 
 		String id = databaseReference.push().getKey();
 		BikeScooterDetails details = new BikeScooterDetails(bikeModel, numberPlate, color);
-		databaseReference.child(id).setValue(details);
 
-		Toast.makeText(this, "Data saved successfully!", Toast.LENGTH_SHORT).show();
-		Intent intent = new Intent(this, vehicle_info_activity.class);
-		startActivity(intent);
+		databaseReference.child(id).setValue(details)
+				.addOnSuccessListener(aVoid -> {
+					Toast.makeText(bike_scooter_details_activity.this, "Data saved successfully!", Toast.LENGTH_SHORT).show();
+					Log.d(TAG, "Data saved successfully");
+					Intent intent = new Intent(bike_scooter_details_activity.this, vehicle_info_activity.class);
+					startActivity(intent);
+					finish(); // Optional: Finish current activity after saving
+				})
+				.addOnFailureListener(e -> {
+					Toast.makeText(bike_scooter_details_activity.this, "Failed to save data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+					Log.e(TAG, "Failed to save data: " + e.getMessage());
+				});
 	}
 
 	public static class BikeScooterDetails {
