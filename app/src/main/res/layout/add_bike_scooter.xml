@@ -1,168 +1,134 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:background="@drawable/_bg__add_bike_scooter_ek2_shape"
-	>
 
-	<ScrollView android:id="@+id/add_bike_scooter" 
-		android:layout_width="wrap_content" 
-		android:layout_height="match_parent" >
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="match_parent"
+	android:background="@drawable/_bg__slash_page_6_ek2_shape">
 
-		<RelativeLayout android:id="@+id/content_container" 
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content" >
+	<RelativeLayout
+		android:id="@+id/page_add_bike_scooter_ek1"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_marginStart="0dp"
+		android:layout_marginTop="0dp">
 
+		<View
+			android:id="@+id/rectangle_1_ek5"
+			android:layout_width="match_parent"
+			android:layout_height="251dp"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentEnd="true"
+			android:layout_marginStart="0dp"
+			android:layout_marginTop="-11dp"
+			android:layout_marginEnd="0dp"
+			android:background="@drawable/rectangle_1_ek5_shape" />
 
+		<TextView
+			android:id="@+id/garage_doc_ek2"
+			android:layout_width="298.5dp"
+			android:layout_height="69.5dp"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentEnd="true"
+			android:layout_marginStart="12dp"
+			android:layout_marginLeft="12dp"
+			android:layout_marginTop="99dp"
+			android:layout_marginEnd="100dp"
+			android:text="@string/garage_doc_ek2_string"
+			android:textColor="@color/_986238999_color"
+			android:textSize="39sp" />
 
+		<View
+			android:id="@+id/rectangle_93_ek1"
+			android:layout_width="334dp"
+			android:layout_height="46dp"
+			android:layout_below="@+id/rectangle_1_ek5"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentEnd="true"
+			android:layout_marginStart="14dp"
+			android:layout_marginTop="68dp"
+			android:layout_marginEnd="63dp"
+			android:background="@drawable/rectangle_93_ek1_shape" />
 
-
-
-
-
-
-			<RelativeLayout android:id="@+id/page_add_bike_scooter_ek1"
-				android:layout_marginTop="0dp"
-				android:layout_marginStart="0dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
-
-				<View   android:id="@+id/_bg__add_bike_scooter_ek2"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
-					android:layout_width="360dp"
-					android:layout_height="800dp" />
-
-
-
-				<View   android:id="@+id/rectangle_1_ek5"
-					android:background="@drawable/rectangle_1_ek5_shape"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="-11dp"
-					android:layout_width="match_parent"
-					android:layout_height="251dp" />
-
-				<TextView android:id="@+id/garage_doc_ek2"
-
-					android:textSize="39sp"
-					android:textColor="@color/_986238999_color"
-					android:layout_marginLeft="12dp"
-					android:layout_marginTop="99dp"
-					android:layout_width="298.5dp"
-					android:layout_height="69.5dp"
-					android:text="@string/garage_doc_ek2_string"
-					 />
-
-				<View   android:id="@+id/rectangle_93_ek1"
-					android:background="@drawable/rectangle_93_ek1_shape"
-					 android:layout_marginStart="14dp"
-					android:layout_marginTop="308dp"
-					android:layout_width="334dp"
-					android:layout_height="46dp" />
-
-				<TextView android:id="@+id/yamaha_alpha"
-
-					android:textSize="20sp"
-					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="84dp"
-					android:layout_marginTop="319dp"
-					android:layout_width="175dp"
-					android:layout_height="44dp"
-					android:text="@string/yamaha_alpha_string"
-					 />
+		<TextView
+			android:id="@+id/yamaha_alpha"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignStart="@+id/rectangle_93_ek1"
+			android:layout_alignEnd="@+id/rectangle_93_ek1"
+			android:layout_marginStart="86dp"
+			android:layout_marginLeft="100dp"
+			android:layout_marginTop="319dp"
+			android:layout_marginEnd="90dp"
+			android:text="@string/yamaha_alpha_string"
+			android:textColor="@color/rectangle_1_color"
+			android:textSize="20sp" />
 
 
-				<RelativeLayout android:id="@+id/frame_23_ek7"
-					android:background="@drawable/rectangle_1_ek5_shape"
+		<RelativeLayout
+			android:id="@+id/frame_23_ek7"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_marginStart="3dp"
+			android:layout_marginTop="729dp"
+			android:layout_marginBottom="12dp"
+			android:background="@drawable/rectangle_1_ek5_shape">
 
-					android:layout_marginTop="729dp"
-					android:layout_marginStart="3dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
+			<ImageView
+				android:id="@+id/_vector_ek60"
+				android:layout_width="29dp"
+				android:layout_height="31dp"
+				android:layout_marginStart="50dp"
+				android:layout_marginTop="5dp"
+				android:contentDescription="_vector_ek60"
+				android:src="@drawable/_vector_ek60" />
 
-					<ImageView android:id="@+id/vector_ek58"
-						android:src="@drawable/vector_ek58"
-						android:contentDescription="vector_ek58"
-						 android:layout_marginStart="30dp"
-						android:layout_marginTop="7dp"
-						android:layout_width="29dp"
-						android:layout_height="31dp" />
+			<ImageView
+				android:id="@+id/vector_ek61"
+				android:layout_width="30dp"
+				android:layout_height="31dp"
+				android:layout_marginStart="250dp"
+				android:layout_marginTop="5dp"
+				android:contentDescription="vector_ek61"
+				android:src="@drawable/vector_ek61" />
 
-					<ImageView android:id="@+id/vector_ek59"
-						android:src="@drawable/vector_ek59"
-						android:contentDescription="vector_ek59"
-						 android:layout_marginStart="30dp"
-						android:layout_marginTop="7dp"
-						android:layout_width="29dp"
-						android:layout_height="31dp" />
-
-					<ImageView android:id="@+id/_vector_ek60"
-						android:src="@drawable/_vector_ek60"
-						android:contentDescription="_vector_ek60"
-						 android:layout_marginStart="30dp"
-						android:layout_marginTop="7dp"
-						android:layout_width="29dp"
-						android:layout_height="31dp" />
-
-					<ImageView android:id="@+id/vector_ek61"
-						android:src="@drawable/vector_ek61"
-						android:contentDescription="vector_ek61"
-						 android:layout_marginStart="200dp"
-						android:layout_marginTop="7dp"
-						android:layout_width="30dp"
-						android:layout_height="31dp" />
-
-					<ImageView android:id="@+id/_vector_ek62"
-						android:src="@drawable/_vector_ek62"
-						android:contentDescription="_vector_ek62"
-						 android:layout_marginStart="291dp"
-						android:layout_marginTop="7dp"
-						android:layout_width="36dp"
-						android:layout_height="31dp" />
-
-				</RelativeLayout>
-
-				<ImageView android:id="@+id/_vector_ek63"
-					android:src="@drawable/_vector_ek63"
-					android:contentDescription="_vector_ek63"
-					 android:layout_marginStart="121dp"
-					android:layout_marginTop="734dp"
-					android:layout_width="30dp"
-					android:layout_height="36dp" />
-
-				<ImageView android:id="@+id/_back_arrow_ek1"
-					android:src="@drawable/_back_arrow_ek1"
-					android:contentDescription="_back_arrow_ek1"
-					 android:layout_marginStart="12dp"
-					android:layout_marginTop="47dp"
-					android:layout_width="39dp"
-					android:layout_height="45dp" />
-
-			</RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			<ImageView
+				android:id="@+id/_vector_ek62"
+				android:layout_width="36dp"
+				android:layout_height="31dp"
+				android:layout_marginStart="340dp"
+				android:layout_marginTop="5dp"
+				android:contentDescription="_vector_ek62"
+				android:src="@drawable/_vector_ek62" />
 
 		</RelativeLayout>
 
-	</ScrollView>
-</HorizontalScrollView>
+		<ImageView
+			android:id="@+id/_vector_ek63"
+			android:layout_width="30dp"
+			android:layout_height="36dp"
+			android:layout_alignBottom="@+id/frame_23_ek7"
+			android:layout_marginStart="150dp"
+			android:layout_marginTop="734dp"
+			android:layout_marginBottom="0dp"
+			android:contentDescription="_vector_ek63"
+			android:src="@drawable/_vector_ek63" />
+
+		<ImageView
+			android:id="@+id/_back_arrow_ek1"
+			android:layout_width="39dp"
+			android:layout_height="45dp"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentEnd="true"
+			android:layout_marginStart="12dp"
+			android:layout_marginTop="47dp"
+			android:layout_marginEnd="360dp"
+			android:contentDescription="_back_arrow_ek1"
+			android:src="@drawable/_back_arrow_ek1" />
+
+	</RelativeLayout>
+</FrameLayout>
+

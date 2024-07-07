@@ -48,6 +48,9 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:21.0.0")
     implementation("com.google.firebase:firebase-inappmessaging-display:21.0.0")
     implementation("com.google.firebase:firebase-analytics:22.0.1")
+//    implementation ("com.google.firebase:firebase-auth:23.0.0")
+//    implementation 'com.google.firebase:firebase-database:23.0.0'
+
 
     implementation ("com.google.firebase:firebase-core:21.1.1")
 
