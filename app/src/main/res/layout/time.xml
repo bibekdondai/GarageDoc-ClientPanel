@@ -44,7 +44,7 @@
 					android:background="@drawable/_bg__time_ek2_shape"
 					 android:layout_marginStart="0dp"
 					android:layout_marginTop="0dp"
-					android:layout_width="354dp"
+					android:layout_width="412dp"
 					android:layout_height="364dp" />
 
 
@@ -73,7 +73,6 @@
 					android:layout_height="131dp" />
 
 				<TextView android:id="@+id/do_you_want_pickup_service_"
-					android:fontFamily="Poppins"
 					android:textStyle="bold"
 					android:textSize="20sp"
 					android:textColor="@color/rectangle_1_color"
@@ -111,7 +110,6 @@
 					>
 
 					<TextView android:id="@+id/take_token"
-						android:fontFamily="Poppins"
 						android:textStyle="bold"
 						android:textSize="20sp"
 						android:textColor="@color/rectangle_1_color"
@@ -125,14 +123,13 @@
 				</RelativeLayout>
 
 				<TextView android:id="@+id/choose_token"
-					android:fontFamily="Poppins"
 					android:textStyle="bold"
 					android:textSize="20sp"
 					android:textColor="@color/rectangle_1_color"
 					android:layout_marginLeft="107dp"
 					android:layout_marginTop="28dp"
 					android:layout_width="165dp"
-					android:layout_height="44dp"
+					android:layout_height="54dp"
 					android:text="@string/choose_token_string"
 					 />
 
