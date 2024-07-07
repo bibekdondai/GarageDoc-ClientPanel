@@ -25,18 +25,14 @@ public class more_option_activity extends BottomSheetDialogFragment {
 		_add_bike.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getActivity(), vehicle_info_activity.class);
-				startActivity(intent);
-				dismiss(); // Dismiss the bottom sheet after starting the activity
+				startVehicleInfoActivity();
 			}
 		});
 
 		_add_scooter.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getActivity(), vehicle_info_activity.class);
-				startActivity(intent);
-				dismiss(); // Dismiss the bottom sheet after starting the activity
+				startVehicleInfoActivity();
 			}
 		});
 
@@ -48,5 +44,11 @@ public class more_option_activity extends BottomSheetDialogFragment {
 		});
 
 		return rootView;
+	}
+
+	private void startVehicleInfoActivity() {
+		Intent intent = new Intent(getActivity(), vehicle_info_activity.class);
+		startActivity(intent);
+		dismiss(); // Dismiss the bottom sheet after starting the activity
 	}
 }

@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +13,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class landing_home_page_1_activity extends FragmentActivity {
+	private static final String TAG = "LandingHomePage"; // Define TAG constant for logging
+
 
 	private TextView hi;
 	private TextView garage_doc_ek6;
@@ -36,15 +47,29 @@ public class landing_home_page_1_activity extends FragmentActivity {
 	private SessionManager sessionManager;
 	private Handler sessionTimeoutHandler;
 	private Runnable sessionTimeoutRunnable;
+	private TextView welcomeText;
+	private String emailAddress;
 
-	private static final long SESSION_TIMEOUT_MS = 1 * 60 * 1000; // 5 minutes in milliseconds
+	private static final long SESSION_TIMEOUT_MS = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.landing_home_page_1);
+		welcomeText = findViewById(R.id.hi);
 
 		sessionManager = new SessionManager(this);
+		emailAddress = getIntent().getStringExtra("email_address");
+		String emailAddress = sessionManager.getEmail();
+		String fullName = sessionManager.getFullName();
+
+//		if (fullName != null) {
+//			// Display welcome message with full_name
+//			welcomeText.setText("Hi, " + fullName);
+//		} else {
+//			// Handle case where full_name is not available
+//			welcomeText.setText("Hi, User"); // Default greeting
+//		}
 
 		initializeViews();
 
@@ -53,6 +78,9 @@ public class landing_home_page_1_activity extends FragmentActivity {
 			navigateToSignInActivity();
 			return;
 		}
+		// Fetch and display full name
+		fetchAndDisplayFullName();
+
 
 		// Start session timeout countdown
 		startSessionTimeout();
@@ -179,5 +207,31 @@ public class landing_home_page_1_activity extends FragmentActivity {
 		Intent intent = new Intent(landing_home_page_1_activity.this, signin_1_activity.class);
 		startActivity(intent);
 		finish(); // Finish current activity to prevent back button from returning here
+	}
+	private void fetchAndDisplayFullName() {
+		FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+		if (currentUser != null) {
+			String uid = currentUser.getUid();
+			DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("client_side");
+			userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+				@Override
+				public void onDataChange(DataSnapshot dataSnapshot) {
+					String storedEmail = dataSnapshot.child("full_name").getValue(String.class);
+					if (dataSnapshot.exists()) {
+						String fullName = dataSnapshot.getValue(String.class);
+						if (fullName != null) {
+							welcomeText.setText("Hi, " + fullName);
+						}
+					} else {
+						welcomeText.setText("Hi, Kushal");
+					}
+				}
+
+				@Override
+				public void onCancelled(DatabaseError databaseError) {
+					Log.e(TAG, "Failed to read full name.", databaseError.toException());
+				}
+			});
+		}
 	}
 }
