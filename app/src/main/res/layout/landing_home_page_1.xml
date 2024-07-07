@@ -30,11 +30,12 @@
 
 			<TextView
 				android:id="@+id/hi"
-				android:layout_width="81.5dp"
+				android:layout_width="600dp"
 				android:layout_height="88.5dp"
 				android:layout_marginStart="17dp"
 				android:layout_marginTop="147dp"
-				android:text="@string/hi_string"
+
+
 				android:textColor="@color/payment_methods_color"
 				android:textSize="39sp" />
 
