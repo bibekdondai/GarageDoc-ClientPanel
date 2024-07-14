@@ -61,7 +61,7 @@ public class landing_home_page_1_activity extends FragmentActivity {
 		sessionManager = new SessionManager(this);
 		emailAddress = getIntent().getStringExtra("email_address");
 		String emailAddress = sessionManager.getEmail();
-		String fullName = sessionManager.getFullName();
+//		String fullName = sessionManager.getFullName();
 
 //		if (fullName != null) {
 //			// Display welcome message with full_name

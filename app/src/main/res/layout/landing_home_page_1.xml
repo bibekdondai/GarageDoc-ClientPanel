@@ -34,6 +34,7 @@
 				android:layout_height="88.5dp"
 				android:layout_marginStart="17dp"
 				android:layout_marginTop="147dp"
+				android:text="@string/hi_string"
 
 
 				android:textColor="@color/payment_methods_color"
@@ -41,10 +42,12 @@
 
 			<TextView
 				android:id="@+id/garage_doc_ek6"
-				android:layout_width="361.5dp"
-				android:layout_height="74.5dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
 				android:layout_marginStart="15dp"
-				android:layout_marginTop="69dp"
+				android:layout_marginTop="125dp"
+				android:fontFamily="@font/ruslan_display"
 				android:text="@string/garage_doc_ek6_string"
 				android:textColor="@color/garage_doc_ek4_color"
 				android:textSize="39sp" />
@@ -253,14 +256,15 @@
 
 					<ImageView
 						android:id="@+id/vector_ek129"
-						android:layout_width="19dp"
-						android:layout_height="17dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
 						android:layout_marginStart="3dp"
 						android:layout_marginTop="4dp"
 						android:src="@drawable/vector_ek129"
 						android:contentDescription="vector_ek129" />
 				</RelativeLayout>
 			</RelativeLayout>
+
 		</RelativeLayout>
 	</ScrollView>
 </FrameLayout>

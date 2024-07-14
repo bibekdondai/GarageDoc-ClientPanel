@@ -2,13 +2,15 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:background="@drawable/bg_with_color_overlay"
+	>
 
 	<ScrollView
 		android:id="@+id/signin_1"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:background="@drawable/_bg__signin_1_ek2_shape">
+		>
 
 		<RelativeLayout
 			android:id="@+id/page_signin_1_ek1"

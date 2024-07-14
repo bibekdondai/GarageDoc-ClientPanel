@@ -42,7 +42,7 @@ public class call_popup_activity extends Activity {
 		setContentView(R.layout.call_popup);
 
 		
-		_bg__call_popup_ek2 = (View) findViewById(R.id._bg__call_popup_ek2);
+
 		rectangle_101 = (View) findViewById(R.id.rectangle_101);
 		rectangle_102 = (View) findViewById(R.id.rectangle_102);
 		cancel = (TextView) findViewById(R.id.cancel);

@@ -34,7 +34,7 @@ public class password_activity extends Activity {
 		sessionManager = new SessionManager(this);
 
 		// Get email address from intent
-		emailAddress = getIntent().getStringExtra("email_address");
+		emailAddress = getIntent().getStringExtra("emailAddress");
 
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -51,24 +51,23 @@ public class password_activity extends Activity {
 	}
 
 	private void verifyPassword(final String inputPassword) {
-		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("client_side");
+		String formattedEmail = emailAddress.replace(".", ",");
+		DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(formattedEmail);
 
-		usersRef.orderByChild("email_address").equalTo(emailAddress).addListenerForSingleValueEvent(new ValueEventListener() {
+		userRef.addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 				if (dataSnapshot.exists()) {
-					for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-						String correctPassword = userSnapshot.child("password").getValue(String.class);
+					String correctPassword = dataSnapshot.child("password").getValue(String.class);
 
-						if (correctPassword != null && correctPassword.equals(inputPassword)) {
-							// Login successful
-							sessionManager.setLoggedIn(true, emailAddress);
-							Toast.makeText(password_activity.this, "Login successful", Toast.LENGTH_SHORT).show();
-							navigateToLandingPage();
-							return;
-						}
+					if (correctPassword != null && correctPassword.equals(inputPassword)) {
+						// Login successful
+						sessionManager.setLoggedIn(true, emailAddress);
+						Toast.makeText(password_activity.this, "Login successful", Toast.LENGTH_SHORT).show();
+						navigateToLandingPage();
+					} else {
+						Toast.makeText(password_activity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
 					}
-					Toast.makeText(password_activity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
 				} else {
 					Toast.makeText(password_activity.this, "User data not found", Toast.LENGTH_SHORT).show();
 				}

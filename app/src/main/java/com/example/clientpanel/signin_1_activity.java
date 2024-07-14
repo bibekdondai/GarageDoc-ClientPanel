@@ -76,23 +76,15 @@ public class signin_1_activity extends Activity {
 	}
 
 	private void checkEmailInDatabase(final String email) {
-		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("client_side");
+		String formattedEmail = email.replace(".", ",");
+		DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(formattedEmail);
 
-		usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+		userRef.addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 				hideProgressDialog();
-				boolean emailExists = false;
 
-				for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-					String storedEmail = userSnapshot.child("email_address").getValue(String.class);
-					if (storedEmail != null && storedEmail.equals(email)) {
-						emailExists = true;
-						break;
-					}
-				}
-
-				if (emailExists) {
+				if (dataSnapshot.exists()) {
 					navigateToPasswordActivity(email);
 				} else {
 					Toast.makeText(signin_1_activity.this, "Email not registered", Toast.LENGTH_SHORT).show();
@@ -113,7 +105,7 @@ public class signin_1_activity extends Activity {
 
 	private void navigateToPasswordActivity(String email) {
 		Intent intent = new Intent(signin_1_activity.this, password_activity.class);
-		intent.putExtra("email_address", email);
+		intent.putExtra("emailAddress", email);
 		startActivity(intent);
 	}
 

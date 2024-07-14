@@ -38,18 +38,19 @@ public class vehicle_info_activity extends Activity {
 		bikeDetailsTable = findViewById(R.id.bike_details_table);
 		image_1_ek1 = findViewById(R.id.image_1_ek1);
 
+		// Retrieve current user from Firebase authentication session
 		currentUser = FirebaseAuth.getInstance().getCurrentUser();
 		if (currentUser == null) {
-			Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
-			Log.e(TAG, "User not authenticated");
-			Intent loginIntent = new Intent(getApplicationContext(), signin_1_activity.class);
-			startActivity(loginIntent);
-			finish(); // Finish current activity if user is not authenticated
+			// If somehow currentUser is null, handle it gracefully
+			Log.e(TAG, "Current user is null in vehicle_info_activity");
+			Toast.makeText(this, "Error: Current user is null", Toast.LENGTH_SHORT).show();
+			finish(); // Finish activity if user is not authenticated
 			return;
 		}
 
+		// Proceed with fetching data using the authenticated user's UID
 		String uid = currentUser.getUid();
-		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("client_side")
+		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users")
 				.child(uid)
 				.child("bike_details");
 
@@ -77,6 +78,7 @@ public class vehicle_info_activity extends Activity {
 		image_1_ek1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				// Handle click to navigate to another activity
 				Intent nextScreen = new Intent(getApplicationContext(), bike_scooter_details_activity.class);
 				startActivity(nextScreen);
 			}
