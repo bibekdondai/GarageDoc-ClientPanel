@@ -18,25 +18,28 @@ import com.google.firebase.database.ValueEventListener;
 
 public class password_activity extends Activity {
 
-	private EditText password_ek3;
-	private Button login;
+	private EditText passwordInput;
+	private Button loginButton;
 	private String emailAddress;
+	private SessionManager sessionManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.password);
 
-		password_ek3 = findViewById(R.id.password_ek3);
-		login = findViewById(R.id.login);
+		passwordInput = findViewById(R.id.password_ek3);
+		loginButton = findViewById(R.id.login);
+
+		sessionManager = new SessionManager(this);
 
 		// Get email address from intent
-		emailAddress = getIntent().getStringExtra("email_address");
+		emailAddress = getIntent().getStringExtra("emailAddress");
 
-		login.setOnClickListener(new View.OnClickListener() {
+		loginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String inputPassword = password_ek3.getText().toString().trim();
+				String inputPassword = passwordInput.getText().toString().trim();
 
 				if (!inputPassword.isEmpty()) {
 					verifyPassword(inputPassword);
@@ -48,24 +51,22 @@ public class password_activity extends Activity {
 	}
 
 	private void verifyPassword(final String inputPassword) {
-		FirebaseDatabase database = FirebaseDatabase.getInstance();
-		DatabaseReference usersRef = database.getReference("client_side");
+		String formattedEmail = emailAddress.replace(".", ",");
+		DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(formattedEmail);
 
-		usersRef.orderByChild("email_address").equalTo(emailAddress).addListenerForSingleValueEvent(new ValueEventListener() {
+		userRef.addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 				if (dataSnapshot.exists()) {
-					for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-						String correctPassword = userSnapshot.child("password").getValue(String.class);
+					String correctPassword = dataSnapshot.child("password").getValue(String.class);
 
-						if (correctPassword != null && correctPassword.equals(inputPassword)) {
-							Toast.makeText(password_activity.this, "Login successful", Toast.LENGTH_SHORT).show();
-							// Proceed to next activity
-							Intent intent = new Intent(password_activity.this, landing_home_page_1_activity.class);
-							startActivity(intent);
-						} else {
-							Toast.makeText(password_activity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
-						}
+					if (correctPassword != null && correctPassword.equals(inputPassword)) {
+						// Login successful
+						sessionManager.setLoggedIn(true, emailAddress);
+						Toast.makeText(password_activity.this, "Login successful", Toast.LENGTH_SHORT).show();
+						navigateToLandingPage();
+					} else {
+						Toast.makeText(password_activity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
 					}
 				} else {
 					Toast.makeText(password_activity.this, "User data not found", Toast.LENGTH_SHORT).show();
@@ -77,5 +78,12 @@ public class password_activity extends Activity {
 				Toast.makeText(password_activity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 		});
+	}
+
+	private void navigateToLandingPage() {
+		Intent intent = new Intent(password_activity.this, landing_home_page_1_activity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
+		startActivity(intent);
+		finish(); // Finish current activity to prevent back button from returning here
 	}
 }

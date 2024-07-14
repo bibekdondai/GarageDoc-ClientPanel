@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@drawable/_bg__slash_page_6_ek2_shape"
+	android:background="@drawable/bg_with_color_overlay"
 	>
 	<ScrollView android:id="@+id/starting_page" 
 		android:layout_width="wrap_content" 
@@ -78,15 +78,15 @@
 
 					<TextView
 						android:id="@+id/garage_doc_ek7"
-						android:layout_width="373.5dp"
+						android:layout_centerHorizontal="true"
+						android:layout_width="wrap_content"
 						android:layout_height="87.5dp"
 						android:layout_marginStart="20dp"
 						android:layout_marginTop="280dp"
 						android:fontFamily="@font/ruslan_display"
 						android:text="@string/garage_doc_ek7_string"
 						android:textColor="@color/_bg__status_of_vehicles_ek2_color"
-						android:textSize="49sp"
-						/>
+						android:textSize="49sp" />
 
 					<ImageView android:id="@+id/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"
 						android:src="@drawable/black_and_white_modern_typographic_simple_virus_apparel_logo__1__1"

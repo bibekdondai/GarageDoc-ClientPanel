@@ -56,7 +56,6 @@
 					android:layout_height="51dp" />
 
 				<TextView android:id="@+id/_25__discount_on_oil_change_"
-					android:fontFamily="Saira"
 					android:alpha="0.53"
 					 android:textSize="20sp"
 					android:textColor="@color/rectangle_1_color"
@@ -76,7 +75,6 @@
 					android:layout_height="51dp" />
 
 				<TextView android:id="@+id/your_vehiche_is_on_bayarea_"
-					android:fontFamily="Saira"
 					android:alpha="0.53"
 					 android:textSize="20sp"
 					android:textColor="@color/rectangle_1_color"
@@ -88,7 +86,6 @@
 					 />
 
 				<TextView android:id="@+id/notification_ek1"
-					android:fontFamily="Saira"
 					android:textSize="27sp"
 					android:textColor="@color/rectangle_1_color"
 					android:layout_marginLeft="10dp"
@@ -107,7 +104,6 @@
 					android:layout_height="38dp" />
 
 				<TextView android:id="@+id/your_vehicle_is_ready_to_pickup_"
-					android:fontFamily="Saira"
 					android:alpha="0.53"
 					 android:textSize="20sp"
 					android:textColor="@color/rectangle_1_color"
@@ -125,50 +121,6 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					>
-
-					<TextView android:id="@+id/home_ek1"
-						android:fontFamily="Poppins"
-						android:textSize="15sp"
-						android:textColor="@color/rectangle_1_color"
-						android:layout_marginLeft="20dp"
-						android:layout_marginTop="40dp"
-						android:layout_width="67.5dp"
-						android:layout_height="28.5dp"
-						android:text="@string/home_ek1_string"
-						 />
-
-					<TextView android:id="@+id/notification_ek3"
-						android:fontFamily="Poppins"
-						android:textSize="15sp"
-						android:textColor="@color/rectangle_1_color"
-						android:layout_marginLeft="88dp"
-						android:layout_marginTop="40dp"
-						android:layout_width="110.5dp"
-						android:layout_height="28.5dp"
-						android:text="@string/notification_ek3_string"
-						 />
-
-					<TextView android:id="@+id/call_ek2"
-						android:fontFamily="Poppins"
-						android:textSize="15sp"
-						android:textColor="@color/rectangle_1_color"
-						android:layout_marginLeft="205dp"
-						android:layout_marginTop="41dp"
-						android:layout_width="57.5dp"
-						android:layout_height="28.5dp"
-						android:text="@string/call_ek2_string"
-						 />
-
-					<TextView android:id="@+id/setting_ek1"
-						android:fontFamily="Poppins"
-						android:textSize="15sp"
-						android:textColor="@color/rectangle_1_color"
-						android:layout_marginLeft="280dp"
-						android:layout_marginTop="41dp"
-						android:layout_width="76.5dp"
-						android:layout_height="28.5dp"
-						android:text="@string/setting_ek1_string"
-						 />
 
 					<ImageView android:id="@+id/vector_ek7"
 						android:src="@drawable/vector_ek7"

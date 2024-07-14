@@ -1,229 +1,248 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent" android:layout_height="wrap_content" >
-	<!-- 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		extra_page_
-	 *	@date 		Monday 17th of June 2024 06:12:58 PM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-	-->
-	<ScrollView android:id="@+id/info" 
-		android:layout_width="wrap_content" 
-		android:layout_height="match_parent" >
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:background="@drawable/_bg__slash_page_6_ek2_shape"
 
-		<RelativeLayout android:id="@+id/content_container" 
-			android:layout_width="wrap_content" 
+	>
+
+
+		<RelativeLayout android:id="@+id/content_container"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content" >
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<RelativeLayout android:id="@+id/page_info_ek1"
-				android:layout_marginTop="0dp"
+			<RelativeLayout
+				android:id="@+id/page_info_ek1"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
 				android:layout_marginStart="0dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
+				android:layout_marginTop="0dp">
 
-				<View   android:id="@+id/_bg__info_ek2"
-					android:background="@drawable/_bg__info_ek2_shape"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
-					android:layout_width="360dp"
-					android:layout_height="800dp" />
 
-				<View   android:id="@+id/rectangle_18"
-					android:background="@drawable/rectangle_18_shape"
-					 android:layout_marginStart="15dp"
-					android:layout_marginTop="211dp"
+				<View
+					android:id="@+id/rectangle_18"
 					android:layout_width="330dp"
-					android:layout_height="60dp" />
+					android:layout_height="60dp"
+					android:layout_below="@+id/please_enter_accurate_data_so_we_can_best_serve_you_____"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentEnd="true"
+					android:layout_marginStart="34dp"
+					android:layout_marginTop="15dp"
+					android:layout_marginEnd="50dp"
+					android:background="@drawable/rectangle_18_shape" />
 
-				<TextView android:id="@+id/enter_your_full_name_ek1"
-					android:fontFamily="Poppins"
-					android:alpha="0.6"
-					 android:textSize="20sp"
-					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="33dp"
-					android:layout_marginTop="226dp"
+				<EditText
+					android:id="@+id/enter_your_full_name_ek1"
+					android:inputType="textPersonName"
 					android:layout_width="230dp"
 					android:layout_height="44dp"
-					android:text="@string/enter_your_full_name_ek1_string"
-					 />
-
-				<View   android:id="@+id/rectangle_19"
-					android:background="@drawable/rectangle_19_shape"
-					 android:layout_marginStart="15dp"
-					android:layout_marginTop="282dp"
-					android:layout_width="330dp"
-					android:layout_height="60dp" />
-
-				<TextView android:id="@+id/enter_your_email_ek1"
-					android:fontFamily="Poppins"
+					android:layout_alignStart="@+id/rectangle_18"
+					android:layout_alignTop="@+id/rectangle_18"
+					android:layout_marginStart="35dp"
+					android:layout_marginTop="15dp"
 					android:alpha="0.6"
-					 android:textSize="20sp"
+					android:autofillHints="name"
+					android:hint="@string/enter_your_full_name_ek1_string"
 					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="33dp"
-					android:layout_marginTop="297dp"
+					android:textSize="20sp" />
+
+				<View
+					android:id="@+id/rectangle_19"
+					android:layout_width="330dp"
+					android:layout_height="60dp"
+					android:layout_below="@+id/rectangle_18"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentEnd="true"
+					android:layout_marginStart="34dp"
+					android:layout_marginTop="15dp"
+					android:layout_marginEnd="50dp"
+					android:background="@drawable/rectangle_19_shape" />
+
+				<EditText
+					android:id="@+id/enter_your_email_ek1"
+					android:inputType="textEmailAddress"
 					android:layout_width="185dp"
 					android:layout_height="44dp"
-					android:text="@string/enter_your_email_ek1_string"
-					 />
-
-				<View   android:id="@+id/rectangle_20"
-					android:background="@drawable/rectangle_20_shape"
-					 android:layout_marginStart="15dp"
-					android:layout_marginTop="352dp"
-					android:layout_width="330dp"
-					android:layout_height="60dp" />
-
-				<TextView android:id="@+id/enter_your_phone_number"
-					android:fontFamily="Poppins"
+					android:layout_alignStart="@+id/rectangle_19"
+					android:layout_alignTop="@+id/rectangle_19"
+					android:layout_marginStart="35dp"
+					android:layout_marginTop="15dp"
 					android:alpha="0.6"
-					 android:textSize="20sp"
+					android:hint="@string/enter_your_email_ek1_string"
 					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="33dp"
-					android:layout_marginTop="367dp"
+					android:autofillHints="emailAddress"
+					android:textSize="20sp" />
+
+				<View
+					android:id="@+id/rectangle_20"
+					android:layout_width="330dp"
+					android:layout_height="60dp"
+					android:layout_below="@+id/enter_your_email_ek1"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentEnd="true"
+					android:layout_marginStart="34dp"
+					android:layout_marginTop="15dp"
+					android:layout_marginEnd="50dp"
+					android:background="@drawable/rectangle_20_shape" />
+
+				<EditText
+					android:id="@+id/enter_your_phone_number"
+					android:inputType="phone"
 					android:layout_width="280dp"
 					android:layout_height="44dp"
-					android:text="@string/enter_your_phone_number_string"
-					 />
+					android:layout_alignStart="@+id/rectangle_20"
+					android:layout_alignTop="@+id/rectangle_20"
+					android:layout_marginStart="35dp"
+					android:layout_marginTop="15dp"
+					android:alpha="0.6"
+					android:autofillHints="phone"
+					android:hint="@string/enter_your_phone_number_string"
+					android:textColor="@color/rectangle_1_color"
+					android:textSize="20sp" />
 
-				<View   android:id="@+id/rectangle_24"
-					android:background="@drawable/rectangle_24_shape"
-					 android:layout_marginStart="15dp"
-					android:layout_marginTop="423dp"
+				<View
+					android:id="@+id/rectangle_24"
 					android:layout_width="330dp"
-					android:layout_height="60dp" />
+					android:layout_height="60dp"
+					android:layout_below="@+id/enter_your_phone_number"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentEnd="true"
+					android:layout_marginStart="34dp"
+					android:layout_marginTop="15dp"
+					android:layout_marginEnd="50dp"
+					android:background="@drawable/rectangle_24_shape" />
 
-				<TextView android:id="@+id/address"
-					android:fontFamily="Poppins"
-					android:alpha="0.6"
-					 android:textSize="20sp"
-					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="33dp"
-					android:layout_marginTop="438dp"
-					android:layout_width="107dp"
+				<EditText
+					android:id="@+id/address"
+					android:inputType="text"
+					android:layout_width="wrap_content"
 					android:layout_height="44dp"
-					android:text="@string/address_string"
-					 />
-
-				<View   android:id="@+id/rectangle_21"
-					android:background="@drawable/rectangle_21_shape"
-					 android:layout_marginStart="15dp"
-					android:layout_marginTop="494dp"
-					android:layout_width="160dp"
-					android:layout_height="60dp" />
-
-				<TextView android:id="@+id/birthday"
-					android:fontFamily="Poppins"
+					android:layout_alignStart="@+id/rectangle_24"
+					android:layout_alignTop="@+id/rectangle_24"
+					android:layout_marginStart="35dp"
+					android:layout_marginTop="15dp"
 					android:alpha="0.6"
-					 android:textSize="20sp"
+					android:hint="@string/address_string"
+					android:autofillHints="postalAddress"
 					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="33dp"
-					android:layout_marginTop="509dp"
+					android:textSize="20sp" />
+
+				<View
+					android:id="@+id/rectangle_21"
+					android:layout_width="160dp"
+					android:layout_height="60dp"
+					android:layout_below="@+id/rectangle_24"
+					android:layout_alignParentStart="true"
+					android:layout_marginStart="34dp"
+					android:layout_marginTop="15dp"
+					android:background="@drawable/rectangle_21_shape" />
+
+				<EditText
+					android:id="@+id/birthday"
+					android:inputType="date"
 					android:layout_width="109dp"
 					android:layout_height="44dp"
-					android:text="@string/birthday_string"
-					 />
-
-				<View   android:id="@+id/rectangle_22"
-					android:background="@drawable/rectangle_22_shape"
-					 android:layout_marginStart="185dp"
-					android:layout_marginTop="494dp"
-					android:layout_width="160dp"
-					android:layout_height="60dp" />
-
-				<TextView android:id="@+id/gender"
-					android:fontFamily="Poppins"
+					android:layout_alignStart="@+id/rectangle_21"
+					android:layout_alignTop="@+id/rectangle_21"
+					android:autofillHints=""
+					android:layout_alignEnd="@+id/rectangle_21"
+					android:layout_marginStart="40dp"
+					android:layout_marginTop="10dp"
 					android:alpha="0.6"
-					 android:textSize="20sp"
+					android:hint="@string/birthday_string"
 					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="207dp"
-					android:layout_marginTop="509dp"
+					android:textSize="25sp" />
+
+				<View
+					android:id="@+id/rectangle_22"
+					android:layout_width="160dp"
+					android:layout_height="60dp"
+					android:layout_below="@+id/rectangle_24"
+					android:layout_alignParentEnd="true"
+					android:layout_marginStart="15dp"
+					android:layout_marginTop="15dp"
+					android:layout_marginEnd="50dp"
+					android:layout_toEndOf="@+id/rectangle_21"
+					android:background="@drawable/rectangle_22_shape" />
+
+				<EditText
+					android:id="@+id/gender"
+					android:inputType="text"
 					android:layout_width="100dp"
 					android:layout_height="44dp"
-					android:text="@string/gender_string"
-					 />
+					android:layout_alignTop="@+id/rectangle_22"
+					android:layout_alignEnd="@+id/rectangle_22"
+					android:layout_marginStart="207dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginEnd="22dp"
+					android:alpha="0.6"
+					android:hint="@string/gender_string"
+					android:autofillHints=""
+					android:textColor="@color/rectangle_1_color"
+					android:textSize="25sp" />
 
-				<View   android:id="@+id/_rectangle_25"
-					android:background="@drawable/_rectangle_25_shape"
-					 android:layout_marginStart="23dp"
-					android:layout_marginTop="666dp"
+				<View
+					android:id="@+id/_rectangle_25"
 					android:layout_width="316dp"
-					android:layout_height="45dp" />
+					android:layout_height="45dp"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentEnd="true"
+					android:layout_marginStart="72dp"
+					android:layout_marginTop="666dp"
+					android:layout_marginEnd="72dp"
+					android:background="@drawable/_rectangle_25_shape" />
 
-				<TextView android:id="@+id/finish"
-					android:fontFamily="Poppins"
-					android:textStyle="bold"
-					android:textSize="24sp"
-					android:textColor="@color/_bg__extra_page__ek2_color"
-					android:layout_marginLeft="143dp"
-					android:layout_marginTop="671dp"
+				<TextView
+					android:id="@+id/finish"
 					android:layout_width="105dp"
 					android:layout_height="53dp"
+					android:layout_alignStart="@+id/_rectangle_25"
+					android:layout_alignEnd="@+id/_rectangle_25"
+					android:layout_marginStart="92dp"
+					android:layout_marginTop="671dp"
+					android:layout_marginEnd="70dp"
 					android:text="@string/finish_string"
-					 />
-
-				<TextView android:id="@+id/please_enter_accurate_data_so_we_can_best_serve_you_____"
-					android:fontFamily="Poppins"
-					android:textSize="15sp"
-					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="26dp"
-					android:layout_marginTop="143dp"
-					android:layout_width="381.5dp"
-					android:layout_height="57.5dp"
-					android:text="@string/please_enter_accurate_data_so_we_can_best_serve_you______string"
-					 />
-
-				<TextView android:id="@+id/lets_get_started"
-					android:fontFamily="Poppins"
+					android:textColor="@color/_bg__extra_page__ek2_color"
 					android:textSize="24sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:id="@+id/please_enter_accurate_data_so_we_can_best_serve_you_____"
+					android:layout_width="300dp"
+					android:layout_height="57.5dp"
+					android:layout_below="@+id/lets_get_started"
+					android:layout_marginStart="26dp"
+					android:layout_marginTop="1dp"
+					android:text="@string/please_enter_accurate_data_so_we_can_best_serve_you______string"
 					android:textColor="@color/rectangle_1_color"
-					android:layout_marginLeft="26dp"
-					android:layout_marginTop="89dp"
-					android:layout_width="215dp"
+					android:textSize="20sp" />
+
+				<TextView
+					android:id="@+id/lets_get_started"
+					android:layout_centerHorizontal="true"
+					android:layout_width="wrap_content"
 					android:layout_height="53dp"
+					android:layout_alignParentTop="true"
+					android:layout_marginStart="26dp"
+					android:layout_marginTop="89dp"
 					android:text="@string/lets_get_started_string"
-					 />
+					android:textColor="@color/rectangle_1_color"
+					android:textSize="24sp" />
 
 			</RelativeLayout>
 
-
-
-
-
-
-
-
-
-
+			<com.google.android.gms.common.SignInButton
+				android:id="@+id/btn_google_signin"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/finish"
+				android:layout_centerHorizontal="true"
+				android:layout_marginTop="590dp"
+				tools:ignore="NotSibling" />
 
 
 		</RelativeLayout>
 
-	</ScrollView>
-</HorizontalScrollView>
+</FrameLayout>

@@ -2,10 +2,24 @@
 <resources>
 	<!-- extra_page_ styles -->
 
-	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
 	</style>
+	<style name="OTPInputField">
+		<item name="android:layout_width">48dp</item>
+		<item name="android:layout_height">48dp</item>
+		<item name="android:inputType">number</item>
+		<item name="android:gravity">center</item>
+		<item name="android:maxLength">1</item>
+		<item name="android:textSize">24sp</item>
+		<item name="android:textColor">@color/colorPrimary</item>
+		<item name="android:textStyle">bold</item>
+<!--		<item name="android:background">@drawable/edittext_bg_rounded</item>-->
+		<item name="android:imeOptions">actionNext</item>
+		<item name="android:padding">8dp</item>
+	</style>
+
 
 </resources>

@@ -1,75 +1,70 @@
+package com.example.clientpanel;
 
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		extra_page_
-	 *	@date 		Monday 17th of June 2024 06:12:58 PM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package com.example.clientpanel;
-
-import android.app.Activity;
-import android.os.Bundle;
-
-
-import android.view.View;
-import android.widget.TextView;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class starting_page_activity extends Activity {
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
 
-	
-	private View _bg__starting_page_ek2;
-	private View line_16;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+public class starting_page_activity extends FragmentActivity {
+
 	private TextView _enter_your_mail;
-	private View line_17;
-	private TextView get_started_with;
-	private ImageView ellipse_1;
-	private TextView garage_doc_ek7;
-	private ImageView black_and_white_modern_typographic_simple_virus_apparel_logo__1__1;
+	private SessionManager sessionManager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.starting_page);
 
-		
-		_bg__starting_page_ek2 = (View) findViewById(R.id._bg__starting_page_ek2);
-		line_16 = (View) findViewById(R.id.line_16);
-		_enter_your_mail = (TextView) findViewById(R.id._enter_your_mail);
-		line_17 = (View) findViewById(R.id.line_17);
-		get_started_with = (TextView) findViewById(R.id.get_started_with);
-		ellipse_1 = (ImageView) findViewById(R.id.ellipse_1);
-		garage_doc_ek7 = (TextView) findViewById(R.id.garage_doc_ek7);
-		black_and_white_modern_typographic_simple_virus_apparel_logo__1__1 = (ImageView) findViewById(R.id.black_and_white_modern_typographic_simple_virus_apparel_logo__1__1);
-	
-		
-		_enter_your_mail.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), signin_1_activity.class);
-				startActivity(nextScreen);
-			
-		
-			}
-		});
-		
-		
-		//custom code goes here
-	
+		// Initialize SessionManager
+		sessionManager = new SessionManager(getApplicationContext());
+
+		// Initialize views
+		_enter_your_mail = findViewById(R.id._enter_your_mail);
+		initializeViews();
+
+		// Check if user is logged in
+		if (sessionManager.isLoggedIn()) {
+			// Redirect to landing page if logged in
+			redirectToLandingPage();
+
+		}
+		setClickListeners();
+	}
+		private void initializeViews() {
+			_enter_your_mail = findViewById(R.id._enter_your_mail);
+		}
+
+
+		// Set click listener for entering email
+		private void setClickListeners() {
+//			_enter_your_mail.setOnClickListener(new View.OnClickListener() {
+				_enter_your_mail.setOnClickListener(v -> {
+				login_option_activity dialog = new login_option_activity();
+			dialog.show(getSupportFragmentManager(), "LoginOptionsBottomSheet");
+			});
+		}
+
+
+	// Method to redirect to landing page
+	private void redirectToLandingPage() {
+		Intent intent = new Intent(starting_page_activity.this, landing_home_page_1_activity.class);
+		startActivity(intent);
+		finish(); // Finish this activity so user cannot navigate back to it
 	}
 }
-	
-	

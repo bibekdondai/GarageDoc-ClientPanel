@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Your Phone"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- OTP Input -->
+    <LinearLayout
+        android:id="@+id/otpContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- EditText Fields for OTP -->
+        <EditText
+            android:id="@+id/editTextOTP1"
+            style="@style/OTPInputField"
+            android:layout_marginEnd="8dp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:gravity="center"
+            android:nextFocusForward="@id/editTextOTP2"/>
+
+        <EditText
+            android:id="@+id/editTextOTP2"
+            style="@style/OTPInputField"
+            android:layout_marginEnd="8dp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:gravity="center"
+            android:nextFocusForward="@id/editTextOTP3"/>
+
+        <EditText
+            android:id="@+id/editTextOTP3"
+            style="@style/OTPInputField"
+            android:layout_marginEnd="8dp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:gravity="center"
+            android:nextFocusForward="@id/editTextOTP4"/>
+
+        <EditText
+            android:id="@+id/editTextOTP4"
+            style="@style/OTPInputField"
+            android:maxLength="1"
+            android:inputType="number"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- Resend OTP -->
+    <Button
+        android:id="@+id/btnResendOTP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:layout_below="@id/otpContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Verify Button -->
+    <Button
+        android:id="@+id/btnVerify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verify"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/btnResendOTP"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

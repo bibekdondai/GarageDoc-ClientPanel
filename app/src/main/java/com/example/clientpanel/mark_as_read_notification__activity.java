@@ -65,10 +65,10 @@ public class mark_as_read_notification__activity extends Activity {
 		notification_ek1 = (TextView) findViewById(R.id.notification_ek1);
 		notification_ek2 = (ImageView) findViewById(R.id.notification_ek2);
 		your_vehicle_is_ready_to_pickup_ = (TextView) findViewById(R.id.your_vehicle_is_ready_to_pickup_);
-		home_ek1 = (TextView) findViewById(R.id.home_ek1);
-		notification_ek3 = (TextView) findViewById(R.id.notification_ek3);
-		call_ek2 = (TextView) findViewById(R.id.call_ek2);
-		setting_ek1 = (TextView) findViewById(R.id.setting_ek1);
+//		home_ek1 = (TextView) findViewById(R.id.home_ek1);
+//		notification_ek3 = (TextView) findViewById(R.id.notification_ek3);
+//		call_ek2 = (TextView) findViewById(R.id.call_ek2);
+//		setting_ek1 = (TextView) findViewById(R.id.setting_ek1);
 		vector_ek7 = (ImageView) findViewById(R.id.vector_ek7);
 		vector_ek8 = (ImageView) findViewById(R.id.vector_ek8);
 		_vector_ek9 = (ImageView) findViewById(R.id._vector_ek9);

@@ -1,92 +1,186 @@
-
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		extra_page_
-	 *	@date 		Monday 17th of June 2024 06:12:58 PM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package com.example.clientpanel;
+package com.example.clientpanel;
 
 import android.app.Activity;
-import android.os.Bundle;
-
-
-import android.view.View;
-import android.widget.TextView;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.app.AlertDialog;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class info_activity extends Activity {
 
-	
-	private View _bg__info_ek2;
-	private View rectangle_18;
-	private TextView enter_your_full_name_ek1;
-	private View rectangle_19;
-	private TextView enter_your_email_ek1;
-	private View rectangle_20;
-	private TextView enter_your_phone_number;
-	private View rectangle_24;
-	private TextView address;
-	private View rectangle_21;
-	private TextView birthday;
-	private View rectangle_22;
-	private TextView gender;
-	private View _rectangle_25;
+	private EditText enter_your_full_name_ek1, enter_your_email_ek1, enter_your_phone_number, address, birthday, gender;
 	private TextView finish;
-	private TextView please_enter_accurate_data_so_we_can_best_serve_you_____;
-	private TextView lets_get_started;
+
+	private String emailVerificationCode;
+
+	private FirebaseDatabase firebaseDatabase;
+	private DatabaseReference databaseReference;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.info);
 
-		
-		_bg__info_ek2 = (View) findViewById(R.id._bg__info_ek2);
-		rectangle_18 = (View) findViewById(R.id.rectangle_18);
-		enter_your_full_name_ek1 = (TextView) findViewById(R.id.enter_your_full_name_ek1);
-		rectangle_19 = (View) findViewById(R.id.rectangle_19);
-		enter_your_email_ek1 = (TextView) findViewById(R.id.enter_your_email_ek1);
-		rectangle_20 = (View) findViewById(R.id.rectangle_20);
-		enter_your_phone_number = (TextView) findViewById(R.id.enter_your_phone_number);
-		rectangle_24 = (View) findViewById(R.id.rectangle_24);
-		address = (TextView) findViewById(R.id.address);
-		rectangle_21 = (View) findViewById(R.id.rectangle_21);
-		birthday = (TextView) findViewById(R.id.birthday);
-		rectangle_22 = (View) findViewById(R.id.rectangle_22);
-		gender = (TextView) findViewById(R.id.gender);
-		_rectangle_25 = (View) findViewById(R.id._rectangle_25);
-		finish = (TextView) findViewById(R.id.finish);
-		please_enter_accurate_data_so_we_can_best_serve_you_____ = (TextView) findViewById(R.id.please_enter_accurate_data_so_we_can_best_serve_you_____);
-		lets_get_started = (TextView) findViewById(R.id.lets_get_started);
-	
-		
-		_rectangle_25.setOnClickListener(new View.OnClickListener() {
-		
+		// Initialize Firebase
+		firebaseDatabase = FirebaseDatabase.getInstance();
+		databaseReference = firebaseDatabase.getReference("users");
+
+		// Initialize UI elements
+		enter_your_full_name_ek1 = findViewById(R.id.enter_your_full_name_ek1);
+		enter_your_email_ek1 = findViewById(R.id.enter_your_email_ek1);
+		enter_your_phone_number = findViewById(R.id.enter_your_phone_number);
+		address = findViewById(R.id.address);
+		birthday = findViewById(R.id.birthday);
+		gender = findViewById(R.id.gender);
+		finish = findViewById(R.id.finish);
+
+		// Handle finish button click
+		finish.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), landing_home_page_1_activity.class);
-				startActivity(nextScreen);
-			
-		
+				// Validate input fields (optional)
+
+				// Generate OTP and send via email
+				sendOTPByEmail();
 			}
 		});
-		
-		
-		//custom code goes here
-	
 	}
+
+	// Method to generate OTP and send via email
+	private void sendOTPByEmail() {
+		// Generate a random OTP (you can use your own logic to generate OTP)
+		emailVerificationCode = generateOTP();
+
+		// For demonstration purpose, log the OTP
+		Toast.makeText(info_activity.this, "Generated OTP: " + emailVerificationCode, Toast.LENGTH_SHORT).show();
+
+		// Send email with OTP
+		sendEmailVerification(emailVerificationCode);
+	}
+
+	// Method to send email verification with OTP
+	private void sendEmailVerification(String otp) {
+		String email = enter_your_email_ek1.getText().toString().trim();
+		String subject = "Verification Code";
+		String message = "Your verification code is: " + otp;
+
+		// You can use JavaMail or any email service to send this email
+		// For demonstration purpose, you can toast the OTP
+		Toast.makeText(info_activity.this, "Email sent with OTP.", Toast.LENGTH_SHORT).show();
+
+		// After sending email, show OTP dialog
+		showOTPDialog();
+	}
+
+	// Method to generate a random OTP (for demonstration purpose)
+	private String generateOTP() {
+		// Generate a 4-digit random OTP
+		return String.format("%04d", new java.util.Random().nextInt(10000));
+	}
+
+	// Method to show OTP dialog
+	private void showOTPDialog() {
+		// Inflate custom layout for OTP dialog
+		View dialogView = getLayoutInflater().inflate(R.layout.dialog_enter_otp, null);
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setView(dialogView)
+				.setTitle("Enter OTP")
+				.setPositiveButton("Verify", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						EditText editTextOTP1 = dialogView.findViewById(R.id.editTextOTP1);
+						EditText editTextOTP2 = dialogView.findViewById(R.id.editTextOTP2);
+						EditText editTextOTP3 = dialogView.findViewById(R.id.editTextOTP3);
+						EditText editTextOTP4 = dialogView.findViewById(R.id.editTextOTP4);
+
+						// Validate OTP input
+						String otp = editTextOTP1.getText().toString().trim() +
+								editTextOTP2.getText().toString().trim() +
+								editTextOTP3.getText().toString().trim() +
+								editTextOTP4.getText().toString().trim();
+
+						// Verify OTP
+						if (otp.equals(emailVerificationCode)) {
+							// OTP verification successful, save data and proceed to password creation
+							saveDataToFirebase();
+						} else {
+							// Invalid OTP
+							Toast.makeText(info_activity.this, "Invalid OTP. Please try again.", Toast.LENGTH_SHORT).show();
+						}
+					}
+				})
+				.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+
+		AlertDialog alertDialog = builder.create();
+		alertDialog.show();
+	}
+
+	// Method to save user data to Firebase
+	private void saveDataToFirebase() {
+		String fullName = enter_your_full_name_ek1.getText().toString();
+		String email = enter_your_email_ek1.getText().toString().replace(".", ","); // Replace . with , for Firebase key
+		String phoneNumber = enter_your_phone_number.getText().toString();
+		String addressText = address.getText().toString();
+		String birthdayText = birthday.getText().toString();
+		String genderText = gender.getText().toString();
+
+		User user = new User(fullName, email, phoneNumber, addressText, birthdayText, genderText);
+
+		// Save user data to Firebase
+		databaseReference.child(email).setValue(user)
+				.addOnCompleteListener(task -> {
+					if (task.isSuccessful()) {
+						// Data saved successfully, proceed to password creation
+						navigateToPasswordCreation();
+					} else {
+						// Failed to save data
+						Toast.makeText(info_activity.this, "Failed to save data. Please try again.", Toast.LENGTH_SHORT).show();
+					}
+				});
+	}
+
+	// Method to navigate to password creation activity
+	private void navigateToPasswordCreation() {
+		Intent intent = new Intent(info_activity.this, password_creation_activity.class);
+		// Pass user data to the next activity if needed
+		intent.putExtra("fullName", enter_your_full_name_ek1.getText().toString());
+		intent.putExtra("email", enter_your_email_ek1.getText().toString());
+		intent.putExtra("phoneNumber", enter_your_phone_number.getText().toString());
+		intent.putExtra("address", address.getText().toString());
+		intent.putExtra("birthday", birthday.getText().toString());
+		intent.putExtra("gender", gender.getText().toString());
+		startActivity(intent);
+		finish(); // Optional: Close current activity
+	}
+
+	// User class to hold user information
+	public static class User {
+		public String fullName, email, phoneNumber, address, birthday, gender;
+
+		public User() {
+			// Default constructor required for calls to DataSnapshot.getValue(User.class)
+		}
+
+		public User(String fullName, String email, String phoneNumber, String address, String birthday, String gender) {
+			this.fullName = fullName;
+			this.email = email;
+			this.phoneNumber = phoneNumber;
+			this.address = address;
+			this.birthday = birthday;
+			this.gender = gender;
+		}
+	}
+
 }
-	
-	
