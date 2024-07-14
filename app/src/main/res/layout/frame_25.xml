@@ -1,30 +1,17 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/frame_25_root"
-	android:layout_width="match_parent"
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
 	android:layout_height="match_parent"
-	android:background="@android:color/transparent">
+	android:background="@drawable/_bg__slash_page_6_ek2_shape">
 
-	<ScrollView
-		android:id="@+id/frame_25_scrollview"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+	     <!-- Add your inner layouts here -->
 
-		<RelativeLayout
-			android:id="@+id/content_container"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
 
-			<!-- Add your inner layouts here -->
-
-			<RelativeLayout
-				android:id="@+id/page_frame_25_ek1"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content">
-
-				<View
+	             <View
 					android:id="@+id/_bg__frame_25_ek2"
 					android:layout_width="124dp"
-					android:layout_height="738dp"
+					android:layout_height="match_parent"
 					android:background="@drawable/_bg__frame_25_ek2_shape"
 					android:layout_marginStart="0dp"
 					android:layout_marginTop="0dp" />
@@ -58,8 +45,8 @@
 
 				<TextView
 					android:id="@+id/user_profile_ek4"
-					android:layout_width="135dp"
-					android:layout_height="44dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
 					android:layout_marginStart="7dp"
 					android:layout_marginTop="93dp"
 					android:text="@string/user_profile_ek4_string"
@@ -68,8 +55,8 @@
 
 				<TextView
 					android:id="@+id/bookings_ek1"
-					android:layout_width="104dp"
-					android:layout_height="40dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
 					android:layout_marginStart="21dp"
 					android:layout_marginTop="256dp"
 					android:text="@string/bookings_ek1_string"
@@ -87,8 +74,8 @@
 
 				<TextView
 					android:id="@+id/vehicles"
-					android:layout_width="99dp"
-					android:layout_height="40dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
 					android:layout_marginStart="24dp"
 					android:layout_marginTop="373dp"
 					android:text="@string/vehicles_string"
@@ -106,8 +93,8 @@
 
 				<TextView
 					android:id="@+id/history"
-					android:layout_width="85dp"
-					android:layout_height="40dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
 					android:layout_marginStart="31dp"
 					android:layout_marginTop="496dp"
 					android:text="@string/history_string"
@@ -142,8 +129,8 @@
 
 				<TextView
 					android:id="@+id/log_out_ek1"
-					android:layout_width="89dp"
-					android:layout_height="40dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
 					android:layout_marginStart="29dp"
 					android:layout_marginTop="624dp"
 					android:text="@string/log_out_ek1_string"
@@ -167,8 +154,6 @@
 					android:layout_marginTop="139dp"
 					android:background="@drawable/line_23_shape" />
 
-			</RelativeLayout>
-		</RelativeLayout>
+</FrameLayout>
 
-	</ScrollView>
-</RelativeLayout>
+

@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.FirebaseApp;
 
 public class bike_scooter_details_activity extends Activity {
@@ -198,7 +199,6 @@ public class bike_scooter_details_activity extends Activity {
 		public String color;
 
 		public BikeScooterDetails() {
-			// Default constructor required for calls to DataSnapshot.getValue(BikeScooterDetails.class)
 		}
 
 		public BikeScooterDetails(String bikeModel, String numberPlate, String color) {
