@@ -2,7 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
-    android:background="@android:color/transparent">
+    android:background="@drawable/bg_with_color_overlay"
+    >
 
     <View
         android:id="@+id/bg_login_option"
@@ -13,6 +14,8 @@
         android:focusable="true" />
 
     <LinearLayout
+        android:background="@drawable/bg_with_color_overlay"
+
         android:id="@+id/options_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +25,8 @@
         android:elevation="8dp">
 
         <TextView
+            android:background="@drawable/bg_with_color_overlay"
+
             android:id="@+id/login_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,6 +42,8 @@
              />
 
         <TextView
+            android:background="@drawable/bg_with_color_overlay"
+
             android:id="@+id/signup_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,6 +59,8 @@
              />
 
         <TextView
+            android:background="@drawable/bg_with_color_overlay"
+
             android:id="@+id/dismiss"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

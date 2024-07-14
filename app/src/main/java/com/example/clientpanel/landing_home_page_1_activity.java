@@ -59,7 +59,7 @@ public class landing_home_page_1_activity extends FragmentActivity {
 		welcomeText = findViewById(R.id.hi);
 
 		sessionManager = new SessionManager(this);
-		emailAddress = getIntent().getStringExtra("email_address");
+		emailAddress = getIntent().getStringExtra("emailAddress");
 		String emailAddress = sessionManager.getEmail();
 //		String fullName = sessionManager.getFullName();
 
