@@ -58,7 +58,7 @@ public class _emergency_activity extends Activity {
 		setContentView(R.layout._emergency);
 
 		
-		_bg____emergency_ek2 = (View) findViewById(R.id._bg____emergency_ek2);
+//		_bg____emergency_ek2 = (View) findViewById(R.id._bg____emergency_ek2);
 		rectangle_2_ek1 = (View) findViewById(R.id.rectangle_2_ek1);
 		rectangle_28 = (ImageView) findViewById(R.id.rectangle_28);
 		rectangle_30 = (ImageView) findViewById(R.id.rectangle_30);
@@ -67,14 +67,14 @@ public class _emergency_activity extends Activity {
 		rectangle_29 = (View) findViewById(R.id.rectangle_29);
 		choose_from_map = (TextView) findViewById(R.id.choose_from_map);
 		confirm_location = (TextView) findViewById(R.id.confirm_location);
-		maps_removebg_preview_1 = (ImageView) findViewById(R.id.maps_removebg_preview_1);
+//		maps_removebg_preview_1 = (ImageView) findViewById(R.id.maps_removebg_preview_1);
 		contact_details = (TextView) findViewById(R.id.contact_details);
-		home_ek6 = (TextView) findViewById(R.id.home_ek6);
-		notification_ek13 = (TextView) findViewById(R.id.notification_ek13);
-		call_ek7 = (TextView) findViewById(R.id.call_ek7);
-		setting_ek6 = (TextView) findViewById(R.id.setting_ek6);
-		vector_ek46 = (ImageView) findViewById(R.id.vector_ek46);
-		vector_ek47 = (ImageView) findViewById(R.id.vector_ek47);
+//		home_ek6 = (TextView) findViewById(R.id.home_ek6);
+//		notification_ek13 = (TextView) findViewById(R.id.notification_ek13);
+//		call_ek7 = (TextView) findViewById(R.id.call_ek7);
+//		setting_ek6 = (TextView) findViewById(R.id.setting_ek6);
+//		vector_ek46 = (ImageView) findViewById(R.id.vector_ek46);
+//		vector_ek47 = (ImageView) findViewById(R.id.vector_ek47);
 		_vector_ek48 = (ImageView) findViewById(R.id._vector_ek48);
 		vector_ek49 = (ImageView) findViewById(R.id.vector_ek49);
 		_vector_ek50 = (ImageView) findViewById(R.id._vector_ek50);

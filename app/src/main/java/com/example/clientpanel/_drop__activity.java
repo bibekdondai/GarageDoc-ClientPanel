@@ -56,7 +56,7 @@ public class _drop__activity extends Activity {
 		setContentView(R.layout._drop_);
 
 		
-		_bg____drop__ek2 = (View) findViewById(R.id._bg____drop__ek2);
+//		_bg____drop__ek2 = (View) findViewById(R.id._bg____drop__ek2);
 		rectangle_2_ek3 = (View) findViewById(R.id.rectangle_2_ek3);
 		rectangle_27 = (View) findViewById(R.id.rectangle_27);
 		rectangle_28_ek1 = (View) findViewById(R.id.rectangle_28_ek1);
@@ -64,14 +64,14 @@ public class _drop__activity extends Activity {
 		choose_from_map_ek1 = (TextView) findViewById(R.id.choose_from_map_ek1);
 		confirm_location_ek1 = (TextView) findViewById(R.id.confirm_location_ek1);
 		address_street_name_ek1 = (TextView) findViewById(R.id.address_street_name_ek1);
-		maps_removebg_preview_1_ek1 = (ImageView) findViewById(R.id.maps_removebg_preview_1_ek1);
-		home_ek12 = (TextView) findViewById(R.id.home_ek12);
-		notification_ek19 = (TextView) findViewById(R.id.notification_ek19);
-		call_ek13 = (TextView) findViewById(R.id.call_ek13);
-		setting_ek12 = (TextView) findViewById(R.id.setting_ek12);
+//		maps_removebg_preview_1_ek1 = (ImageView) findViewById(R.id.maps_removebg_preview_1_ek1);
+//		home_ek12 = (TextView) findViewById(R.id.home_ek12);
+//		notification_ek19 = (TextView) findViewById(R.id.notification_ek19);
+//		call_ek13 = (TextView) findViewById(R.id.call_ek13);
+//		setting_ek12 = (TextView) findViewById(R.id.setting_ek12);
 		vector_ek82 = (ImageView) findViewById(R.id.vector_ek82);
-		vector_ek83 = (ImageView) findViewById(R.id.vector_ek83);
-		_vector_ek84 = (ImageView) findViewById(R.id._vector_ek84);
+//		vector_ek83 = (ImageView) findViewById(R.id.vector_ek83);
+//		_vector_ek84 = (ImageView) findViewById(R.id._vector_ek84);
 		vector_ek85 = (ImageView) findViewById(R.id.vector_ek85);
 		_vector_ek86 = (ImageView) findViewById(R.id._vector_ek86);
 		_vector_ek87 = (ImageView) findViewById(R.id._vector_ek87);

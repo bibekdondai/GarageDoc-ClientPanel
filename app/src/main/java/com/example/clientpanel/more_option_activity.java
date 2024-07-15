@@ -12,6 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class more_option_activity extends BottomSheetDialogFragment {
 	private TextView _add_bike;
 	private TextView _add_scooter;
+	private String emailAddress;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +49,10 @@ public class more_option_activity extends BottomSheetDialogFragment {
 
 	private void startVehicleInfoActivity() {
 		Intent intent = new Intent(getActivity(), vehicle_info_activity.class);
+		intent.putExtra("email", emailAddress);
+
 		startActivity(intent);
-		dismiss(); // Dismiss the bottom sheet after starting the activity
+		dismiss();
+		// Dismiss the bottom sheet after starting the activity
 	}
 }

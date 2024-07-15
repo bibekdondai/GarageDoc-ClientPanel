@@ -55,7 +55,7 @@ public class fqas_activity extends Activity {
 		setContentView(R.layout.fqas);
 
 		
-		_bg__fqas_ek2 = (View) findViewById(R.id._bg__fqas_ek2);
+//		_bg__fqas_ek2 = (View) findViewById(R.id._bg__fqas_ek2);
 		rectangle_5_ek3 = (View) findViewById(R.id.rectangle_5_ek3);
 		rectangle_7_ek2 = (View) findViewById(R.id.rectangle_7_ek2);
 		will_i_receive_reminders_for_upcoming_services_ = (TextView) findViewById(R.id.will_i_receive_reminders_for_upcoming_services_);
@@ -63,16 +63,16 @@ public class fqas_activity extends Activity {
 		can_i_manage_multiple_vehicles_with_one_account__ = (TextView) findViewById(R.id.can_i_manage_multiple_vehicles_with_one_account__);
 		faqs = (TextView) findViewById(R.id.faqs);
 		can_i_cancel_a_service_order_ = (TextView) findViewById(R.id.can_i_cancel_a_service_order_);
-		home_ek3 = (TextView) findViewById(R.id.home_ek3);
-		notification_ek10 = (TextView) findViewById(R.id.notification_ek10);
-		call_ek4 = (TextView) findViewById(R.id.call_ek4);
-		setting_ek3 = (TextView) findViewById(R.id.setting_ek3);
-		vector_ek19 = (ImageView) findViewById(R.id.vector_ek19);
-		vector_ek20 = (ImageView) findViewById(R.id.vector_ek20);
+//		home_ek3 = (TextView) findViewById(R.id.home_ek3);
+//		notification_ek10 = (TextView) findViewById(R.id.notification_ek10);
+//		call_ek4 = (TextView) findViewById(R.id.call_ek4);
+//		setting_ek3 = (TextView) findViewById(R.id.setting_ek3);
+//		vector_ek19 = (ImageView) findViewById(R.id.vector_ek19);
+//		vector_ek20 = (ImageView) findViewById(R.id.vector_ek20);
 		_vector_ek21 = (ImageView) findViewById(R.id._vector_ek21);
 		vector_ek22 = (ImageView) findViewById(R.id.vector_ek22);
 		_vector_ek23 = (ImageView) findViewById(R.id._vector_ek23);
-		vector_ek24 = (ImageView) findViewById(R.id.vector_ek24);
+//		vector_ek24 = (ImageView) findViewById(R.id.vector_ek24);
 	
 		
 		_vector_ek21.setOnClickListener(new View.OnClickListener() {

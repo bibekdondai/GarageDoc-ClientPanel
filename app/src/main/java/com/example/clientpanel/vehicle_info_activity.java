@@ -12,10 +12,9 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import androidx.annotation.NonNull;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +25,8 @@ public class vehicle_info_activity extends Activity {
 
 	private TableLayout bikeDetailsTable;
 	private ImageView image_1_ek1;
-	private FirebaseUser currentUser;
+	private SessionManager sessionManager;
+	private String emailAddress;
 
 	private static final String TAG = "VehicleInfoActivity";
 
@@ -37,22 +37,22 @@ public class vehicle_info_activity extends Activity {
 
 		bikeDetailsTable = findViewById(R.id.bike_details_table);
 		image_1_ek1 = findViewById(R.id.image_1_ek1);
+		sessionManager = new SessionManager(this);
 
-		// Retrieve current user from Firebase authentication session
-		currentUser = FirebaseAuth.getInstance().getCurrentUser();
-		if (currentUser == null) {
-			// If somehow currentUser is null, handle it gracefully
-			Log.e(TAG, "Current user is null in vehicle_info_activity");
-			Toast.makeText(this, "Error: Current user is null", Toast.LENGTH_SHORT).show();
-			finish(); // Finish activity if user is not authenticated
+		// Retrieve email from SessionManager
+		String email = sessionManager.getEmail();
+		if (email == null || email.isEmpty()) {
+			Log.e(TAG, "Email is null or empty in vehicle_info_activity");
+			Toast.makeText(this, R.string.error_null_email, Toast.LENGTH_SHORT).show();
+			finish(); // Finish activity if email is not available
 			return;
 		}
 
-		// Proceed with fetching data using the authenticated user's UID
-		String uid = currentUser.getUid();
+		// Proceed with fetching data using the email as UID
+		String emailKey = email.replace(".", ","); // Use email as UID
 		DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users")
-				.child(uid)
-				.child("bike_details");
+				.child(emailKey)
+				.child("bikes");
 
 		databaseReference.addValueEventListener(new ValueEventListener() {
 			@Override
@@ -70,18 +70,20 @@ public class vehicle_info_activity extends Activity {
 
 			@Override
 			public void onCancelled(@NonNull DatabaseError databaseError) {
-				Toast.makeText(vehicle_info_activity.this, "Error loading data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(vehicle_info_activity.this, getString(R.string.error_loading_data, databaseError.getMessage()), Toast.LENGTH_SHORT).show();
 				Log.e(TAG, "Error loading data: " + databaseError.getMessage());
 			}
 		});
 
-		image_1_ek1.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// Handle click to navigate to another activity
-				Intent nextScreen = new Intent(getApplicationContext(), bike_scooter_details_activity.class);
-				startActivity(nextScreen);
-			}
+		image_1_ek1.setOnClickListener(v -> {
+			// Handle click to navigate to another activity
+			Intent intent  = new Intent(getApplicationContext(), bike_scooter_details_activity.class);
+			intent.putExtra("emailAddress", getIntent().getStringExtra("emailAddress")); // Pass email address
+
+
+			startActivity(intent);
+			finish();
+
 		});
 	}
 
@@ -92,8 +94,8 @@ public class vehicle_info_activity extends Activity {
 		TextView snHeader = headerRow.findViewById(R.id.sn);
 		TextView bikeDetailsHeader = headerRow.findViewById(R.id.bike_details);
 
-		snHeader.setText("SN");
-		bikeDetailsHeader.setText("Bike Details");
+		snHeader.setText(R.string.sn_header); // Use string resources for headers
+		bikeDetailsHeader.setText(R.string.bike_details_header);
 
 		bikeDetailsTable.addView(headerRow);
 	}
@@ -106,7 +108,7 @@ public class vehicle_info_activity extends Activity {
 		TextView bikeDetailsTextView = row.findViewById(R.id.bike_details);
 
 		snTextView.setText(String.valueOf(sn));
-		bikeDetailsTextView.setText("Model: " + details.bikeModel + ", Plate: " + details.numberPlate + ", Color: " + details.color);
+		bikeDetailsTextView.setText(getString(R.string.bike_details_text, details.bikeModel, details.numberPlate, details.color));
 
 		bikeDetailsTable.addView(row);
 	}
@@ -124,6 +126,11 @@ public class vehicle_info_activity extends Activity {
 			this.bikeModel = bikeModel;
 			this.numberPlate = numberPlate;
 			this.color = color;
+		}
+
+		public BikeScooterDetails(String bikeModel, String numberPlate) {
+			this.bikeModel = bikeModel;
+			this.numberPlate = numberPlate;
 		}
 	}
 }

@@ -10,11 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -60,16 +59,7 @@ public class landing_home_page_1_activity extends FragmentActivity {
 
 		sessionManager = new SessionManager(this);
 		emailAddress = getIntent().getStringExtra("emailAddress");
-		String emailAddress = sessionManager.getEmail();
-//		String fullName = sessionManager.getFullName();
-
-//		if (fullName != null) {
-//			// Display welcome message with full_name
-//			welcomeText.setText("Hi, " + fullName);
-//		} else {
-//			// Handle case where full_name is not available
-//			welcomeText.setText("Hi, User"); // Default greeting
-//		}
+		String email = sessionManager.getEmail();
 
 		initializeViews();
 
@@ -79,7 +69,7 @@ public class landing_home_page_1_activity extends FragmentActivity {
 			return;
 		}
 		// Fetch and display full name
-		fetchAndDisplayFullName();
+		fetchAndDisplayFullName(email);
 
 
 		// Start session timeout countdown
@@ -129,17 +119,14 @@ public class landing_home_page_1_activity extends FragmentActivity {
 
 		vector_ek119.setOnClickListener(v -> {
 			more_option_activity dialog = new more_option_activity();
+
+
 			dialog.show(getSupportFragmentManager(), "MoreOptionsBottomSheet");
 		});
 
 		vector_ek120.setOnClickListener(v -> {
 			startActivity(new Intent(getApplicationContext(), status_of_vehicles_activity.class));
 		});
-
-
-//		vector_ek134.setOnClickListener(v -> {
-//			showLogoutConfirmationDialog();
-//		});
 	}
 
 	@Override
@@ -208,30 +195,40 @@ public class landing_home_page_1_activity extends FragmentActivity {
 		startActivity(intent);
 		finish(); // Finish current activity to prevent back button from returning here
 	}
-	private void fetchAndDisplayFullName() {
-		FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-		if (currentUser != null) {
-			String uid = currentUser.getUid();
-			DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("client_side");
-			userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-				@Override
-				public void onDataChange(DataSnapshot dataSnapshot) {
-					String storedEmail = dataSnapshot.child("full_name").getValue(String.class);
-					if (dataSnapshot.exists()) {
-						String fullName = dataSnapshot.getValue(String.class);
-						if (fullName != null) {
-							welcomeText.setText("Hi, " + fullName);
-						}
-					} else {
-						welcomeText.setText("Hi, Kushal");
-					}
-				}
 
-				@Override
-				public void onCancelled(DatabaseError databaseError) {
-					Log.e(TAG, "Failed to read full name.", databaseError.toException());
+	private void fetchAndDisplayFullName(String email) {
+		String formattedEmail = email.replace(".", ",");
+		DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(formattedEmail);
+
+		userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+				if (dataSnapshot.exists()) {
+					String fullName = dataSnapshot.child("fullName").getValue(String.class);
+					if (fullName != null) {
+						welcomeText.setText("Hi, " + fullName);
+					} else {
+						welcomeText.setText("Hi, User");
+					}
+				} else {
+					welcomeText.setText("Hi, User");
 				}
-			});
-		}
+			}
+
+			@Override
+			public void onCancelled(@NonNull DatabaseError databaseError) {
+				Log.e(TAG, "Failed to read full name.", databaseError.toException());
+				welcomeText.setText("Hi, User");
+			}
+		});
 	}
+
+//	private void getSupportFragmentManager() {
+//		Intent intent = new Intent(getActivity(), vehicle_info_activity.class);
+//		intent.putExtra("email", emailAddress);
+//
+//		startActivity(intent);
+//		dismiss();
+//		// Dismiss the bottom sheet after starting the activity
+//	}
 }

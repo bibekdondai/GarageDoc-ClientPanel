@@ -154,6 +154,7 @@ public class info_activity extends Activity {
 	// Method to navigate to password creation activity
 	private void navigateToPasswordCreation() {
 		Intent intent = new Intent(info_activity.this, password_creation_activity.class);
+
 		// Pass user data to the next activity if needed
 		intent.putExtra("fullName", enter_your_full_name_ek1.getText().toString());
 		intent.putExtra("email", enter_your_email_ek1.getText().toString());

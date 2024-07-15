@@ -80,6 +80,7 @@ public class password_creation_activity extends Activity {
 
     private void navigateToSignIn() {
         Intent intent = new Intent(password_creation_activity.this, signin_1_activity.class);
+        intent.putExtra("email", emailAddress);
         startActivity(intent);
         finish(); // Optional: Close current activity
     }
@@ -88,6 +89,9 @@ public class password_creation_activity extends Activity {
 // User class to store user data
 class User {
     public String fullName, emailAddress, phoneNumber, address, birthday, gender, password;
+    public User() {
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+    }
 
     public User(String fullName, String emailAddress, String phoneNumber, String address, String birthday, String gender, String password) {
         this.fullName = fullName;

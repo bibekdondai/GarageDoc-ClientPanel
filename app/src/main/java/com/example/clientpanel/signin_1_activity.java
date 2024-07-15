@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class signin_1_activity extends Activity {
 
 	private EditText email_address;
+	private String emailAddress;
 	private Button next;
 	private TextView use_mobile_number_instead;
 	private SessionManager sessionManager;
@@ -112,6 +113,8 @@ public class signin_1_activity extends Activity {
 	private void navigateToLandingPage() {
 		Intent intent = new Intent(signin_1_activity.this, landing_home_page_1_activity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
+
+		intent.putExtra("email", emailAddress);
 		startActivity(intent);
 		finish();
 	}

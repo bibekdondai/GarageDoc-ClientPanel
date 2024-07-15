@@ -60,15 +60,15 @@ public class add_bike_scooter_activity extends Activity {
 		setContentView(R.layout.add_bike_scooter);
 
 		
-		_bg__add_bike_scooter_ek2 = (View) findViewById(R.id._bg__add_bike_scooter_ek2);
+//		_bg__add_bike_scooter_ek2 = (View) findViewById(R.id._bg__add_bike_scooter_ek2);
 		rectangle_1_ek5 = (View) findViewById(R.id.rectangle_1_ek5);
 		garage_doc_ek2 = (TextView) findViewById(R.id.garage_doc_ek2);
 		rectangle_93_ek1 = (View) findViewById(R.id.rectangle_93_ek1);
 
 		yamaha_alpha = (TextView) findViewById(R.id.yamaha_alpha);
 
-		vector_ek58 = (ImageView) findViewById(R.id.vector_ek58);
-		vector_ek59 = (ImageView) findViewById(R.id.vector_ek59);
+//		vector_ek58 = (ImageView) findViewById(R.id.vector_ek58);
+//		vector_ek59 = (ImageView) findViewById(R.id.vector_ek59);
 		_vector_ek60 = (ImageView) findViewById(R.id._vector_ek60);
 		vector_ek61 = (ImageView) findViewById(R.id.vector_ek61);
 		_vector_ek62 = (ImageView) findViewById(R.id._vector_ek62);
