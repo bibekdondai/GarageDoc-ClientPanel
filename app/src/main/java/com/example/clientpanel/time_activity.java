@@ -43,9 +43,9 @@ public class time_activity extends Activity {
 		setContentView(R.layout.time);
 
 		
-		_bg__time_ek2 = (View) findViewById(R.id._bg__time_ek2);
+
 		vector_ek88 = (ImageView) findViewById(R.id.vector_ek88);
-		rectangle_82_ek1 = (View) findViewById(R.id.rectangle_82_ek1);
+
 		do_you_want_pickup_service_ = (TextView) findViewById(R.id.do_you_want_pickup_service_);
 		vector_ek89 = (ImageView) findViewById(R.id.vector_ek89);
 		take_token = (TextView) findViewById(R.id.take_token);
