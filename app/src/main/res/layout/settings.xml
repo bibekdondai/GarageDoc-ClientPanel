@@ -211,16 +211,7 @@
 						android:contentDescription="rectangle_64"
 						android:src="@drawable/rectangle_62_shape" />
 
-					<View
-						android:id="@+id/rectangle_62"
-						android:layout_width="344dp"
-						android:layout_height="56.51dp"
-						android:layout_alignParentStart="true"
-						android:layout_alignParentEnd="true"
-						android:layout_marginStart="45dp"
-						android:layout_marginTop="153.64dp"
-						android:layout_marginEnd="43dp"
-						android:background="@drawable/rectangle_62_shape" />
+
 
 					<TextView
 						android:id="@+id/feedback"
@@ -255,8 +246,7 @@
 						android:layout_width="29dp"
 						android:layout_height="29.55dp"
 						android:layout_marginTop="27.58dp"
-						android:layout_marginStart="48dp
-"
+						android:layout_marginStart="48dp"
 						android:contentDescription="vector_ek25"
 						android:src="@drawable/vector_ek25" />
 
@@ -545,5 +535,5 @@
 		</RelativeLayout>
 
 	</ScrollView>
-</HorizontalScrollView>
-</Framelayout>
+
+</FrameLayout>

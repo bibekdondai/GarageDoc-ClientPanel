@@ -63,8 +63,7 @@ public class status_of_vehicles_activity extends Activity {
 		_bg__status_of_vehicles_ek2 = (View) findViewById(R.id._bg__status_of_vehicles_ek2);
 		rectangle_1_ek3 = (View) findViewById(R.id.rectangle_1_ek3);
 		garage_doc = (TextView) findViewById(R.id.garage_doc);
-		ca = (TextView) findViewById(R.id.ca);
-		rectangle_75 = (View) findViewById(R.id.rectangle_75);
+
 		rectangle_76 = (View) findViewById(R.id.rectangle_76);
 		pending = (TextView) findViewById(R.id.pending);
 		rectangle_77 = (View) findViewById(R.id.rectangle_77);
@@ -73,10 +72,7 @@ public class status_of_vehicles_activity extends Activity {
 		delivered = (TextView) findViewById(R.id.delivered);
 		rectangle_79 = (View) findViewById(R.id.rectangle_79);
 		cancelled = (TextView) findViewById(R.id.cancelled);
-		home_ek5 = (TextView) findViewById(R.id.home_ek5);
-		notification_ek12 = (TextView) findViewById(R.id.notification_ek12);
-		call_ek6 = (TextView) findViewById(R.id.call_ek6);
-		setting_ek5 = (TextView) findViewById(R.id.setting_ek5);
+
 		vector_ek40 = (ImageView) findViewById(R.id.vector_ek40);
 		vector_ek41 = (ImageView) findViewById(R.id.vector_ek41);
 		_vector_ek42 = (ImageView) findViewById(R.id._vector_ek42);

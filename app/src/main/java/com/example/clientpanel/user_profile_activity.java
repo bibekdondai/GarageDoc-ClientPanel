@@ -74,7 +74,7 @@ public class user_profile_activity extends Activity {
 
 		
 		_bg__user_profile_ek2 = (View) findViewById(R.id._bg__user_profile_ek2);
-		rectangle_1_ek9 = (ImageView) findViewById(R.id.rectangle_1_ek9);
+
 		vector_ek111 = (ImageView) findViewById(R.id.vector_ek111);
 		user_profile_ek3 = (TextView) findViewById(R.id.user_profile_ek3);
 		garage_doc_ek5 = (TextView) findViewById(R.id.garage_doc_ek5);
@@ -91,7 +91,7 @@ public class user_profile_activity extends Activity {
 		enter_your_gender = (TextView) findViewById(R.id.enter_your_gender);
 		what_is_your_date_of_birth_ = (TextView) findViewById(R.id.what_is_your_date_of_birth_);
 		mapppp_removebg_preview_1 = (ImageView) findViewById(R.id.mapppp_removebg_preview_1);
-		line_1 = (View) findViewById(R.id.line_1);
+
 		name = (ImageView) findViewById(R.id.name);
 		post = (ImageView) findViewById(R.id.post);
 		home_address = (ImageView) findViewById(R.id.home_address);
@@ -99,16 +99,7 @@ public class user_profile_activity extends Activity {
 		pay_date = (ImageView) findViewById(R.id.pay_date);
 		_rectangle_8 = (View) findViewById(R.id._rectangle_8);
 		update_profile = (TextView) findViewById(R.id.update_profile);
-		home_ek16 = (TextView) findViewById(R.id.home_ek16);
-		notification_ek23 = (TextView) findViewById(R.id.notification_ek23);
-		call_ek17 = (TextView) findViewById(R.id.call_ek17);
-		setting_ek16 = (TextView) findViewById(R.id.setting_ek16);
-		vector_ek112 = (ImageView) findViewById(R.id.vector_ek112);
-		vector_ek113 = (ImageView) findViewById(R.id.vector_ek113);
-		_vector_ek114 = (ImageView) findViewById(R.id._vector_ek114);
-		vector_ek115 = (ImageView) findViewById(R.id.vector_ek115);
-		_vector_ek116 = (ImageView) findViewById(R.id._vector_ek116);
-		_vector_ek117 = (ImageView) findViewById(R.id._vector_ek117);
+
 	
 		
 		_rectangle_8.setOnClickListener(new View.OnClickListener() {

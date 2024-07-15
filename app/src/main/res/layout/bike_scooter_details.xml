@@ -196,7 +196,7 @@
 				android:textColor="@color/_bg__extra_page__ek2_color"
 				android:textSize="20sp" />
 
-			<EditText
+			<Spinner
 				android:id="@+id/bikeModelEditText"
 				android:layout_width="182dp"
 				android:layout_height="35dp"

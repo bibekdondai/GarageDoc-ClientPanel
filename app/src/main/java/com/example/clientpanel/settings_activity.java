@@ -73,7 +73,7 @@ public class settings_activity extends Activity {
 		setContentView(R.layout.settings);
 
 		
-		_bg__settings_ek2 = (View) findViewById(R.id._bg__settings_ek2);
+
 		rectangle_1_ek2 = (View) findViewById(R.id.rectangle_1_ek2);
 		settings_ek3 = (TextView) findViewById(R.id.settings_ek3);
 		rectangle_60 = (View) findViewById(R.id.rectangle_60);
@@ -85,7 +85,7 @@ public class settings_activity extends Activity {
 		share = (TextView) findViewById(R.id.share);
 		rectangle_66 = (View) findViewById(R.id.rectangle_66);
 		write_a_review = (TextView) findViewById(R.id.write_a_review);
-		rectangle_64 = (ImageView) findViewById(R.id.rectangle_64);
+
 		rectangle_62 = (View) findViewById(R.id.rectangle_62);
 		feedback = (TextView) findViewById(R.id.feedback);
 		change_password = (TextView) findViewById(R.id.change_password);
@@ -104,8 +104,7 @@ public class settings_activity extends Activity {
 		call_ek5 = (TextView) findViewById(R.id.call_ek5);
 		setting_ek4 = (TextView) findViewById(R.id.setting_ek4);
 		vector_ek34 = (ImageView) findViewById(R.id.vector_ek34);
-		vector_ek35 = (ImageView) findViewById(R.id.vector_ek35);
-		_vector_ek36 = (ImageView) findViewById(R.id._vector_ek36);
+
 		vector_ek37 = (ImageView) findViewById(R.id.vector_ek37);
 		_vector_ek38 = (ImageView) findViewById(R.id._vector_ek38);
 		_vector_ek39 = (ImageView) findViewById(R.id._vector_ek39);

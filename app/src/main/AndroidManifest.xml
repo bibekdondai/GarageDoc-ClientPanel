@@ -43,7 +43,6 @@
 		<activity android:name=".starting_page_activity"></activity>
 		<activity android:name=".dialog_enter_otp_activity"></activity>
 
-
 			<activity android:name=".pickup_activity"></activity>
 			<activity android:name=".services_activity"></activity>
 			<activity android:name=".vehicle_info_activity"></activity>
