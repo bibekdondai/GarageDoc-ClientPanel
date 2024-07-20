@@ -22,14 +22,12 @@
 		</activity>
 
 			<activity android:name=".support_activity"></activity>
-			<activity android:name=".mark_as_read_notification__activity"></activity>
 			<activity android:name=".notification_activity"></activity>
 			<activity android:name=".fqas_activity"></activity>
 			<activity android:name=".settings_activity"></activity>
 			<activity android:name=".status_of_vehicles_activity"></activity>
 			<activity android:name="._emergency_activity"></activity>
 			<activity android:name=".bike_scooter_details_activity"></activity>
-			<activity android:name=".add_bike_scooter_activity"></activity>
 			<activity android:name=".payment_options_activity"></activity>
 			<activity android:name=".receipt_activity"></activity>
 			<activity android:name=".details_to_be_filled_activity"></activity>
@@ -39,10 +37,9 @@
 			<activity android:name=".part_maintainence_activity"></activity>
 			<activity android:name=".part_replacement_activity"></activity>
 		    <activity android:name=".login_option_activity"></activity>
-		<activity android:name=".password_creation_activity"></activity>
-		<activity android:name=".starting_page_activity"></activity>
-		<activity android:name=".dialog_enter_otp_activity"></activity>
-
+		    <activity android:name=".password_creation_activity"></activity>
+		    <activity android:name=".starting_page_activity"></activity>
+		    <activity android:name=".dialog_enter_otp_activity"></activity>
 			<activity android:name=".pickup_activity"></activity>
 			<activity android:name=".services_activity"></activity>
 			<activity android:name=".vehicle_info_activity"></activity>
@@ -54,16 +51,6 @@
 			<activity android:name=".signin_2_activity"></activity>
 		    <activity android:name=".extra_page__activity"></activity>
 			<activity android:name=".signin_1_activity"></activity>
-			<activity android:name=".slash_page_10_activity"></activity>
-			<activity android:name=".slash_page_9_activity"></activity>
-			<activity android:name=".slash_page_8_activity"></activity>
-			<activity android:name=".slash_page_7_activity"></activity>
-			<activity android:name=".slash_page_6_activity"></activity>
-			<activity android:name=".slash_page_5_activity"></activity>
-			<activity android:name=".slash_page_4_activity"></activity>
-			<activity android:name=".slash_page_3_activity"></activity>
-			<activity android:name=".slash_page_2_activity"></activity>
-			<activity android:name=".slash_page_1_activity"></activity>
 			<activity android:name=".call_popup_activity"></activity>
 
 
