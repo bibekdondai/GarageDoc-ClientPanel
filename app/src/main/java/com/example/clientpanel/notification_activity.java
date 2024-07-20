@@ -79,16 +79,16 @@ public class notification_activity extends Activity {
 		vector_ek18 = (ImageView) findViewById(R.id.vector_ek18);
 	
 		
-		_mark_all_as_read.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), mark_as_read_notification__activity.class);
-				startActivity(nextScreen);
-			
-		
-			}
-		});
+//		_mark_all_as_read.setOnClickListener(new View.OnClickListener() {
+//
+//			public void onClick(View v) {
+//
+//				Intent nextScreen = new Intent(getApplicationContext(), mark_as_read_notification__activity.class);
+//				startActivity(nextScreen);
+//
+//
+//			}
+//		});
 		
 		
 		_vector_ek15.setOnClickListener(new View.OnClickListener() {

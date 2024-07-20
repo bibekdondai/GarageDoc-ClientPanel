@@ -93,110 +93,7 @@
 				android:textColor="@color/rectangle_1_color"
 				android:textSize="20sp" />
 
-			<TextView
-				android:id="@+id/choose_bike_color_"
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"
-				android:layout_below="@+id/number_plate_"
-				android:layout_alignParentStart="true"
-				android:layout_alignParentEnd="true"
-				android:layout_marginStart="10dp"
-				android:layout_marginTop="17dp"
-				android:layout_marginEnd="214dp"
-				android:text="@string/choose_bike_color__string"
-				android:textColor="@color/rectangle_1_color"
-				android:textSize="20sp" />
-
-			<View
-				android:id="@+id/rectangle_97"
-				android:layout_width="108dp"
-				android:layout_height="37dp"
-				android:layout_below="@+id/choose_bike_color_"
-				android:layout_alignParentStart="true"
-				android:layout_alignParentEnd="true"
-				android:layout_marginStart="49dp"
-				android:layout_marginTop="17dp"
-				android:layout_marginEnd="254dp"
-				android:background="@drawable/rectangle_97_shape" />
-
-			<View
-				android:id="@+id/rectangle_98"
-				android:layout_width="108dp"
-				android:layout_height="37dp"
-				android:layout_below="@+id/number_plate_"
-				android:layout_alignParentStart="true"
-				android:layout_alignParentEnd="true"
-				android:layout_marginStart="197dp"
-				android:layout_marginTop="53dp"
-				android:layout_marginEnd="106dp"
-				android:background="@drawable/rectangle_98_shape" />
-
-			<View
-				android:id="@+id/rectangle_100"
-				android:layout_width="108dp"
-				android:layout_height="37dp"
-				android:layout_below="@+id/rectangle_98"
-				android:layout_alignParentStart="true"
-				android:layout_alignParentEnd="true"
-				android:layout_marginStart="197dp"
-				android:layout_marginTop="25dp"
-				android:layout_marginEnd="106dp"
-				android:alpha="0.66000002622604"
-				android:background="@drawable/rectangle_100_shape" />
-
-			<View
-				android:id="@+id/rectangle_99"
-				android:layout_width="108dp"
-				android:layout_height="37dp"
-				android:layout_below="@+id/rectangle_97"
-				android:layout_alignParentStart="true"
-				android:layout_alignParentEnd="true"
-				android:layout_marginStart="49dp"
-				android:layout_marginTop="21dp"
-				android:layout_marginEnd="254dp"
-				android:background="@drawable/rectangle_99_shape" />
-
-			<TextView
-				android:id="@+id/black"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="78dp"
-				android:layout_marginTop="508dp"
-				android:text="@string/black_string"
-				android:textColor="@color/_bg__extra_page__ek2_color"
-				android:textSize="20sp" />
-
-			<TextView
-				android:id="@+id/blue"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="232dp"
-				android:layout_marginTop="508dp"
-				android:text="@string/blue_string"
-				android:textColor="@color/_bg__extra_page__ek2_color"
-				android:textSize="20sp" />
-
-			<TextView
-				android:id="@+id/red"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="84dp"
-				android:layout_marginTop="566dp"
-				android:text="@string/red_string"
-				android:textColor="@color/_bg__extra_page__ek2_color"
-				android:textSize="20sp" />
-
-			<TextView
-				android:id="@+id/orange"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="213dp"
-				android:layout_marginTop="571dp"
-				android:text="@string/orange_string"
-				android:textColor="@color/_bg__extra_page__ek2_color"
-				android:textSize="20sp" />
-
-			<EditText
+			<Spinner
 				android:id="@+id/bikeModelEditText"
 				android:layout_width="182dp"
 				android:layout_height="35dp"
@@ -230,14 +127,13 @@
 			<Button
 				android:id="@+id/done"
 				android:layout_width="200dp"
-				android:layout_height="35dp"
-				android:layout_below="@+id/rectangle_100"
+				android:layout_height="45dp"
+				android:layout_below="@+id/plateNumberEditText"
 				android:layout_alignParentStart="true"
 				android:layout_alignParentEnd="true"
 				android:layout_marginStart="90dp"
 				android:layout_marginTop="19dp"
 				android:layout_marginEnd="103dp"
-
 				android:text="@string/done_string"
 				android:textColor="@color/rectangle_1_color"
 				android:textSize="15sp" />
