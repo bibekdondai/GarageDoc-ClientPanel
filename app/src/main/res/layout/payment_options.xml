@@ -3,8 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="wrap_content"
 	android:layout_height="match_parent"
-	android:background="@drawable/_bg__slash_page_6_ek2_shape"
-	>
+	android:background="@drawable/bg_with_color_overlay">
 
 	<RelativeLayout android:id="@+id/content_container"
 		android:layout_width="wrap_content"
@@ -229,55 +228,11 @@
 				android:id="@+id/frame_23_ek8"
 				android:layout_width="match_parent"
 				android:layout_height="50dp"
-
-
 				android:layout_alignParentBottom="true"
-
-
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="6dp"
 				android:layout_marginBottom="19dp"
 				android:background="@drawable/rectangle_1_ek10_shape">
-
-				<TextView
-					android:id="@+id/home_ek9"
-					android:layout_width="67.5dp"
-					android:layout_height="28.5dp"
-					android:layout_marginLeft="20dp"
-					android:layout_marginTop="40dp"
-					android:text="@string/home_ek9_string"
-					android:textColor="@color/rectangle_1_color"
-					android:textSize="15sp" />
-
-				<TextView
-					android:id="@+id/notification_ek16"
-					android:layout_width="110.5dp"
-					android:layout_height="28.5dp"
-					android:layout_marginLeft="88dp"
-					android:layout_marginTop="40dp"
-					android:text="@string/notification_ek16_string"
-					android:textColor="@color/rectangle_1_color"
-					android:textSize="15sp" />
-
-				<TextView
-					android:id="@+id/call_ek10"
-					android:layout_width="57.5dp"
-					android:layout_height="28.5dp"
-					android:layout_marginLeft="205dp"
-					android:layout_marginTop="41dp"
-					android:text="@string/call_ek10_string"
-					android:textColor="@color/rectangle_1_color"
-					android:textSize="15sp" />
-
-				<TextView
-					android:id="@+id/setting_ek9"
-					android:layout_width="76.5dp"
-					android:layout_height="28.5dp"
-					android:layout_marginLeft="280dp"
-					android:layout_marginTop="41dp"
-					android:text="@string/setting_ek9_string"
-					android:textColor="@color/rectangle_1_color"
-					android:textSize="15sp" />
 
 				<ImageView
 					android:id="@+id/vector_ek64"

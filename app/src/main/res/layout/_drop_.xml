@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="wrap_content"
 	android:layout_height="match_parent"
-	android:background="@drawable/_bg__slash_page_6_ek2_shape">
+	android:background="@drawable/bg_with_color_overlay">
 
 	<RelativeLayout
 		android:id="@+id/content_container"
@@ -161,7 +161,14 @@
 			android:id="@+id/mapView"
 			android:layout_width="match_parent"
 			android:layout_height="480dp"
-			android:layout_marginTop="265dp"/>
+			android:layout_above="@+id/rectangle_29_ek1"
+			android:layout_below="@+id/rectangle_2_ek3"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentEnd="true"
+			android:layout_marginStart="0dp"
+			android:layout_marginTop="1dp"
+			android:layout_marginEnd="0dp"
+			android:layout_marginBottom="12dp" />
 
 	</RelativeLayout>
 </FrameLayout>

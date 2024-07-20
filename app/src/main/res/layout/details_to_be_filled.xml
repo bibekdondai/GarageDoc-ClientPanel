@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/_bg____drop__ek2_shape">
+    android:background="@drawable/bg_with_color_overlay">
 
     <RelativeLayout
         android:id="@+id/_bg__details_to_be_filled_ek2"
@@ -322,7 +322,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="15dp"
             android:layout_marginTop="75dp"
-            android:background="@drawable/orange" />
+             />
 
         <TextView
             android:id="@+id/pending"

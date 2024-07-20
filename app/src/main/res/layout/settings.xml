@@ -1,27 +1,8 @@
-<!--<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"-->
-<!--	android:layout_width="match_parent" android:layout_height="wrap_content" >-->
-<!--	&lt;!&ndash; -->
-<!--	/*-->
-<!--	 *	This content is generated from the API File Info.-->
-<!--	 *	(Alt+Shift+Ctrl+I).-->
-<!--	 *-->
-<!--	 *	@desc 		-->
-<!--	 *	@file 		extra_page_-->
-<!--	 *	@date 		Monday 17th of June 2024 06:12:58 PM-->
-<!--	 *	@title 		Page 1-->
-<!--	 *	@author 	-->
-<!--	 *	@keywords 	-->
-<!--	 *	@generator 	Export Kit v1.3.figma-->
-<!--	 *-->
-<!--	 */-->
-<!--	&ndash;&gt;-->
-
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@drawable/_bg__vehicle_info_ek2_shape">
+	android:background="@drawable/bg_with_color_overlay">
 
 	<ScrollView android:id="@+id/settings" 
 		android:layout_width="wrap_content" 
@@ -31,23 +12,12 @@
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content" >
 
-
-
-
-
 			<RelativeLayout android:id="@+id/page_settings_ek1"
 				android:layout_marginTop="0dp"
 				android:layout_marginStart="0dp"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				>
-
-<!--				<View   android:id="@+id/_bg__settings_ek2"-->
-<!--					android:background="@drawable/_bg__add_bike_scooter_ek2_shape"-->
-<!--					 android:layout_marginStart="0dp"-->
-<!--					android:layout_marginTop="0dp"-->
-<!--					android:layout_width="360dp"-->
-<!--					android:layout_height="800dp" />-->
 
 				<View
 					android:id="@+id/rectangle_1_ek2"
