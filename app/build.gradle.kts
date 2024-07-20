@@ -53,6 +53,7 @@ dependencies {
 
 
     implementation ("com.google.firebase:firebase-core:21.1.1")
+    implementation("com.google.android.gms:play-services-maps:19.0.0")
 
 
     testImplementation("junit:junit:4.13.2")

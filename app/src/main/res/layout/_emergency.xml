@@ -9,12 +9,6 @@
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent" >
 
-
-
-
-
-
-
 		<RelativeLayout android:id="@+id/page___emergency_ek1"
 			android:layout_marginTop="0dp"
 			android:layout_marginStart="0dp"
@@ -88,7 +82,7 @@
 				android:layout_alignParentEnd="true"
 				android:layout_marginStart="50dp"
 				android:layout_marginEnd="57dp"
-				android:layout_marginBottom="-450dp"
+				android:layout_marginBottom="-490dp"
 				android:background="@drawable/rectangle_29_shape" />
 
 			<TextView
@@ -120,7 +114,6 @@
 
 			<TextView
 				android:id="@+id/contact_details"
-
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_alignTop="@+id/rectangle_30"
@@ -136,12 +129,9 @@
 				android:id="@+id/frame_23_ek16"
 				android:layout_width="match_parent"
 				android:layout_height="50dp"
-
-
 				android:layout_alignParentBottom="true"
 				android:layout_centerHorizontal="true"
 				android:layout_marginStart="6dp"
-
 				android:layout_marginTop="500dp"
 				android:layout_marginBottom="20dp"
 				android:background="@drawable/rectangle_1_ek10_shape">
@@ -192,30 +182,13 @@
 				android:contentDescription="_vector_ek51"
 				android:src="@drawable/_vector_ek51" />
 
+			<com.google.android.gms.maps.MapView
+				android:id="@+id/mapView2"
+				android:layout_width="match_parent"
+				android:layout_height="460dp"
+				android:layout_marginTop="275dp"/>
+
 		</RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	</RelativeLayout>
 
