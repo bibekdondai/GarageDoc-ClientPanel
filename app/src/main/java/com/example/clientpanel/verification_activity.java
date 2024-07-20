@@ -47,7 +47,7 @@ public class verification_activity extends Activity {
 		setContentView(R.layout.verification);
 
 		
-		_bg__verification_ek2 = (View) findViewById(R.id._bg__verification_ek2);
+
 		_rectangle_30_ek1 = (View) findViewById(R.id._rectangle_30_ek1);
 		verify_phone = (TextView) findViewById(R.id.verify_phone);
 		didn_t_receive_a_code__click = (TextView) findViewById(R.id.didn_t_receive_a_code__click);

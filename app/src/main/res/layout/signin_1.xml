@@ -14,7 +14,7 @@
 
 		<RelativeLayout
 			android:id="@+id/page_signin_1_ek1"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="0dp"
 			android:layout_marginStart="0dp">
@@ -36,7 +36,7 @@
 				android:id="@+id/terms_and_conditions___privacy_policy_ek1"
 				android:layout_width="280dp"
 				android:layout_height="31dp"
-				android:layout_marginStart="44dp"
+				android:layout_marginStart="74dp"
 				android:layout_marginTop="644dp"
 				android:gravity="center"
 				android:text="@string/terms_and_conditions___privacy_policy_ek1_string"
@@ -47,20 +47,12 @@
 				android:id="@+id/use_mobile_number_instead"
 				android:layout_width="214dp"
 				android:layout_height="30dp"
-				android:layout_marginStart="161dp"
+				android:layout_marginStart="195dp"
 				android:layout_marginTop="266dp"
 				android:text="Use Phone Instead!"
 				android:textColor="@color/black"
 				android:textSize="16sp" />
 
-			<ImageView
-				android:id="@+id/line_13_ek1"
-				android:layout_width="308dp"
-				android:layout_height="1dp"
-				android:layout_marginStart="30dp"
-				android:layout_marginTop="261dp"
-				android:src="@drawable/line_13_ek1"
-				android:contentDescription="line_13_ek1" />
 
 			<EditText
 				android:id="@+id/email_address"

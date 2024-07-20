@@ -75,7 +75,7 @@ public class _emergency_activity extends Activity {
 //		setting_ek6 = (TextView) findViewById(R.id.setting_ek6);
 //		vector_ek46 = (ImageView) findViewById(R.id.vector_ek46);
 //		vector_ek47 = (ImageView) findViewById(R.id.vector_ek47);
-		_vector_ek48 = (ImageView) findViewById(R.id._vector_ek48);
+
 		vector_ek49 = (ImageView) findViewById(R.id.vector_ek49);
 		_vector_ek50 = (ImageView) findViewById(R.id._vector_ek50);
 		_vector_ek51 = (ImageView) findViewById(R.id._vector_ek51);

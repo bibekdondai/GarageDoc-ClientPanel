@@ -151,7 +151,7 @@
 					android:alpha="0.6"
 					android:hint="@string/birthday_string"
 					android:textColor="@color/rectangle_1_color"
-					android:textSize="25sp" />
+					android:textSize="20sp" />
 
 				<View
 					android:id="@+id/rectangle_22"
@@ -179,7 +179,7 @@
 					android:hint="@string/gender_string"
 					android:autofillHints=""
 					android:textColor="@color/rectangle_1_color"
-					android:textSize="25sp" />
+					android:textSize="20sp" />
 
 				<View
 					android:id="@+id/_rectangle_25"

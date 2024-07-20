@@ -68,7 +68,7 @@ public class payment_options_activity extends Activity {
 		setContentView(R.layout.payment_options);
 
 		
-		_bg__payment_options_ek3 = (View) findViewById(R.id._bg__payment_options_ek3);
+
 		rectangle_1_ek6 = (View) findViewById(R.id.rectangle_1_ek6);
 		payment_methods = (TextView) findViewById(R.id.payment_methods);
 		rectangle_2_ek2 = (View) findViewById(R.id.rectangle_2_ek2);
@@ -86,16 +86,14 @@ public class payment_options_activity extends Activity {
 		bank_ek1 = (ImageView) findViewById(R.id.bank_ek1);
 		cash_on_delivery = (TextView) findViewById(R.id.cash_on_delivery);
 		cash_on_delivery_ek1 = (ImageView) findViewById(R.id.cash_on_delivery_ek1);
-		rectangle_26_ek1 = (View) findViewById(R.id.rectangle_26_ek1);
-		next_ek1 = (TextView) findViewById(R.id.next_ek1);
+
 		_back_arrow_ek2 = (ImageView) findViewById(R.id._back_arrow_ek2);
 		home_ek9 = (TextView) findViewById(R.id.home_ek9);
 		notification_ek16 = (TextView) findViewById(R.id.notification_ek16);
 		call_ek10 = (TextView) findViewById(R.id.call_ek10);
 		setting_ek9 = (TextView) findViewById(R.id.setting_ek9);
 		vector_ek64 = (ImageView) findViewById(R.id.vector_ek64);
-		vector_ek65 = (ImageView) findViewById(R.id.vector_ek65);
-		_vector_ek66 = (ImageView) findViewById(R.id._vector_ek66);
+
 		vector_ek67 = (ImageView) findViewById(R.id.vector_ek67);
 		_vector_ek68 = (ImageView) findViewById(R.id._vector_ek68);
 		_vector_ek69 = (ImageView) findViewById(R.id._vector_ek69);

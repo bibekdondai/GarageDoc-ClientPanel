@@ -69,19 +69,14 @@ public class extra_page__activity extends Activity {
 		setContentView(R.layout.extra_page_);
 
 		
-		_bg__extra_page__ek2 = (View) findViewById(R.id._bg__extra_page__ek2);
 		rectangle_1 = (View) findViewById(R.id.rectangle_1);
-		rectangle_2 = (View) findViewById(R.id.rectangle_2);
-		rectangle_3 = (View) findViewById(R.id.rectangle_3);
-		rectangle_4 = (View) findViewById(R.id.rectangle_4);
-		rectangle_5 = (View) findViewById(R.id.rectangle_5);
-		rectangle_6 = (View) findViewById(R.id.rectangle_6);
+
 		customer_care = (TextView) findViewById(R.id.customer_care);
 		payment_options = (TextView) findViewById(R.id.payment_options);
 		reviews = (TextView) findViewById(R.id.reviews);
 		delete_account = (TextView) findViewById(R.id.delete_account);
-		rectangle_26 = (View) findViewById(R.id.rectangle_26);
-		next = (TextView) findViewById(R.id.next);
+
+
 		_986238999 = (TextView) findViewById(R.id._986238999);
 		order_history = (ImageView) findViewById(R.id.order_history);
 		customer_support = (ImageView) findViewById(R.id.customer_support);
@@ -96,8 +91,7 @@ public class extra_page__activity extends Activity {
 		call = (TextView) findViewById(R.id.call);
 		setting = (TextView) findViewById(R.id.setting);
 		vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
-		vector_ek2 = (ImageView) findViewById(R.id.vector_ek2);
-		_vector_ek3 = (ImageView) findViewById(R.id._vector_ek3);
+
 		vector_ek4 = (ImageView) findViewById(R.id.vector_ek4);
 		_vector_ek5 = (ImageView) findViewById(R.id._vector_ek5);
 		_vector_ek6 = (ImageView) findViewById(R.id._vector_ek6);

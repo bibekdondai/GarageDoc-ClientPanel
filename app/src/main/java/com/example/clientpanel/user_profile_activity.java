@@ -73,7 +73,7 @@ public class user_profile_activity extends Activity {
 		setContentView(R.layout.user_profile);
 
 		
-		_bg__user_profile_ek2 = (View) findViewById(R.id._bg__user_profile_ek2);
+
 
 		vector_ek111 = (ImageView) findViewById(R.id.vector_ek111);
 		user_profile_ek3 = (TextView) findViewById(R.id.user_profile_ek3);

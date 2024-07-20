@@ -94,62 +94,7 @@ public class details_to_be_filled_activity extends Activity {
 
 		
 		_bg__details_to_be_filled_ek2 = (View) findViewById(R.id._bg__details_to_be_filled_ek2);
-		signal_ek1 = (View) findViewById(R.id.signal_ek1);
-		ca_ek2 = (TextView) findViewById(R.id.ca_ek2);
-		vehicle_details_ = (TextView) findViewById(R.id.vehicle_details_);
-		line_19 = (View) findViewById(R.id.line_19);
-		vehicle_number_ = (TextView) findViewById(R.id.vehicle_number_);
-		text = (TextView) findViewById(R.id.text);
-		text_ek1 = (TextView) findViewById(R.id.text_ek1);
-		text_ek2 = (TextView) findViewById(R.id.text_ek2);
-		text_ek3 = (TextView) findViewById(R.id.text_ek3);
-		text_ek4 = (TextView) findViewById(R.id.text_ek4);
-		text_ek6 = (TextView) findViewById(R.id.text_ek6);
-		text_ek7 = (TextView) findViewById(R.id.text_ek7);
-		text_ek9 = (TextView) findViewById(R.id.text_ek9);
-		text_ek10 = (TextView) findViewById(R.id.text_ek10);
-		text_ek12 = (TextView) findViewById(R.id.text_ek12);
-		hhhh = (TextView) findViewById(R.id.hhhh);
-		text_ek13 = (TextView) findViewById(R.id.text_ek13);
-		text_ek14 = (TextView) findViewById(R.id.text_ek14);
-		text_ek15 = (TextView) findViewById(R.id.text_ek15);
-		text_ek16 = (TextView) findViewById(R.id.text_ek16);
-		text_ek17 = (TextView) findViewById(R.id.text_ek17);
-		text_ek18 = (TextView) findViewById(R.id.text_ek18);
-		text_ek20 = (TextView) findViewById(R.id.text_ek20);
-		text_ek21 = (TextView) findViewById(R.id.text_ek21);
-		text_ek23 = (TextView) findViewById(R.id.text_ek23);
-		text_ek24 = (TextView) findViewById(R.id.text_ek24);
-		text_ek26 = (TextView) findViewById(R.id.text_ek26);
-		hhhh_ek1 = (TextView) findViewById(R.id.hhhh_ek1);
-		text_ek27 = (TextView) findViewById(R.id.text_ek27);
-		rectangle_80 = (View) findViewById(R.id.rectangle_80);
-		line_20 = (View) findViewById(R.id.line_20);
-		rectangle_80_ek1 = (View) findViewById(R.id.rectangle_80_ek1);
-		rectangle_76_ek1 = (View) findViewById(R.id.rectangle_76_ek1);
-		rectangle_81 = (View) findViewById(R.id.rectangle_81);
-		rectangle_82 = (View) findViewById(R.id.rectangle_82);
-		cancelled_ek1 = (TextView) findViewById(R.id.cancelled_ek1);
-		pending_ek1 = (TextView) findViewById(R.id.pending_ek1);
-		process_ek1 = (TextView) findViewById(R.id.process_ek1);
-		delivered_ek1 = (TextView) findViewById(R.id.delivered_ek1);
-		rectangle_92 = (View) findViewById(R.id.rectangle_92);
-		image_1 = (ImageView) findViewById(R.id.image_1);
-		add_part_name___services = (TextView) findViewById(R.id.add_part_name___services);
-		changes_to_be_made_from_showroom_side = (TextView) findViewById(R.id.changes_to_be_made_from_showroom_side);
-		_rectangle_60_ek1 = (View) findViewById(R.id._rectangle_60_ek1);
-		pay = (TextView) findViewById(R.id.pay);
-		home_ek11 = (TextView) findViewById(R.id.home_ek11);
-		notification_ek18 = (TextView) findViewById(R.id.notification_ek18);
-		call_ek12 = (TextView) findViewById(R.id.call_ek12);
-		setting_ek11 = (TextView) findViewById(R.id.setting_ek11);
-		vector_ek76 = (ImageView) findViewById(R.id.vector_ek76);
-		vector_ek77 = (ImageView) findViewById(R.id.vector_ek77);
-		_vector_ek78 = (ImageView) findViewById(R.id._vector_ek78);
-		vector_ek79 = (ImageView) findViewById(R.id.vector_ek79);
-		_vector_ek80 = (ImageView) findViewById(R.id._vector_ek80);
-		_vector_ek81 = (ImageView) findViewById(R.id._vector_ek81);
-	
+
 		
 		_rectangle_60_ek1.setOnClickListener(new View.OnClickListener() {
 		

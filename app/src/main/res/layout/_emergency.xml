@@ -185,8 +185,15 @@
 			<com.google.android.gms.maps.MapView
 				android:id="@+id/mapView2"
 				android:layout_width="match_parent"
-				android:layout_height="460dp"
-				android:layout_marginTop="275dp"/>
+				android:layout_height="480dp"
+				android:layout_above="@+id/rectangle_29"
+				android:layout_below="@+id/rectangle_2_ek1"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentEnd="true"
+				android:layout_marginStart="0dp"
+				android:layout_marginTop="1dp"
+				android:layout_marginEnd="0dp"
+				android:layout_marginBottom="12dp" />
 
 		</RelativeLayout>
 

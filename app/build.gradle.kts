@@ -37,7 +37,6 @@ android {
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
@@ -48,13 +47,13 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:21.0.0")
     implementation("com.google.firebase:firebase-inappmessaging-display:21.0.0")
     implementation("com.google.firebase:firebase-analytics:22.0.1")
-//    implementation ("com.google.firebase:firebase-auth:23.0.0")
-//    implementation 'com.google.firebase:firebase-database:23.0.0'
+    implementation("org.videolan.android:libvlc-all:3.3.13")
+    implementation("org.videolan.android:vlc-android-sdk:3.3.13")
+    implementation("com.github.bumptech.glide:glide:4.12.0") // Corrected Glide dependency
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0") // Add annotation processor for Glide
 
-
-    implementation ("com.google.firebase:firebase-core:21.1.1")
+    implementation("com.google.firebase:firebase-core:21.1.1")
     implementation("com.google.android.gms:play-services-maps:19.0.0")
-
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

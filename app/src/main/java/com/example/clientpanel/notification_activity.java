@@ -57,7 +57,7 @@ public class notification_activity extends Activity {
 		setContentView(R.layout.notification);
 
 		
-		_bg__notification_ek6 = (View) findViewById(R.id._bg__notification_ek6);
+
 		rectangle_5_ek2 = (View) findViewById(R.id.rectangle_5_ek2);
 		rectangle_7_ek1 = (View) findViewById(R.id.rectangle_7_ek1);
 		_25__discount_on_oil_change__ek1 = (TextView) findViewById(R.id._25__discount_on_oil_change__ek1);
@@ -67,12 +67,7 @@ public class notification_activity extends Activity {
 		notification_ek8 = (ImageView) findViewById(R.id.notification_ek8);
 		_mark_all_as_read = (TextView) findViewById(R.id._mark_all_as_read);
 		your_vehicle_is_ready_to_pickup__ek1 = (TextView) findViewById(R.id.your_vehicle_is_ready_to_pickup__ek1);
-		home_ek2 = (TextView) findViewById(R.id.home_ek2);
-		notification_ek9 = (TextView) findViewById(R.id.notification_ek9);
-		call_ek3 = (TextView) findViewById(R.id.call_ek3);
-		setting_ek2 = (TextView) findViewById(R.id.setting_ek2);
-		vector_ek13 = (ImageView) findViewById(R.id.vector_ek13);
-		vector_ek14 = (ImageView) findViewById(R.id.vector_ek14);
+
 		_vector_ek15 = (ImageView) findViewById(R.id._vector_ek15);
 		vector_ek16 = (ImageView) findViewById(R.id.vector_ek16);
 		_vector_ek17 = (ImageView) findViewById(R.id._vector_ek17);
