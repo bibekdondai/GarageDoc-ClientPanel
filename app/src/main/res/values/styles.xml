@@ -20,6 +20,12 @@
 		<item name="android:imeOptions">actionNext</item>
 		<item name="android:padding">8dp</item>
 	</style>
+	<string-array name="token_times_array">
+		<item>30 minutes</item>
+		<item>1 hour</item>
+		<item>2 hours</item>
+		<item>4 hours</item>
+	</string-array>
 
 
 </resources>
