@@ -21,14 +21,17 @@ import android.app.Activity;
 import android.os.Bundle;
 
 
+import android.util.Log;
 import android.view.View;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.content.Intent;
 
 public class details_to_be_filled_activity extends Activity {
 
-	
+
 	private View _bg__details_to_be_filled_ek2;
 	private View signal_ek1;
 	private TextView ca_ek2;
@@ -86,67 +89,44 @@ public class details_to_be_filled_activity extends Activity {
 	private ImageView _vector_ek80;
 	private ImageView _vector_ek81;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
 
+	// Inside details_to_be_filled Activity
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.details_to_be_filled);
 
-		
-		_bg__details_to_be_filled_ek2 = (View) findViewById(R.id._bg__details_to_be_filled_ek2);
+		// Retrieve the TableLayout
+		TableLayout upperTable = findViewById(R.id.upper_table);
 
-		
-		_rectangle_60_ek1.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), payment_options_activity.class);
-				startActivity(nextScreen);
-			
-		
-			}
-		});
-		
-		
-		_vector_ek78.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), landing_home_page_1_activity.class);
-				startActivity(nextScreen);
-			
-		
-			}
-		});
-		
-		
-		_vector_ek80.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), settings_activity.class);
-				startActivity(nextScreen);
-			
-		
-			}
-		});
-		
-		
-		_vector_ek81.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), notification_activity.class);
-				startActivity(nextScreen);
-			
-		
-			}
-		});
-		
-		
-		//custom code goes here
-	
+		// Get data from Intent
+		Intent intent = getIntent();
+		String[] partNames = intent.getStringArrayExtra("partNames");
+		String[] prices = intent.getStringArrayExtra("prices");
+		String[] remarks = intent.getStringArrayExtra("remarks");
+
+		// Add rows dynamically
+		for (int i = 0; i < partNames.length; i++) {
+			TableRow row = new TableRow(this);
+
+			TextView partNameTextView = new TextView(this);
+			partNameTextView.setPadding(8, 8, 8, 8);
+			partNameTextView.setText(partNames[i]);
+
+			TextView priceTextView = new TextView(this);
+			priceTextView.setPadding(8, 8, 8, 8);
+			priceTextView.setText(prices[i]);
+
+			TextView remarksTextView = new TextView(this);
+			remarksTextView.setPadding(8, 8, 8, 8);
+			remarksTextView.setText(remarks[i]);
+
+			row.addView(partNameTextView);
+			row.addView(priceTextView);
+			row.addView(remarksTextView);
+
+			upperTable.addView(row);
+		}
 	}
 }
-	
-	
+

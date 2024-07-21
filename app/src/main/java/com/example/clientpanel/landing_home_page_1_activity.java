@@ -231,4 +231,12 @@ public class landing_home_page_1_activity extends FragmentActivity {
 //		dismiss();
 //		// Dismiss the bottom sheet after starting the activity
 //	}
+private void navigateToservices() {
+	Intent intent = new Intent(landing_home_page_1_activity.this, services_activity.class);
+	intent.putExtra("emailAddress", emailAddress);
+	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
+	startActivity(intent);
+	finish(); // Finish current activity to prevent back button from returning here
 }
+}
+

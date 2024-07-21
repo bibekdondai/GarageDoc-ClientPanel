@@ -82,6 +82,7 @@ public class password_activity extends Activity {
 
 	private void navigateToLandingPage() {
 		Intent intent = new Intent(password_activity.this, landing_home_page_1_activity.class);
+		intent.putExtra("emailAddress", emailAddress);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
 		startActivity(intent);
 		finish(); // Finish current activity to prevent back button from returning here
