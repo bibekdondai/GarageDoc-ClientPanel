@@ -5,9 +5,6 @@
 	android:layout_height="match_parent"
 	android:background="@drawable/bg_with_color_overlay"
 	>
-	<ScrollView android:id="@+id/starting_page" 
-		android:layout_width="wrap_content" 
-		android:layout_height="match_parent" >
 
 
 			<RelativeLayout android:id="@+id/page_starting_page_ek1"
@@ -68,8 +65,8 @@
 					<ImageView android:id="@+id/ellipse_1"
 						android:src="@drawable/ellipse_1"
 						android:contentDescription="ellipse_1"
-						 android:layout_marginStart="-73dp"
-						android:layout_marginTop="-80dp"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
 						android:layout_width="505dp"
 						android:layout_height="475dp"
 						android:scaleType="fitXY"
@@ -102,13 +99,4 @@
 
 			</RelativeLayout>
 
-
-
-
-
-
-
-
-
-	</ScrollView>
 </FrameLayout>

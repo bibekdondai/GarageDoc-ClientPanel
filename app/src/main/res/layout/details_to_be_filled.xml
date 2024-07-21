@@ -227,8 +227,8 @@
 
         <EditText
             android:id="@+id/txt_model"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="1dp"
@@ -237,8 +237,8 @@
 
         <EditText
             android:id="@+id/txt_vehicleno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_marginStart="35dp"
             android:layout_marginTop="40dp"
             android:layout_toEndOf="@+id/txt_2"
@@ -253,4 +253,6 @@
 
 
     </RelativeLayout>
+
 </ScrollView>
+

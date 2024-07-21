@@ -69,9 +69,9 @@ public class fqas_activity extends Activity {
 //		setting_ek3 = (TextView) findViewById(R.id.setting_ek3);
 //		vector_ek19 = (ImageView) findViewById(R.id.vector_ek19);
 //		vector_ek20 = (ImageView) findViewById(R.id.vector_ek20);
-		_vector_ek21 = (ImageView) findViewById(R.id._vector_ek21);
-		vector_ek22 = (ImageView) findViewById(R.id.vector_ek22);
-		_vector_ek23 = (ImageView) findViewById(R.id._vector_ek23);
+		_vector_ek21 = (ImageView) findViewById(R.id.vector_ek46);
+		vector_ek22 = (ImageView) findViewById(R.id.vector_ek49);
+		_vector_ek23 = (ImageView) findViewById(R.id._vector_ek51);
 //		vector_ek24 = (ImageView) findViewById(R.id.vector_ek24);
 	
 		

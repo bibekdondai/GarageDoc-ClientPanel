@@ -38,7 +38,7 @@ public class landing_home_page_1_activity extends FragmentActivity {
 	private TextView bookings;
 	private ImageView vector_ek124;
 	private ImageView vector_ek125;
-	private ImageView _vector_ek126;
+	private ImageView _vector_ek126, home, setting, call, notification;
 	private ImageView _vector_ek127;
 	private ImageView vector_ek128;
 	private ImageView vector_ek129;
@@ -92,22 +92,30 @@ public class landing_home_page_1_activity extends FragmentActivity {
 		vector_ek121 = findViewById(R.id.vector_ek121);
 		add_vehicles_ek1 = findViewById(R.id.add_vehicles_ek1);
 		bookings = findViewById(R.id.bookings);
-		vector_ek124 = findViewById(R.id.vector_ek124);
-		vector_ek125 = findViewById(R.id.vector_ek125);
-		_vector_ek126 = findViewById(R.id._vector_ek126);
-		_vector_ek127 = findViewById(R.id._vector_ek127);
+		home = findViewById(R.id.vector_ek46);
+		call = findViewById(R.id.vector_ek49);
+		setting = findViewById(R.id._vector_ek50);
+		notification= findViewById(R.id._vector_ek51);
 
 		vector_ek129 = findViewById(R.id.vector_ek129);
 	}
 
 	private void setClickListeners() {
-		_vector_ek126.setOnClickListener(v -> {
-			startActivity(new Intent(getApplicationContext(), settings_activity.class));
+		setting.setOnClickListener(v -> {
+			Intent intent = new Intent(landing_home_page_1_activity.this, settings_activity.class);
+			startActivity(intent);
 		});
 
-		_vector_ek127.setOnClickListener(v -> {
-			startActivity(new Intent(getApplicationContext(), notification_activity.class));
+
+		notification.setOnClickListener(v -> {
+			Intent intent = new Intent(landing_home_page_1_activity.this, notification_activity.class);
+			startActivity(intent);
 		});
+
+
+//		call.setOnClickListener(v -> {
+//			startActivity(new Intent(getApplicationContext(), call_popup_activity.class));
+//		});
 
 		repair_removebg_preview_1.setOnClickListener(v -> {
 			startActivity(new Intent(getApplicationContext(), services_activity.class));
@@ -119,8 +127,6 @@ public class landing_home_page_1_activity extends FragmentActivity {
 
 		vector_ek119.setOnClickListener(v -> {
 			more_option_activity dialog = new more_option_activity();
-
-
 			dialog.show(getSupportFragmentManager(), "MoreOptionsBottomSheet");
 		});
 

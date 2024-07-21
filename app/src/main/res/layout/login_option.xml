@@ -2,19 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
-    android:background="@drawable/bg_with_color_overlay"
-    >
+    android:background="@drawable/_bg__bike_scooter_details_ek2_shape">
 
-    <View
-        android:id="@+id/bg_login_option"
-        android:layout_width="360dp"
-        android:layout_height="233dp"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:focusable="true" />
 
     <LinearLayout
-        android:background="@drawable/bg_with_color_overlay"
 
         android:id="@+id/options_container"
         android:layout_width="match_parent"
@@ -25,15 +16,15 @@
         android:elevation="8dp">
 
         <TextView
-            android:background="@drawable/_bg__add_bike_scooter_ek2_shape"
-
             android:id="@+id/login_option"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="16dp"
+            android:background="@drawable/_bg____drop__ek2_shape"
             android:gravity="center"
+            android:paddingVertical="16dp"
             android:text="Login"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <View
@@ -42,7 +33,7 @@
              />
 
         <TextView
-            android:background="@drawable/_bg__add_bike_scooter_ek2_shape"
+            android:background="@drawable/_bg____drop__ek2_shape"
 
             android:id="@+id/signup_option"
             android:layout_width="match_parent"
@@ -50,7 +41,7 @@
             android:paddingVertical="16dp"
             android:gravity="center"
             android:text="Signup"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <View
@@ -59,7 +50,7 @@
              />
 
         <TextView
-            android:background="@drawable/_bg__add_bike_scooter_ek2_shape"
+            android:background="@drawable/_bg____drop__ek2_shape"
 
             android:id="@+id/dismiss"
             android:layout_width="match_parent"
@@ -67,7 +58,7 @@
             android:paddingVertical="16dp"
             android:gravity="center"
             android:text="Dismiss"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
     </LinearLayout>

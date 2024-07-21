@@ -73,15 +73,13 @@ public class status_of_vehicles_activity extends Activity {
 		rectangle_79 = (View) findViewById(R.id.rectangle_79);
 		cancelled = (TextView) findViewById(R.id.cancelled);
 
-		vector_ek40 = (ImageView) findViewById(R.id.vector_ek40);
-		vector_ek41 = (ImageView) findViewById(R.id.vector_ek41);
-		_vector_ek42 = (ImageView) findViewById(R.id._vector_ek42);
-		vector_ek43 = (ImageView) findViewById(R.id.vector_ek43);
-		_vector_ek44 = (ImageView) findViewById(R.id._vector_ek44);
-		_vector_ek45 = (ImageView) findViewById(R.id._vector_ek45);
+		vector_ek40 = (ImageView) findViewById(R.id.vector_ek46);
+		vector_ek43 = (ImageView) findViewById(R.id.vector_ek49);
+		_vector_ek44 = (ImageView) findViewById(R.id._vector_ek50);
+		_vector_ek45 = (ImageView) findViewById(R.id._vector_ek51);
 	
 		
-		_vector_ek42.setOnClickListener(new View.OnClickListener() {
+		vector_ek40.setOnClickListener(new View.OnClickListener() {
 		
 			public void onClick(View v) {
 				

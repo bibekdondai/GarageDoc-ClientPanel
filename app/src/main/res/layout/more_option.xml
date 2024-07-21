@@ -2,7 +2,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:padding="16dp"
-	android:background="@android:color/transparent">
+	android:background="@drawable/_bg__bike_scooter_details_ek2_shape">
 
 	<View
 		android:id="@+id/_bg__more_option_ek2"

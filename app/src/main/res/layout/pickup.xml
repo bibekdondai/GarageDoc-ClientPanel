@@ -2,12 +2,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="@drawable/bg_with_color_overlay">
-
-	<ScrollView android:id="@+id/pickup"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent" >
+	android:layout_height="match_parent">
 
 			<RelativeLayout android:id="@+id/page_pickup_ek1"
 				android:layout_marginTop="0dp"
@@ -15,119 +10,131 @@
 				android:layout_width="wrap_content"
 				android:layout_height="match_parent">
 
-				<View   android:id="@+id/_bg__pickup_ek2"
-					android:background="@drawable/_bg__pickup_ek2_shape"
+				<View
+					android:id="@+id/_bg__pickup_ek2"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:background="@drawable/_bg__pickup_ek2_shape" />
+
+				<View   android:id="@+id/rectangle_2_ek4"
+					android:background="@drawable/_bg__call_popup_ek2_shape"
 					 android:layout_marginStart="0dp"
 					android:layout_marginTop="0dp"
 					android:layout_width="wrap_content"
-					android:layout_height="match_parent" />
-
-				<View   android:id="@+id/rectangle_2_ek4"
-					android:background="@drawable/rectangle_2_ek4_shape"
-					 android:layout_marginStart="-4dp"
-					android:layout_marginTop="-16dp"
-					android:layout_width="wrap_content"
 					android:layout_height="274dp" />
 
-				<View   android:id="@+id/rectangle_28_ek2"
-					android:background="@drawable/rectangle_28_ek2_shape"
-					 android:layout_marginStart="60dp"
-					android:layout_marginTop="212dp"
+				<View
+					android:id="@+id/rectangle_28_ek2"
 					android:layout_width="235dp"
-					android:layout_height="31dp" />
-
-				<View   android:id="@+id/rectangle_29_ek2"
-					android:background="@drawable/rectangle_29_ek2_shape"
-					 android:layout_marginStart="7dp"
-					android:layout_marginTop="677dp"
-					android:layout_width="341dp"
-					android:layout_height="43dp" />
-
-				<TextView android:id="@+id/confirm_location_ek2"
-					android:textStyle="bold"
-					android:textSize="26sp"
-					android:textColor="@color/_bg__extra_page__ek2_color"
-					android:layout_marginLeft="60dp"
-					android:layout_marginTop="677dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="@string/confirm_location_ek2_string" />
-
-				<TextView android:id="@+id/choose_from_map_ek2"
-					android:textStyle="bold"
-					android:textSize="18sp"
-					android:textColor="@color/_bg__extra_page__ek2_color"
-					android:layout_marginLeft="104dp"
-					android:layout_marginTop="215dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="@string/choose_from_map_ek2_string" />
-
-				<ImageView android:id="@+id/rectangle_32"
-					android:src="@drawable/rectangle_32"
-					android:contentDescription="rectangle_32"
-					 android:layout_marginStart="15dp"
+					android:layout_height="31dp"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentTop="true"
+					android:layout_marginStart="80dp"
 					android:layout_marginTop="100dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content" />
+					android:background="@drawable/rectangle_28_ek2_shape" />
 
-				<TextView android:id="@+id/address_street_name_ek2"
-					android:textStyle="bold"
-					android:textSize="18sp"
-					android:textColor="@color/_bg__extra_page__ek2_color"
-					android:layout_marginLeft="38dp"
-					android:layout_marginTop="111dp"
-					android:layout_width="113dp"
-					android:layout_height="44dp"
-					android:text="@string/address_street_name_ek2_string" />
+				<View
+					android:id="@+id/rectangle_29_ek2"
+					android:layout_width="341dp"
+					android:layout_height="43dp"
+					android:layout_below="@+id/rectangle_2_ek4"
 
-				<RelativeLayout android:id="@+id/frame_23_ek12"
-					android:layout_marginTop="729dp"
-					android:layout_marginStart="3dp"
+
+					android:layout_alignParentStart="true"
+					android:layout_marginStart="40dp"
+					android:layout_marginTop="330dp"
+					android:background="@drawable/rectangle_29_ek2_shape" />
+
+				<TextView
+					android:id="@+id/confirm_location_ek2"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:background="@drawable/rectangle_1_ek10_shape">
+					android:layout_alignTop="@+id/rectangle_29_ek2"
+					android:layout_alignEnd="@+id/rectangle_29_ek2"
+					android:layout_marginLeft="60dp"
+					android:layout_marginTop="0dp"
+					android:layout_marginEnd="80dp"
+					android:text="@string/confirm_location_ek2_string"
+					android:textColor="@color/_bg__extra_page__ek2_color"
+					android:textSize="26sp"
+					android:textStyle="bold" />
 
-					<ImageView android:id="@+id/_vector_ek95"
-						android:src="@drawable/_vector_ek95"
-						android:contentDescription="_vector_ek95"
-						 android:layout_marginStart="30dp"
-						android:layout_marginTop="7dp"
-						android:layout_width="29dp"
-						android:layout_height="31dp" />
+				<TextView
+					android:id="@+id/choose_from_map_ek2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@+id/rectangle_28_ek2"
+					android:layout_alignEnd="@+id/rectangle_28_ek2"
+					android:layout_marginLeft="104dp"
+					android:layout_marginTop="1dp"
+					android:layout_marginEnd="60dp"
+					android:text="@string/choose_from_map_ek2_string"
+					android:textColor="@color/_bg__extra_page__ek2_color"
+					android:textSize="18sp"
+					android:textStyle="bold" />
 
-					<ImageView android:id="@+id/vector_ek96"
-						android:src="@drawable/vector_ek96"
-						android:contentDescription="vector_ek96"
-						 android:layout_marginStart="200dp"
-						android:layout_marginTop="7dp"
-						android:layout_width="30dp"
-						android:layout_height="31dp" />
-
-					<ImageView android:id="@+id/_vector_ek97"
-						android:src="@drawable/_vector_ek97"
-						android:contentDescription="_vector_ek97"
-						 android:layout_marginStart="291dp"
-						android:layout_marginTop="7dp"
-						android:layout_width="36dp"
-						android:layout_height="31dp" />
 
 				</RelativeLayout>
-
-				<ImageView android:id="@+id/_vector_ek98"
-					android:src="@drawable/_vector_ek98"
-					android:contentDescription="_vector_ek98"
-					 android:layout_marginStart="121dp"
-					android:layout_marginTop="734dp"
-					android:layout_width="30dp"
-					android:layout_height="36dp" />
-
 				<com.google.android.gms.maps.MapView
 					android:id="@+id/mapView2"
 					android:layout_width="match_parent"
-					android:layout_height="400dp"
+					android:layout_height="300dp"
 					android:layout_marginTop="275dp"/>
-			</RelativeLayout>
+	<RelativeLayout
+		android:id="@+id/frame_23_ek16"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="20dp"
+		android:layout_marginEnd="20dp"
+		android:layout_marginBottom="20dp"
+		android:layout_gravity="bottom|center_horizontal"
+		android:layout_alignParentBottom="true"
+		android:background="@drawable/rectangle_1_ek10_shape">
 
-	</ScrollView>
+		<ImageView
+			android:id="@+id/vector_ek46"
+			android:layout_width="29dp"
+			android:layout_height="31dp"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:layout_marginStart="30dp"
+			android:layout_marginTop="10dp"
+			android:contentDescription="vector_ek46"
+			android:src="@drawable/vector_ek46" />
+
+		<ImageView
+			android:id="@+id/vector_ek49"
+			android:layout_width="30dp"
+			android:layout_height="31dp"
+			android:layout_alignParentTop="true"
+			android:layout_marginStart="183dp"
+			android:layout_marginTop="10dp"
+			android:layout_toEndOf="@+id/vector_ek46"
+			android:contentDescription="vector_ek49"
+			android:src="@drawable/vector_ek49" />
+
+		<ImageView
+			android:id="@+id/_vector_ek50"
+			android:layout_width="36dp"
+			android:layout_height="31dp"
+			android:layout_alignParentTop="true"
+			android:layout_marginStart="70dp"
+			android:layout_marginTop="10dp"
+			android:layout_alignParentEnd="true"
+			android:contentDescription="_vector_ek50"
+			android:src="@drawable/_vector_ek50" />
+		<ImageView
+			android:id="@+id/_vector_ek51"
+			android:layout_width="30dp"
+			android:layout_height="36dp"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentStart="true"
+			android:layout_marginStart="140dp"
+			android:layout_marginTop="10dp"
+			android:contentDescription="_vector_ek51"
+			android:src="@drawable/_vector_ek51" />
+
+	</RelativeLayout>
 	</FrameLayout>

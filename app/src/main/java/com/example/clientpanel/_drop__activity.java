@@ -69,12 +69,12 @@ public class _drop__activity extends Activity {
 //		notification_ek19 = (TextView) findViewById(R.id.notification_ek19);
 //		call_ek13 = (TextView) findViewById(R.id.call_ek13);
 //		setting_ek12 = (TextView) findViewById(R.id.setting_ek12);
-		vector_ek82 = (ImageView) findViewById(R.id.vector_ek82);
+		vector_ek82 = (ImageView) findViewById(R.id.vector_ek46);
 //		vector_ek83 = (ImageView) findViewById(R.id.vector_ek83);
 //		_vector_ek84 = (ImageView) findViewById(R.id._vector_ek84);
-		vector_ek85 = (ImageView) findViewById(R.id.vector_ek85);
-		_vector_ek86 = (ImageView) findViewById(R.id._vector_ek86);
-		_vector_ek87 = (ImageView) findViewById(R.id._vector_ek87);
+		vector_ek85 = (ImageView) findViewById(R.id.vector_ek49);
+		_vector_ek86 = (ImageView) findViewById(R.id._vector_ek50);
+		_vector_ek87 = (ImageView) findViewById(R.id._vector_ek51);
 	
 		
 		_vector_ek84.setOnClickListener(new View.OnClickListener() {

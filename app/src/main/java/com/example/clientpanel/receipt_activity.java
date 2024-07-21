@@ -65,35 +65,7 @@ public class receipt_activity extends Activity {
 		setContentView(R.layout.receipt);
 
 		
-		_bg__receipt_ek2 = (View) findViewById(R.id._bg__receipt_ek2);
-		_10_59 = (TextView) findViewById(R.id._10_59);
-		wi_fi = (ImageView) findViewById(R.id.wi_fi);
-		empty_battery = (ImageView) findViewById(R.id.empty_battery);
-		signal = (ImageView) findViewById(R.id.signal);
-		rectangle_84 = (View) findViewById(R.id.rectangle_84);
-		rectangle_86 = (View) findViewById(R.id.rectangle_86);
-		rectangle_87 = (View) findViewById(R.id.rectangle_87);
-		rectangle_89 = (View) findViewById(R.id.rectangle_89);
-		name_ = (TextView) findViewById(R.id.name_);
-		rectangle_90 = (View) findViewById(R.id.rectangle_90);
-		rectangle_91 = (View) findViewById(R.id.rectangle_91);
-		drop_vehicle_to_my_location_ = (TextView) findViewById(R.id.drop_vehicle_to_my_location_);
-		rectangle_88 = (View) findViewById(R.id.rectangle_88);
-		receipt_ek3 = (TextView) findViewById(R.id.receipt_ek3);
-		bill_no_ = (TextView) findViewById(R.id.bill_no_);
-		date_ = (TextView) findViewById(R.id.date_);
-		vehicle_name_ = (TextView) findViewById(R.id.vehicle_name_);
-		home_ek10 = (TextView) findViewById(R.id.home_ek10);
-		notification_ek17 = (TextView) findViewById(R.id.notification_ek17);
-		call_ek11 = (TextView) findViewById(R.id.call_ek11);
-		setting_ek10 = (TextView) findViewById(R.id.setting_ek10);
-		vector_ek70 = (ImageView) findViewById(R.id.vector_ek70);
-		vector_ek71 = (ImageView) findViewById(R.id.vector_ek71);
-		_vector_ek72 = (ImageView) findViewById(R.id._vector_ek72);
-		vector_ek73 = (ImageView) findViewById(R.id.vector_ek73);
-		_vector_ek74 = (ImageView) findViewById(R.id._vector_ek74);
-		_vector_ek75 = (ImageView) findViewById(R.id._vector_ek75);
-	
+
 		
 		_vector_ek72.setOnClickListener(new View.OnClickListener() {
 		

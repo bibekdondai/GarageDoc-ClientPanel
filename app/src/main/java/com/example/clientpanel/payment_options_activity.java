@@ -89,11 +89,11 @@ public class payment_options_activity extends Activity {
 
 		_back_arrow_ek2 = (ImageView) findViewById(R.id._back_arrow_ek2);
 
-		vector_ek64 = (ImageView) findViewById(R.id.vector_ek64);
+		vector_ek64 = (ImageView) findViewById(R.id.vector_ek46);
 
-		vector_ek67 = (ImageView) findViewById(R.id.vector_ek67);
-		_vector_ek68 = (ImageView) findViewById(R.id._vector_ek68);
-		_vector_ek69 = (ImageView) findViewById(R.id._vector_ek69);
+		vector_ek67 = (ImageView) findViewById(R.id.vector_ek49);
+		_vector_ek68 = (ImageView) findViewById(R.id._vector_ek50);
+		_vector_ek69 = (ImageView) findViewById(R.id._vector_ek51);
 	
 		
 		_back_arrow_ek2.setOnClickListener(new View.OnClickListener() {

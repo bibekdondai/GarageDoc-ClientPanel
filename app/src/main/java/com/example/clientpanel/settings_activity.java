@@ -34,7 +34,8 @@ public class settings_activity extends Activity {
 	private TextView settings_ek3;
 	private View rectangle_60;
 	private TextView faqs_ek1;
-	private View _rectangle_61;
+	private View _rectangle_61, support;
+
 	private View rectangle_63;
 	private TextView mode;
 	private View rectangle_65;
@@ -56,11 +57,11 @@ public class settings_activity extends Activity {
 	private ImageView vector_ek33;
 	private TextView support_ek4;
 	private TextView home_ek4;
-	private TextView notification_ek11;
+	private TextView notification_ek11 ;
 	private TextView call_ek5;
 	private TextView setting_ek4;
 	private ImageView vector_ek34;
-	private ImageView vector_ek35;
+	private ImageView vector_ek35 ,settings, home, call, notification;
 	private ImageView _vector_ek36;
 	private ImageView vector_ek37;
 	private ImageView _vector_ek38;
@@ -74,82 +75,85 @@ public class settings_activity extends Activity {
 
 		
 
-		rectangle_1_ek2 = (View) findViewById(R.id.rectangle_1_ek2);
-		settings_ek3 = (TextView) findViewById(R.id.settings_ek3);
-		rectangle_60 = (View) findViewById(R.id.rectangle_60);
-		faqs_ek1 = (TextView) findViewById(R.id.faqs_ek1);
-		_rectangle_61 = (View) findViewById(R.id._rectangle_61);
-		rectangle_63 = (View) findViewById(R.id.rectangle_63);
+//		rectangle_1_ek2 = (View) findViewById(R.id.rectangle_1_ek2);
+//		settings_ek3 = (TextView) findViewById(R.id.settings_ek3);
+//		rectangle_60 = (View) findViewById(R.id.rectangle_60);
+//		faqs_ek1 = (TextView) findViewById(R.id.faqs_ek1);
+//		_rectangle_61 = (View) findViewById(R.id._rectangle_61);
+//		rectangle_63 = (View) findViewById(R.id.rectangle_63);
+//
+//		rectangle_65 = (View) findViewById(R.id.rectangle_65);
+//		share = (TextView) findViewById(R.id.share);
+//		rectangle_66 = (View) findViewById(R.id.rectangle_66);
+//		write_a_review = (TextView) findViewById(R.id.write_a_review);
+//
+//		rectangle_62 = (View) findViewById(R.id.rectangle_62);
+//
+//		change_password = (TextView) findViewById(R.id.change_password);
+//		vector_ek25 = (ImageView) findViewById(R.id.vector_ek25);
+//		vector_ek26 = (ImageView) findViewById(R.id.vector_ek26);
+//
+//		vector_ek29 = (ImageView) findViewById(R.id.vector_ek29);
+//		vector_ek30 = (ImageView) findViewById(R.id.vector_ek30);
+//
+//		vector_ek33 = (ImageView) findViewById(R.id.vector_ek33);
+//		support_ek4 = (TextView) findViewById(R.id.support_ek4);
+//		home_ek4 = (TextView) findViewById(R.id.home_ek4);
+//		notification_ek11 = (TextView) findViewById(R.id.notification_ek11);
+//		call_ek5 = (TextView) findViewById(R.id.call_ek5);
+//		setting_ek4 = (TextView) findViewById(R.id.setting_ek4);
+		home = findViewById(R.id.vector_ek46);
 
-		rectangle_65 = (View) findViewById(R.id.rectangle_65);
-		share = (TextView) findViewById(R.id.share);
-		rectangle_66 = (View) findViewById(R.id.rectangle_66);
-		write_a_review = (TextView) findViewById(R.id.write_a_review);
+//		call = (ImageView) findViewById(R.id.vector_ek49);
+//		settings= (ImageView) findViewById(R.id._vector_ek50);
+		notification= (ImageView) findViewById(R.id._vector_ek51);
+		support = findViewById(R.id._rectangle_61);
 
-		rectangle_62 = (View) findViewById(R.id.rectangle_62);
 
-		change_password = (TextView) findViewById(R.id.change_password);
-		vector_ek25 = (ImageView) findViewById(R.id.vector_ek25);
-		vector_ek26 = (ImageView) findViewById(R.id.vector_ek26);
+		support.setOnClickListener(new View.OnClickListener() {
 
-		vector_ek29 = (ImageView) findViewById(R.id.vector_ek29);
-		vector_ek30 = (ImageView) findViewById(R.id.vector_ek30);
-
-		vector_ek33 = (ImageView) findViewById(R.id.vector_ek33);
-		support_ek4 = (TextView) findViewById(R.id.support_ek4);
-		home_ek4 = (TextView) findViewById(R.id.home_ek4);
-		notification_ek11 = (TextView) findViewById(R.id.notification_ek11);
-		call_ek5 = (TextView) findViewById(R.id.call_ek5);
-		setting_ek4 = (TextView) findViewById(R.id.setting_ek4);
-		vector_ek34 = (ImageView) findViewById(R.id.vector_ek34);
-
-		vector_ek37 = (ImageView) findViewById(R.id.vector_ek37);
-		_vector_ek38 = (ImageView) findViewById(R.id._vector_ek38);
-		_vector_ek39 = (ImageView) findViewById(R.id._vector_ek39);
-	
-		
-		_rectangle_61.setOnClickListener(new View.OnClickListener() {
-		
 			public void onClick(View v) {
-				
+
 				Intent nextScreen = new Intent(getApplicationContext(), support_activity.class);
 				startActivity(nextScreen);
-			
-		
+				finish();
+
+
 			}
 		});
 		
 		
-		_vector_ek36.setOnClickListener(new View.OnClickListener() {
+		home.setOnClickListener(new View.OnClickListener() {
 		
 			public void onClick(View v) {
 				
 				Intent nextScreen = new Intent(getApplicationContext(), landing_home_page_1_activity.class);
 				startActivity(nextScreen);
+				finish();
 			
 		
 			}
 		});
 		
+//		home.setOnClickListener(new View.OnClickListener() {
+//
+//			public void onClick(View v) {
+//
+//				Intent nextScreen = new Intent(getApplicationContext(), settings_activity.class);
+//				startActivity(nextScreen);
+//
+//
+//			}
+//		});
 		
-		_vector_ek38.setOnClickListener(new View.OnClickListener() {
 		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), settings_activity.class);
-				startActivity(nextScreen);
-			
-		
-			}
-		});
-		
-		
-		_vector_ek39.setOnClickListener(new View.OnClickListener() {
+		notification.setOnClickListener(new View.OnClickListener() {
 		
 			public void onClick(View v) {
 				
 				Intent nextScreen = new Intent(getApplicationContext(), notification_activity.class);
 				startActivity(nextScreen);
+				finish();
 			
 		
 			}

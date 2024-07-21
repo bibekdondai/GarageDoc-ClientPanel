@@ -87,11 +87,11 @@ public class extra_page__activity extends Activity {
 		log_out = (TextView) findViewById(R.id.log_out);
 		vector = (ImageView) findViewById(R.id.vector);
 
-		vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
+		vector_ek1 = (ImageView) findViewById(R.id.vector_ek46);
 
-		vector_ek4 = (ImageView) findViewById(R.id.vector_ek4);
-		_vector_ek5 = (ImageView) findViewById(R.id._vector_ek5);
-		_vector_ek6 = (ImageView) findViewById(R.id._vector_ek6);
+		vector_ek4 = (ImageView) findViewById(R.id.vector_ek49);
+		_vector_ek5 = (ImageView) findViewById(R.id._vector_ek50);
+		_vector_ek6 = (ImageView) findViewById(R.id._vector_ek51);
 	
 		
 		_card_payment.setOnClickListener(new View.OnClickListener() {

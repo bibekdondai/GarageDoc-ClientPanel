@@ -45,7 +45,7 @@ public class notification_activity extends Activity {
 	private TextView setting_ek2;
 	private ImageView vector_ek13;
 	private ImageView vector_ek14;
-	private ImageView _vector_ek15;
+	private ImageView _vector_ek15, home, call,settings;
 	private ImageView vector_ek16;
 	private ImageView _vector_ek17;
 	private ImageView vector_ek18;
@@ -55,25 +55,31 @@ public class notification_activity extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.notification);
+		home = findViewById(R.id.vector_ek46);
+//		call= findViewById(R.id.vector_ek49);
+		settings= findViewById(R.id._vector_ek50);
 
-		
 
-		rectangle_5_ek2 = (View) findViewById(R.id.rectangle_5_ek2);
-		rectangle_7_ek1 = (View) findViewById(R.id.rectangle_7_ek1);
-		_25__discount_on_oil_change__ek1 = (TextView) findViewById(R.id._25__discount_on_oil_change__ek1);
-		rectangle_6_ek2 = (View) findViewById(R.id.rectangle_6_ek2);
-		your_vehiche_is_on_bayarea__ek1 = (TextView) findViewById(R.id.your_vehiche_is_on_bayarea__ek1);
-		notification_ek7 = (TextView) findViewById(R.id.notification_ek7);
-		notification_ek8 = (ImageView) findViewById(R.id.notification_ek8);
-		_mark_all_as_read = (TextView) findViewById(R.id._mark_all_as_read);
-		your_vehicle_is_ready_to_pickup__ek1 = (TextView) findViewById(R.id.your_vehicle_is_ready_to_pickup__ek1);
 
-		_vector_ek15 = (ImageView) findViewById(R.id._vector_ek15);
-		vector_ek16 = (ImageView) findViewById(R.id.vector_ek16);
-		_vector_ek17 = (ImageView) findViewById(R.id._vector_ek17);
-		vector_ek18 = (ImageView) findViewById(R.id.vector_ek18);
-	
-		
+
+
+
+
+
+
+//		rectangle_5_ek2 = (View) findViewById(R.id.rectangle_5_ek2);
+//		rectangle_7_ek1 = (View) findViewById(R.id.rectangle_7_ek1);
+//		_25__discount_on_oil_change__ek1 = (TextView) findViewById(R.id._25__discount_on_oil_change__ek1);
+//		rectangle_6_ek2 = (View) findViewById(R.id.rectangle_6_ek2);
+//		your_vehiche_is_on_bayarea__ek1 = (TextView) findViewById(R.id.your_vehiche_is_on_bayarea__ek1);
+//		notification_ek7 = (TextView) findViewById(R.id.notification_ek7);
+//		notification_ek8 = (ImageView) findViewById(R.id.notification_ek8);
+//		_mark_all_as_read = (TextView) findViewById(R.id._mark_all_as_read);
+//		your_vehicle_is_ready_to_pickup__ek1 = (TextView) findViewById(R.id.your_vehicle_is_ready_to_pickup__ek1);
+
+
+
+
 //		_mark_all_as_read.setOnClickListener(new View.OnClickListener() {
 //
 //			public void onClick(View v) {
@@ -84,34 +90,36 @@ public class notification_activity extends Activity {
 //
 //			}
 //		});
-		
-		
-		_vector_ek15.setOnClickListener(new View.OnClickListener() {
-		
+
+
+		home.setOnClickListener(new View.OnClickListener() {
+
 			public void onClick(View v) {
-				
+
 				Intent nextScreen = new Intent(getApplicationContext(), landing_home_page_1_activity.class);
 				startActivity(nextScreen);
-			
-		
+				finish();
+
+
 			}
 		});
-		
-		
-		_vector_ek17.setOnClickListener(new View.OnClickListener() {
-		
+
+
+		settings.setOnClickListener(new View.OnClickListener() {
+
 			public void onClick(View v) {
-				
+
 				Intent nextScreen = new Intent(getApplicationContext(), settings_activity.class);
 				startActivity(nextScreen);
-			
-		
+				finish();
+
+
 			}
 		});
-		
-		
+
+
 		//custom code goes here
-	
+
 	}
 }
 	
