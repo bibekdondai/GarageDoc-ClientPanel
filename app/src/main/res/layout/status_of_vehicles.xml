@@ -8,24 +8,19 @@
 		android:layout_width="wrap_content" 
 		android:layout_height="match_parent" >
 
-		<RelativeLayout android:id="@+id/content_container" 
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content" >
-
-			<RelativeLayout android:id="@+id/page_status_of_vehicles_ek1"
-				android:layout_marginTop="0dp"
-				android:layout_marginStart="0dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
-
+		<RelativeLayout android:id="@+id/content_container"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent" >
 
 				<View
 					android:id="@+id/rectangle_1_ek3"
 					android:layout_width="match_parent"
 					android:layout_height="274dp"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentEnd="true"
 					android:layout_marginStart="-2dp"
 					android:layout_marginTop="-10dp"
+					android:layout_marginEnd="0dp"
 					android:background="@drawable/rectangle_1_ek3_shape" />
 
 				<TextView
@@ -49,20 +44,22 @@
 					android:layout_alignParentEnd="true"
 					android:layout_marginStart="12dp"
 					android:layout_marginTop="272dp"
-					android:layout_marginEnd="319dp"
+					android:layout_marginEnd="305dp"
 					android:background="@drawable/rectangle_76_shape" />
 
 				<TextView
 					android:id="@+id/pending"
-					android:layout_width="81dp"
-					android:layout_height="18dp"
-					android:layout_alignParentStart="true"
-					android:layout_alignParentEnd="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignStart="@+id/rectangle_76"
+					android:layout_alignTop="@+id/rectangle_76"
+					android:layout_alignEnd="@+id/rectangle_76"
+					android:layout_alignBottom="@+id/rectangle_76"
 					android:layout_gravity="center_horizontal|center"
-					android:layout_marginStart="8dp"
-					android:layout_marginLeft="8dp"
-					android:layout_marginTop="285dp"
-					android:layout_marginEnd="322dp"
+					android:layout_marginStart="4dp"
+					android:layout_marginTop="12dp"
+					android:layout_marginEnd="4dp"
+					android:layout_marginBottom="12dp"
 					android:gravity="center"
 					android:text="@string/pending_string"
 					android:textColor="@color/rectangle_1_color"
@@ -76,7 +73,7 @@
 					android:layout_alignParentEnd="true"
 					android:layout_marginStart="108dp"
 					android:layout_marginTop="272dp"
-					android:layout_marginEnd="223dp"
+					android:layout_marginEnd="215dp"
 					android:background="@drawable/rectangle_77_shape" />
 
 				<View
@@ -87,20 +84,22 @@
 					android:layout_alignParentEnd="true"
 					android:layout_marginStart="199dp"
 					android:layout_marginTop="272dp"
-					android:layout_marginEnd="132dp"
+					android:layout_marginEnd="125dp"
 					android:background="@drawable/rectangle_78_shape" />
 
 				<TextView
 					android:id="@+id/process"
-					android:layout_width="78dp"
-					android:layout_height="18dp"
-					android:layout_alignParentStart="true"
-					android:layout_alignParentEnd="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignStart="@+id/rectangle_77"
+					android:layout_alignTop="@+id/rectangle_77"
+					android:layout_alignEnd="@+id/rectangle_77"
+					android:layout_alignBottom="@+id/rectangle_77"
 					android:layout_gravity="center_horizontal|center"
-					android:layout_marginStart="101dp"
-					android:layout_marginLeft="101dp"
-					android:layout_marginTop="285dp"
-					android:layout_marginEnd="232dp"
+					android:layout_marginStart="4dp"
+					android:layout_marginTop="12dp"
+					android:layout_marginEnd="4dp"
+					android:layout_marginBottom="12dp"
 					android:gravity="center"
 					android:text="@string/process_string"
 					android:textColor="@color/rectangle_1_color"
@@ -108,15 +107,17 @@
 
 				<TextView
 					android:id="@+id/delivered"
-					android:layout_width="87dp"
-					android:layout_height="18dp"
-					android:layout_alignParentStart="true"
-					android:layout_alignParentEnd="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignStart="@+id/rectangle_78"
+					android:layout_alignTop="@+id/rectangle_78"
+					android:layout_alignEnd="@+id/rectangle_78"
+					android:layout_alignBottom="@+id/rectangle_78"
 					android:layout_gravity="center_horizontal|center"
-					android:layout_marginStart="190dp"
-					android:layout_marginLeft="190dp"
-					android:layout_marginTop="285dp"
-					android:layout_marginEnd="134dp"
+					android:layout_marginStart="4dp"
+					android:layout_marginTop="12dp"
+					android:layout_marginEnd="4dp"
+					android:layout_marginBottom="12dp"
 					android:gravity="center"
 					android:text="@string/delivered_string"
 					android:textColor="@color/rectangle_1_color"
@@ -128,22 +129,24 @@
 					android:layout_height="45dp"
 					android:layout_alignParentStart="true"
 					android:layout_alignParentEnd="true"
-					android:layout_marginStart="296dp"
+					android:layout_marginStart="290dp"
 					android:layout_marginTop="272dp"
 					android:layout_marginEnd="35dp"
 					android:background="@drawable/rectangle_79_shape" />
 
 				<TextView
 					android:id="@+id/cancelled"
-					android:layout_width="86dp"
-					android:layout_height="18dp"
-					android:layout_alignParentStart="true"
-					android:layout_alignParentEnd="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignStart="@+id/rectangle_79"
+					android:layout_alignTop="@+id/rectangle_79"
+					android:layout_alignEnd="@+id/rectangle_79"
+					android:layout_alignBottom="@+id/rectangle_79"
 					android:layout_gravity="center_horizontal|center"
-					android:layout_marginStart="285dp"
-					android:layout_marginLeft="285dp"
-					android:layout_marginTop="285dp"
-					android:layout_marginEnd="40dp"
+					android:layout_marginStart="4dp"
+					android:layout_marginTop="12dp"
+					android:layout_marginEnd="4dp"
+					android:layout_marginBottom="12dp"
 					android:gravity="center"
 					android:text="@string/cancelled_string"
 					android:textColor="@color/rectangle_1_color"
@@ -225,30 +228,6 @@
 
 			</RelativeLayout>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		</RelativeLayout>
 
 	</ScrollView>
 </FrameLayout>
