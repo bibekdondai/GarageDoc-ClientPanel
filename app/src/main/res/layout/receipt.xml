@@ -95,7 +95,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="234dp"
+            android:layout_marginTop="208dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/_bg____drop__ek2_shape"
             android:stretchColumns="1,2,3">
@@ -214,7 +214,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="300dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="380dp"
             android:text="PAY" />
 
     </RelativeLayout>
