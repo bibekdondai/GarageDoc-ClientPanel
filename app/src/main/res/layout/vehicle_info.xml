@@ -1,28 +1,22 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
+	android:layout_height="match_parent"
 	android:background="@drawable/bg_with_color_overlay"
 	>
 
-	<ScrollView
-		android:id="@+id/vehicle_info"
-		android:layout_width="wrap_content"
-		android:layout_height="match_parent">
+<!--	<ScrollView-->
+<!--		android:id="@+id/vehicle_info"-->
+<!--		android:layout_width="wrap_content"-->
+<!--		android:layout_height="match_parent">-->
 
 		<RelativeLayout
 			android:id="@+id/page_vehicle_info_ek1"
 			android:layout_marginTop="0dp"
 			android:layout_marginStart="0dp"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
+			android:layout_height="match_parent">
 
-			<View
-				android:id="@+id/_bg__vehicle_info_ek2"
-				android:layout_marginStart="0dp"
-				android:layout_marginTop="0dp"
-				android:layout_width="360dp"
-				android:layout_height="800dp" />
 
 			<View
 				android:id="@+id/rectangle_1_ek8"
@@ -94,7 +88,8 @@
 				android:layout_marginTop="729dp"
 				android:layout_marginStart="3dp"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
+				android:layout_height="wrap_content"
+				android:background="@drawable/rectangle_1_ek10_shape">>
 
 
 				<ImageView
@@ -136,5 +131,5 @@
 				android:layout_height="36dp" />
 
 		</RelativeLayout>
-	</ScrollView>
+<!--	</ScrollView>-->
 </FrameLayout>
