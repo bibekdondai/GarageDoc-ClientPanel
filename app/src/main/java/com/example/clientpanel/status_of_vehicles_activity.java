@@ -60,7 +60,7 @@ public class status_of_vehicles_activity extends Activity {
 		setContentView(R.layout.status_of_vehicles);
 
 		
-		_bg__status_of_vehicles_ek2 = (View) findViewById(R.id._bg__status_of_vehicles_ek2);
+
 		rectangle_1_ek3 = (View) findViewById(R.id.rectangle_1_ek3);
 		garage_doc = (TextView) findViewById(R.id.garage_doc);
 

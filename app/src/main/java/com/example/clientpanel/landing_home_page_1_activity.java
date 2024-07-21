@@ -96,7 +96,7 @@ public class landing_home_page_1_activity extends FragmentActivity {
 		vector_ek125 = findViewById(R.id.vector_ek125);
 		_vector_ek126 = findViewById(R.id._vector_ek126);
 		_vector_ek127 = findViewById(R.id._vector_ek127);
-		vector_ek128 = findViewById(R.id.vector_ek128);
+
 		vector_ek129 = findViewById(R.id.vector_ek129);
 	}
 
