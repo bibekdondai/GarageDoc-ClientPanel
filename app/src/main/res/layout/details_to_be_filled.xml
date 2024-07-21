@@ -51,56 +51,11 @@
                 android:background="#0B0A0A" />
 
             <!-- Sample Data Row -->
-            <TableRow>
 
-                <TextView
-                    android:padding="8dp"
-                    android:text="Engine Oil" />
 
-                <TextView
-                    android:padding="8dp"
-                    android:text="$50" />
 
-                <TextView
-                    android:padding="8dp"
-                    android:text="Regular servicing" />
-            </TableRow>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000000" />
-            <TableRow>
 
-                <TextView
-                    android:padding="8dp"
-                    android:text="Brake" />
 
-                <TextView
-                    android:padding="8dp"
-                    android:text="$50" />
-
-                <TextView
-                    android:padding="8dp"
-                    android:text="Regular servicing" />
-            </TableRow>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000000" />
-            <TableRow>
-
-                <TextView
-                    android:padding="8dp"
-                    android:text="Total" />
-
-                <TextView
-                    android:padding="8dp"
-                    android:text="$100" />
-
-                <TextView
-                    android:padding="8dp"
-                    android:text="payment" />
-            </TableRow>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -166,46 +121,7 @@
             <!-- Sample Data Row -->
 
             <!-- Divider Line -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000000" /> <!-- Black color for the divider line -->
-            <TableRow>
 
-                <TextView
-                    android:padding="8dp"
-                    android:text="Brake Pads" />
-
-                <TextView
-                    android:padding="8dp"
-                    android:text="$80" />
-
-                <TextView
-                    android:layout_width="137dp"
-                    android:padding="8dp"
-                    android:text="Replace worn out pads" />
-
-                <!-- Use a LinearLayout to contain both buttons -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btn_cancel"
-                        android:layout_width="39dp"
-                        android:layout_height="38dp"
-                        android:text="C" />
-
-                    <Button
-                        android:id="@+id/btn_accept"
-                        android:layout_width="39dp"
-                        android:layout_height="38dp"
-                        android:text="A" />
-                </LinearLayout>
-
-
-            </TableRow>
 
             <!-- Add more rows programmatically as needed -->
 
@@ -314,108 +230,13 @@
             android:layout_toEndOf="@+id/txt_2"
             android:text="Ba-Pra-002-0037" />
 
-        <View
-            android:id="@+id/rectangle_76"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/btn_pay"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="75dp"
-             />
 
-        <TextView
-            android:id="@+id/pending"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/rectangle_76"
-            android:layout_alignTop="@+id/rectangle_76"
-            android:layout_alignEnd="@+id/rectangle_76"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:text="@string/pending_string"
-            android:textColor="#7E1F1F"
-            android:textSize="15sp" />
 
-        <View
-            android:id="@+id/rectangle_78"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/btn_pay"
-            android:layout_marginTop="75dp"
-            android:layout_marginEnd="23dp"
-            android:layout_toStartOf="@+id/rectangle_79"
-            android:background="@drawable/rectangle_55_shape" />
 
-        <View
-            android:id="@+id/rectangle_7"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/btn_pay"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="75dp"
-            android:layout_marginEnd="15dp"
-            android:layout_toStartOf="@+id/rectangle_78"
-            android:layout_toEndOf="@+id/rectangle_76"
-            android:background="@drawable/ic_launcher_background" />
 
-        <TextView
-            android:id="@+id/process"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/rectangle_7"
-            android:layout_alignTop="@+id/rectangle_7"
-            android:layout_alignEnd="@+id/rectangle_7"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:text="@string/process_string"
-            android:textColor="@color/rectangle_1_color"
-            android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/delivered"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/rectangle_78"
-            android:layout_alignEnd="@+id/rectangle_78"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="5dp"
-            android:gravity="center"
-            android:text="@string/delivered_string"
-            android:textColor="@color/rectangle_1_color"
-            android:textSize="15sp" />
 
-        <View
-            android:id="@+id/rectangle_79"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/btn_pay"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="75dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/rectangle_99_shape" />
 
-        <TextView
-            android:id="@+id/cancelled"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/rectangle_79"
-            android:layout_alignEnd="@+id/rectangle_79"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginLeft="295dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:text="@string/cancelled_string"
-            android:textColor="@color/rectangle_1_color"
-            android:textSize="14sp" />
 
     </RelativeLayout>
 </FrameLayout>
