@@ -86,10 +86,7 @@ public class extra_page__activity extends Activity {
 		_card_payment = (ImageView) findViewById(R.id._card_payment);
 		log_out = (TextView) findViewById(R.id.log_out);
 		vector = (ImageView) findViewById(R.id.vector);
-		home = (TextView) findViewById(R.id.home);
-		notification = (TextView) findViewById(R.id.notification);
-		call = (TextView) findViewById(R.id.call);
-		setting = (TextView) findViewById(R.id.setting);
+
 		vector_ek1 = (ImageView) findViewById(R.id.vector_ek1);
 
 		vector_ek4 = (ImageView) findViewById(R.id.vector_ek4);

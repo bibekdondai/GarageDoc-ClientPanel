@@ -11,7 +11,7 @@
 		android:theme="@style/AppTheme"
 		android:label="ClientPanel" >
 		<activity
-		android:name=".cctv_activity"
+		android:name=".splash_screen_activity"
 		android:configChanges="orientation|keyboardHidden|screenSize"
 
 		android:exported="true"  >
@@ -52,6 +52,7 @@
 			<activity android:name=".signin_1_activity"></activity>
 			<activity android:name=".call_popup_activity"></activity>
 			<activity android:name=".fullscreenvideo"></activity>
+			<activity android:name=".cctv_activity"></activity>
 
 
 		<meta-data

@@ -116,20 +116,23 @@
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 
-        <View
-            android:id="@+id/cctv4"
+        <ImageView
+            android:id="@+id/cctv3"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_below="@id/yamaha_alpha"
-            android:layout_marginTop="215dp"
-            android:layout_marginStart="230dp"
+            android:layout_below="@+id/cctv2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="37dp"
+            android:layout_toEndOf="@+id/cctv4"
             android:background="@drawable/rectangle_2_ek2_shape" />
 
         <TextView
             android:id="@+id/text_below_rectangle_empty_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/cctv4"
+            android:layout_below="@+id/cctv3"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="282dp"
             android:layout_marginTop="10dp"
@@ -138,20 +141,21 @@
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 
-        <View
-            android:id="@+id/cctv3"
+        <ImageView
+            android:id="@+id/cctv4"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_below="@id/yamaha_alpha"
-            android:layout_marginTop="215dp"
+            android:layout_below="@+id/cctv1"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/rectangle_2_ek2_shape" />
 
         <TextView
             android:id="@+id/text_below_rectangle_empty_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/cctv3"
+            android:layout_below="@+id/cctv4"
             android:layout_alignParentStart="true"
             android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"

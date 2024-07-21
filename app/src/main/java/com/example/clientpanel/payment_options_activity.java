@@ -88,10 +88,7 @@ public class payment_options_activity extends Activity {
 		cash_on_delivery_ek1 = (ImageView) findViewById(R.id.cash_on_delivery_ek1);
 
 		_back_arrow_ek2 = (ImageView) findViewById(R.id._back_arrow_ek2);
-		home_ek9 = (TextView) findViewById(R.id.home_ek9);
-		notification_ek16 = (TextView) findViewById(R.id.notification_ek16);
-		call_ek10 = (TextView) findViewById(R.id.call_ek10);
-		setting_ek9 = (TextView) findViewById(R.id.setting_ek9);
+
 		vector_ek64 = (ImageView) findViewById(R.id.vector_ek64);
 
 		vector_ek67 = (ImageView) findViewById(R.id.vector_ek67);

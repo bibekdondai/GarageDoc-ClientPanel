@@ -60,16 +60,11 @@ public class pickup_activity extends Activity {
 		rectangle_28_ek2 = (View) findViewById(R.id.rectangle_28_ek2);
 		rectangle_29_ek2 = (View) findViewById(R.id.rectangle_29_ek2);
 		confirm_location_ek2 = (TextView) findViewById(R.id.confirm_location_ek2);
-		maps_removebg_preview_1_ek2 = (ImageView) findViewById(R.id.maps_removebg_preview_1_ek2);
+
 		choose_from_map_ek2 = (TextView) findViewById(R.id.choose_from_map_ek2);
 		rectangle_32 = (ImageView) findViewById(R.id.rectangle_32);
 		address_street_name_ek2 = (TextView) findViewById(R.id.address_street_name_ek2);
-		home_ek13 = (TextView) findViewById(R.id.home_ek13);
-		notification_ek20 = (TextView) findViewById(R.id.notification_ek20);
-		call_ek14 = (TextView) findViewById(R.id.call_ek14);
-		setting_ek13 = (TextView) findViewById(R.id.setting_ek13);
-		vector_ek93 = (ImageView) findViewById(R.id.vector_ek93);
-		vector_ek94 = (ImageView) findViewById(R.id.vector_ek94);
+
 		_vector_ek95 = (ImageView) findViewById(R.id._vector_ek95);
 		vector_ek96 = (ImageView) findViewById(R.id.vector_ek96);
 		_vector_ek97 = (ImageView) findViewById(R.id._vector_ek97);

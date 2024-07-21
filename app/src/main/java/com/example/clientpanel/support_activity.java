@@ -53,7 +53,7 @@ public class support_activity extends Activity {
 		setContentView(R.layout.support);
 
 		
-		_bg__support_ek2 = (View) findViewById(R.id._bg__support_ek2);
+
 		rectangle_1_ek1 = (View) findViewById(R.id.rectangle_1_ek1);
 		support_ek3 = (TextView) findViewById(R.id.support_ek3);
 		rectangle_67 = (View) findViewById(R.id.rectangle_67);
