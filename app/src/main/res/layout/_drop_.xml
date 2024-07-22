@@ -172,6 +172,5 @@
 			android:layout_marginTop="10dp"
 			android:contentDescription="_vector_ek51"
 			android:src="@drawable/_vector_ek51" />
-
 	</RelativeLayout>
 </FrameLayout>
