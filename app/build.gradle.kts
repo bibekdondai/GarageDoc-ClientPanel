@@ -49,7 +49,8 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics:22.0.1")
 //    implementation("org.videolan.android:libvlc-all:3.3.13")
 //    implementation("org.videolan.android:vlc-android-sdk:3.3.13")
-    implementation("com.github.bumptech.glide:glide:4.12.0") // Corrected Glide dependency
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0") // Corrected Glide dependency
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0") // Add annotation processor for Glide
 
     implementation("com.google.firebase:firebase-core:21.1.1")
