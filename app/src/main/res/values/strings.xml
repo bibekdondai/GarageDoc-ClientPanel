@@ -303,4 +303,5 @@
 	<string name="error_null_email">Error: Current user is null</string>
 	<string name="error_loading_data">Error loading data: %1$s</string>
     <string name="remove">remove</string>
+    <string name="my_map_api_key">AIzaSyAwx1-JG8SX5Dvr_cKLBIq-V2Zu1Dl1LQg </string>
 </resources>

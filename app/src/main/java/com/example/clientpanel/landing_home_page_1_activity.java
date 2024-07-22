@@ -111,6 +111,10 @@ public class landing_home_page_1_activity extends FragmentActivity {
 			Intent intent = new Intent(landing_home_page_1_activity.this, notification_activity.class);
 			startActivity(intent);
 		});
+		home.setOnClickListener(v -> {
+			Intent intent = new Intent(landing_home_page_1_activity.this, mapactivity.class);
+			startActivity(intent);
+		});
 
 
 //		call.setOnClickListener(v -> {
