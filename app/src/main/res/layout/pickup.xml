@@ -1,4 +1,4 @@
-<FrameLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
@@ -10,41 +10,42 @@
 				android:layout_width="wrap_content"
 				android:layout_height="match_parent">
 
+
+				<fragment
+					android:id="@+id/map"
+					android:name="com.google.android.gms.maps.SupportMapFragment"
+					android:layout_width="match_parent"
+					android:layout_height="350dp"
+					android:layout_below="@+id/rectangle_2_ek4"
+					android:layout_marginTop="1dp" />
+
+
 				<View
 					android:id="@+id/_bg__pickup_ek2"
 					android:layout_width="wrap_content"
 					android:layout_height="match_parent"
 					android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
-					android:background="@drawable/_bg__pickup_ek2_shape" />
-
-				<View   android:id="@+id/rectangle_2_ek4"
-					android:background="@drawable/_bg__call_popup_ek2_shape"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
-					android:layout_width="wrap_content"
-					android:layout_height="274dp" />
+					android:layout_marginTop="0dp"/>
+<!--					android:background="@drable/_bg__pickup_ek2_shape"aw />-->
 
 				<View
-					android:id="@+id/rectangle_28_ek2"
-					android:layout_width="235dp"
-					android:layout_height="31dp"
-					android:layout_alignParentStart="true"
-					android:layout_alignParentTop="true"
-					android:layout_marginStart="80dp"
-					android:layout_marginTop="100dp"
-					android:background="@drawable/rectangle_28_ek2_shape" />
+					android:id="@+id/rectangle_2_ek4"
+					android:layout_width="wrap_content"
+					android:layout_height="174dp"
+					android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:background="@drawable/_bg__call_popup_ek2_shape" />
 
 				<View
 					android:id="@+id/rectangle_29_ek2"
 					android:layout_width="341dp"
 					android:layout_height="43dp"
-					android:layout_below="@+id/rectangle_2_ek4"
+					android:layout_below="@+id/map"
 
 
 					android:layout_alignParentStart="true"
 					android:layout_marginStart="40dp"
-					android:layout_marginTop="330dp"
+					android:layout_marginTop="30dp"
 					android:background="@drawable/rectangle_29_ek2_shape" />
 
 				<TextView
@@ -61,27 +62,42 @@
 					android:textSize="26sp"
 					android:textStyle="bold" />
 
-				<TextView
-					android:id="@+id/choose_from_map_ek2"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_alignTop="@+id/rectangle_28_ek2"
-					android:layout_alignEnd="@+id/rectangle_28_ek2"
-					android:layout_marginLeft="104dp"
-					android:layout_marginTop="1dp"
-					android:layout_marginEnd="60dp"
-					android:text="@string/choose_from_map_ek2_string"
-					android:textColor="@color/_bg__extra_page__ek2_color"
-					android:textSize="18sp"
-					android:textStyle="bold" />
+
 
 
 				</RelativeLayout>
-				<com.google.android.gms.maps.MapView
-					android:id="@+id/mapView2"
-					android:layout_width="match_parent"
-					android:layout_height="300dp"
-					android:layout_marginTop="275dp"/>
+
+
+<!--				<com.google.android.gms.maps.MapView-->
+<!--					android:id="@+id/mapView2"-->
+<!--					android:layout_width="match_parent"-->
+<!--					android:layout_height="300dp"-->
+<!--					android:layout_marginTop="275dp"/>-->
+
+
+	<TextView
+		android:id="@+id/lat_long_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/map_type_spinner"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="50dp"
+		android:background="@color/rectangle_2_color"
+		android:padding="8dp"
+		android:text="Latitude: , Longitude: "
+		android:textSize="16sp" />
+
+
+	<Spinner
+		android:id="@+id/map_type_spinner"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="36dp"
+		android:background="@color/rectangle_67_ek1_color"
+		android:padding="8dp"/>
+
 	<RelativeLayout
 		android:id="@+id/frame_23_ek16"
 		android:layout_width="match_parent"
@@ -137,4 +153,4 @@
 			android:src="@drawable/_vector_ek51" />
 
 	</RelativeLayout>
-	</FrameLayout>
+	</RelativeLayout>

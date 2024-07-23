@@ -12,7 +12,7 @@
 		<View
 			android:id="@+id/rectangle_2_ek3"
 			android:layout_width="wrap_content"
-			android:layout_height="274dp"
+			android:layout_height="235dp"
 			android:layout_alignParentStart="true"
 			android:layout_alignParentEnd="true"
 			android:layout_marginStart="0dp"
@@ -26,34 +26,12 @@
 			android:layout_height="wrap_content"
 			android:layout_alignParentTop="true"
 			android:layout_centerHorizontal="true"
-			android:layout_marginTop="16dp"
-			android:background="@android:color/white"
+			android:layout_marginTop="46dp"
+			android:background="@color/rectangle_68_ek1_color"
 			android:padding="8dp"/>
 
-		<View
-			android:id="@+id/rectangle_28_ek1"
-			android:layout_width="309dp"
-			android:layout_height="55dp"
-			android:layout_below="@+id/map_type_spinner"
-			android:layout_alignParentStart="true"
-			android:layout_marginStart="53dp"
-			android:layout_marginTop="50dp"
-			android:layout_marginEnd="50dp"
-			android:background="@drawable/rectangle_28_ek1_shape" />
-		<TextView
-			android:id="@+id/choose_from_map_ek1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignTop="@+id/rectangle_28_ek1"
-			android:layout_alignEnd="@+id/rectangle_28_ek1"
-			android:layout_marginStart="50dp"
-			android:layout_marginLeft="110dp"
-			android:layout_marginTop="15dp"
-			android:layout_marginEnd="80dp"
-			android:text="@string/choose_from_map_ek1_string"
-			android:textColor="@color/rectangle_1_color"
-			android:textSize="17sp"
-			android:textStyle="bold" />
+
+
 
 		<TextView
 			android:id="@+id/lat_long_text"
@@ -62,8 +40,8 @@
 			android:layout_below="@+id/rectangle_28_ek1"
 			android:layout_alignBottom="@+id/rectangle_2_ek3"
 			android:layout_centerHorizontal="true"
-			android:layout_marginTop="50dp"
-			android:layout_marginBottom="25dp"
+			android:layout_marginTop="0dp"
+			android:layout_marginBottom="55dp"
 			android:background="@android:color/white"
 			android:padding="8dp"
 			android:text="Latitude: , Longitude: "
