@@ -1,121 +1,134 @@
+package com.example.clientpanel;
 
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		extra_page_
-	 *	@date 		Monday 17th of June 2024 06:12:58 PM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package com.example.clientpanel;
-
-import android.app.Activity;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
-
-
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.ImageView;
-import android.content.Intent;
+import android.widget.Toast;
 
-public class _drop__activity extends Activity {
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
-	
-	private View _bg____drop__ek2;
-	private View rectangle_2_ek3;
-	private View rectangle_27;
-	private View rectangle_28_ek1;
-	private View rectangle_29_ek1;
-	private TextView choose_from_map_ek1;
-	private TextView confirm_location_ek1;
-	private TextView address_street_name_ek1;
-	private ImageView maps_removebg_preview_1_ek1;
-	private TextView home_ek12;
-	private TextView notification_ek19;
-	private TextView call_ek13;
-	private TextView setting_ek12;
-	private ImageView vector_ek82;
-	private ImageView vector_ek83;
-	private ImageView _vector_ek84;
-	private ImageView vector_ek85;
-	private ImageView _vector_ek86;
-	private ImageView _vector_ek87;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+
+public class _drop__activity extends AppCompatActivity implements OnMapReadyCallback {
+	private final int FINE_PERMISSION_CODE = 1;
+
+	private GoogleMap myMap;
+	Location currentLocation;
+	FusedLocationProviderClient fusedLocationProviderClient;
+	TextView latLongTextView;
+	Spinner mapTypeSpinner;
+	private static final String TAG = "MainActivity";
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout._drop_);
 
-		
-//		_bg____drop__ek2 = (View) findViewById(R.id._bg____drop__ek2);
-		rectangle_2_ek3 = (View) findViewById(R.id.rectangle_2_ek3);
-		rectangle_27 = (View) findViewById(R.id.rectangle_27);
-		rectangle_28_ek1 = (View) findViewById(R.id.rectangle_28_ek1);
-		rectangle_29_ek1 = (View) findViewById(R.id.rectangle_29_ek1);
-		choose_from_map_ek1 = (TextView) findViewById(R.id.choose_from_map_ek1);
-		confirm_location_ek1 = (TextView) findViewById(R.id.confirm_location_ek1);
-		address_street_name_ek1 = (TextView) findViewById(R.id.address_street_name_ek1);
-//		maps_removebg_preview_1_ek1 = (ImageView) findViewById(R.id.maps_removebg_preview_1_ek1);
-//		home_ek12 = (TextView) findViewById(R.id.home_ek12);
-//		notification_ek19 = (TextView) findViewById(R.id.notification_ek19);
-//		call_ek13 = (TextView) findViewById(R.id.call_ek13);
-//		setting_ek12 = (TextView) findViewById(R.id.setting_ek12);
-		vector_ek82 = (ImageView) findViewById(R.id.vector_ek46);
-//		vector_ek83 = (ImageView) findViewById(R.id.vector_ek83);
-//		_vector_ek84 = (ImageView) findViewById(R.id._vector_ek84);
-		vector_ek85 = (ImageView) findViewById(R.id.vector_ek49);
-		_vector_ek86 = (ImageView) findViewById(R.id._vector_ek50);
-		_vector_ek87 = (ImageView) findViewById(R.id._vector_ek51);
-	
-		
-		_vector_ek84.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), landing_home_page_1_activity.class);
-				startActivity(nextScreen);
-			
-		
+		latLongTextView = findViewById(R.id.lat_long_text);
+		mapTypeSpinner = findViewById(R.id.map_type_spinner);
+		fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+		setupMapTypeSpinner();
+		getLastLocation();
+	}
+
+	private void setupMapTypeSpinner() {
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+				R.array.map_types, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		mapTypeSpinner.setAdapter(adapter);
+		mapTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				if (myMap != null) {
+					switch (position) {
+						case 0:
+							myMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+							break;
+						case 1:
+							myMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+							break;
+						case 2:
+							myMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+							break;
+						case 3:
+							myMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+							break;
+						default:
+							myMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+							break;
+					}
+				}
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// Do nothing
 			}
 		});
-		
-		
-		_vector_ek86.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), settings_activity.class);
-				startActivity(nextScreen);
-			
-		
+	}
+
+	private void getLastLocation() {
+		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_PERMISSION_CODE);
+			return;
+		}
+		Task<Location> task = fusedLocationProviderClient.getLastLocation();
+		task.addOnSuccessListener(new OnSuccessListener<Location>() {
+			@Override
+			public void onSuccess(Location location) {
+				if (location != null) {
+					currentLocation = location;
+					SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+					mapFragment.getMapAsync(_drop__activity.this);
+				}
 			}
 		});
-		
-		
-		_vector_ek87.setOnClickListener(new View.OnClickListener() {
-		
-			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), notification_activity.class);
-				startActivity(nextScreen);
-			
-		
+	}
+
+	@Override
+	public void onMapReady(@NonNull GoogleMap googleMap) {
+		myMap = googleMap;
+		LatLng currentLatLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+		myMap.addMarker(new MarkerOptions().position(currentLatLng).title("My Location"));
+
+
+		float zoomLevel = 15.0f;
+		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, zoomLevel));
+
+		String latLongText = "Latitude: " + currentLocation.getLatitude() + ", Longitude: " + currentLocation.getLongitude();
+		latLongTextView.setText(latLongText);
+
+		Log.d(TAG, latLongText);
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		if (requestCode == FINE_PERMISSION_CODE) {
+			if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+				getLastLocation();
+			} else {
+				Toast.makeText(this, "Location Permission is denied. Please allow it.", Toast.LENGTH_SHORT).show();
 			}
-		});
-		
-		
-		//custom code goes here
-	
+		}
 	}
 }
-	
-	

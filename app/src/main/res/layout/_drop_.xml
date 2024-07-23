@@ -20,54 +20,64 @@
 			android:layout_marginEnd="0dp"
 			android:background="@drawable/_bg__call_popup_ek2_shape" />
 
-		<View
-			android:id="@+id/rectangle_27"
-			android:layout_width="309dp"
-			android:layout_height="55dp"
-			android:layout_alignParentStart="true"
-			android:layout_alignParentEnd="true"
-			android:layout_marginStart="23dp"
-			android:layout_marginTop="75dp"
-			android:layout_marginEnd="79dp"
-			android:background="@drawable/rectangle_27_shape" />
+		<Spinner
+			android:id="@+id/map_type_spinner"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="16dp"
+			android:background="@android:color/white"
+			android:padding="8dp"/>
 
 		<View
 			android:id="@+id/rectangle_28_ek1"
 			android:layout_width="309dp"
 			android:layout_height="55dp"
+			android:layout_below="@+id/map_type_spinner"
 			android:layout_alignParentStart="true"
-			android:layout_alignParentEnd="true"
-			android:layout_marginStart="26dp"
-			android:layout_marginTop="150dp"
-			android:layout_marginEnd="76dp"
+			android:layout_marginStart="53dp"
+			android:layout_marginTop="50dp"
+			android:layout_marginEnd="50dp"
 			android:background="@drawable/rectangle_28_ek1_shape" />
+		<TextView
+			android:id="@+id/choose_from_map_ek1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignTop="@+id/rectangle_28_ek1"
+			android:layout_alignEnd="@+id/rectangle_28_ek1"
+			android:layout_marginStart="50dp"
+			android:layout_marginLeft="110dp"
+			android:layout_marginTop="15dp"
+			android:layout_marginEnd="80dp"
+			android:text="@string/choose_from_map_ek1_string"
+			android:textColor="@color/rectangle_1_color"
+			android:textSize="17sp"
+			android:textStyle="bold" />
+
+		<TextView
+			android:id="@+id/lat_long_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/rectangle_28_ek1"
+			android:layout_alignBottom="@+id/rectangle_2_ek3"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="50dp"
+			android:layout_marginBottom="25dp"
+			android:background="@android:color/white"
+			android:padding="8dp"
+			android:text="Latitude: , Longitude: "
+			android:textSize="16sp" />
 
 		<View
 			android:id="@+id/rectangle_29_ek1"
 			android:layout_width="341dp"
 			android:layout_height="43dp"
 			android:layout_alignParentStart="true"
-			android:layout_alignParentEnd="true"
 			android:layout_alignParentBottom="true"
 			android:layout_marginStart="40dp"
-			android:layout_marginEnd="40dp"
 			android:layout_marginBottom="68dp"
 			android:background="@drawable/rectangle_29_ek1_shape" />
-
-		<TextView
-			android:id="@+id/choose_from_map_ek1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignStart="@+id/rectangle_28_ek1"
-			android:layout_alignEnd="@+id/rectangle_28_ek1"
-			android:layout_marginStart="76dp"
-			android:layout_marginLeft="76dp"
-			android:layout_marginTop="163dp"
-			android:layout_marginEnd="72dp"
-			android:text="@string/choose_from_map_ek1_string"
-			android:textColor="@color/rectangle_1_color"
-			android:textSize="17sp"
-			android:textStyle="bold" />
 
 		<TextView
 			android:id="@+id/confirm_location_ek1"
@@ -88,25 +98,8 @@
 			android:textStyle="bold" />
 
 
-		<TextView
-			android:id="@+id/address_street_name_ek1"
-			android:layout_width="238dp"
-			android:layout_height="wrap_content"
-			android:layout_alignStart="@+id/rectangle_27"
-			android:layout_alignEnd="@+id/rectangle_27"
-			android:layout_marginStart="40dp"
-			android:layout_marginLeft="63dp"
-			android:layout_marginTop="87dp"
-			android:layout_marginEnd="31dp"
-			android:text="@string/address_street_name_ek1_string"
-			android:textColor="@color/rectangle_1_color"
-			android:textSize="18sp"
-			android:textStyle="bold" />
-
-
-
-		<com.google.android.gms.maps.MapView
-			android:id="@+id/mapView"
+		<fragment
+			android:id="@+id/map"
 			android:layout_width="match_parent"
 			android:layout_height="400dp"
 			android:layout_above="@+id/rectangle_29_ek1"
@@ -114,11 +107,12 @@
 			android:layout_alignParentStart="true"
 			android:layout_alignParentEnd="true"
 			android:layout_marginStart="0dp"
-			android:layout_marginTop="1dp"
+			android:layout_marginTop="2dp"
 			android:layout_marginEnd="0dp"
-			android:layout_marginBottom="12dp" />
-
+			android:layout_marginBottom="12dp"
+			android:name="com.google.android.gms.maps.SupportMapFragment" />
 	</RelativeLayout>
+
 	<RelativeLayout
 		android:id="@+id/frame_23_ek16"
 		android:layout_width="match_parent"

@@ -52,12 +52,7 @@
                     android:padding="8dp"
                     android:text="Remarks"
                     android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="Token Time"
-                    android:textStyle="bold" />
+
             </TableRow>
             <View
                 android:layout_width="match_parent"
@@ -243,6 +238,20 @@
             android:layout_marginTop="40dp"
             android:layout_toEndOf="@+id/txt_2"
             android:text="" />
+        <TextView
+            android:id="@+id/txt_token_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/txt_vehicleno"
+            android:text="Token Time: Not Set"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
+
+
+
 
 
 
