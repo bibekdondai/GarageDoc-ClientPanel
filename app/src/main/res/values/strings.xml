@@ -299,7 +299,7 @@
 
 		<string name="sn_header">SN</string>
 		<string name="bike_details_header">Bike Details</string>
-		<string name="bike_details_text">Model: %1$s, Plate: %2$s, Color: %3$s</string>
+		<string name="bike_details_text">Model: %1$s, Plate: %2$s</string>
 	<string name="error_null_email">Error: Current user is null</string>
 	<string name="error_loading_data">Error loading data: %1$s</string>
     <string name="remove">remove</string>

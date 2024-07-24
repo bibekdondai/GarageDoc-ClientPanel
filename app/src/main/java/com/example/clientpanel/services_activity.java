@@ -37,7 +37,8 @@ import java.util.Map;
 public class services_activity extends AppCompatActivity {
 
 	private Spinner spinner1, spinner3;
-	private String tokenTime; // Declare tokenTime here
+	private String tokenTime;
+	private String tokenDate;
 
 	private Button submitButton;
 	private Button addButton;
@@ -47,11 +48,11 @@ public class services_activity extends AppCompatActivity {
 	private FirebaseFirestore firestore;
 	private List<String> bikeModels;
 	private List<String> bikeParts1;
-	private Map<String, String> partPrices1; // Map to hold part names and their prices
+	private Map<String, String> partPrices1;
 	private SessionManager sessionManager;
 	private static final String TAG = "ServicesActivity";
-	private String bikeModel; // Define this variable
-	private String plateNumber; // Define this variable
+	private String bikeModel;
+	private String plateNumber;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -79,28 +80,34 @@ public class services_activity extends AppCompatActivity {
 	}
 
 	private void setupSpinners() {
-		// Setup spinner3 with bike models
 		ArrayAdapter<String> modelAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, bikeModels);
 		modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner3.setAdapter(modelAdapter);
 
-		// Setup spinner1 with bike parts
 		ArrayAdapter<String> partsAdapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, bikeParts1);
 		partsAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner1.setAdapter(partsAdapter1);
 
-		// Load bike models into spinner3
 		loadBikeModels();
 
-		// Spinner3 item selection listener
 		spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				String selectedBikeModel = bikeModels.size() > position ? bikeModels.get(position) : null;
 				if (selectedBikeModel != null) {
-					bikeModel = selectedBikeModel; // Set bikeModel
+					bikeModel = selectedBikeModel;
 					loadBikePartsFromFirestore(selectedBikeModel);
-					loadPlateNumberForBikeModel(selectedBikeModel); // Load plate number
+					loadPlateNumberForBikeModel(selectedBikeModel, new Callback() {
+						@Override
+						public void onSuccess() {
+							// Plate number loaded successfully
+						}
+
+						@Override
+						public void onFailure(Exception e) {
+							Toast.makeText(services_activity.this, "Failed to load plate number", Toast.LENGTH_SHORT).show();
+						}
+					});
 				}
 			}
 
@@ -119,7 +126,7 @@ public class services_activity extends AppCompatActivity {
 			return;
 		}
 
-		String sanitizedEmail = email.replace(".", ","); // Sanitize email
+		String sanitizedEmail = email.replace(".", ",");
 		DatabaseReference userBikesRef = usersRef.child(sanitizedEmail).child("bikes");
 
 		userBikesRef.addValueEventListener(new ValueEventListener() {
@@ -127,9 +134,9 @@ public class services_activity extends AppCompatActivity {
 			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 				bikeModels.clear();
 				for (DataSnapshot bikeSnapshot : dataSnapshot.getChildren()) {
-					String plateNumber = bikeSnapshot.getKey(); // Get plateNumber as key
+					String plateNumber = bikeSnapshot.getKey();
 					DataSnapshot bikeData = bikeSnapshot.child("bikeModel");
-					String bikeModel = bikeData.getValue(String.class); // Get bikeModel value
+					String bikeModel = bikeData.getValue(String.class);
 					if (bikeModel != null) {
 						bikeModels.add(bikeModel);
 					} else {
@@ -195,7 +202,6 @@ public class services_activity extends AppCompatActivity {
 				return;
 			}
 
-			// Add data to table
 			addDataToTable(selectedPart, partPrices1.get(selectedPart));
 		});
 	}
@@ -203,7 +209,6 @@ public class services_activity extends AppCompatActivity {
 	private void addDataToTable(String part1, String price) {
 		TableRow tableRow = new TableRow(this);
 
-		// Create TextViews for each column
 		TextView partTextView = new TextView(this);
 		partTextView.setText(part1);
 		partTextView.setPadding(16, 16, 16, 16);
@@ -214,24 +219,21 @@ public class services_activity extends AppCompatActivity {
 		priceTextView.setPadding(16, 16, 16, 16);
 		priceTextView.setGravity(Gravity.CENTER);
 
-		// Create a cancel button to remove the row
 		Button cancelButton = new Button(this);
 		cancelButton.setText("Remove");
 		cancelButton.setOnClickListener(v -> tableLayout.removeView(tableRow));
 
-		// Add TextViews and cancel button to TableRow
 		tableRow.addView(partTextView);
 		tableRow.addView(priceTextView);
 		tableRow.addView(cancelButton);
 
-		// Add TableRow to TableLayout
 		tableLayout.addView(tableRow);
 	}
 
 	private void setupSubmitButton() {
 		submitButton.setOnClickListener(v -> {
 			List<Map<String, String>> tableData = new ArrayList<>();
-			boolean hasEmptyFields = false; // Flag to check if any fields are empty
+			boolean hasEmptyFields = false;
 
 			for (int i = 0; i < tableLayout.getChildCount(); i++) {
 				View child = tableLayout.getChildAt(i);
@@ -243,10 +245,9 @@ public class services_activity extends AppCompatActivity {
 						String partName = partTextView.getText().toString();
 						String price = priceTextView.getText().toString();
 
-						// Check if any part or price field is empty
 						if (partName.isEmpty() || price.isEmpty()) {
 							hasEmptyFields = true;
-							break; // Break out of the loop if an empty field is found
+							break;
 						}
 
 						Map<String, String> rowData = new HashMap<>();
@@ -278,10 +279,21 @@ public class services_activity extends AppCompatActivity {
 			int hour = timePicker.getCurrentHour();
 			int minute = timePicker.getCurrentMinute();
 			tokenTime = String.format("%02d:%02d", hour, minute);
+			tokenDate = java.time.LocalDate.now().toString(); // Use current date
 			Log.d(TAG, "Token Time selected: " + tokenTime);
+			Log.d(TAG, "Token Date selected: " + tokenDate);
 
-			// Save data to Firebase
-			saveDataToFirebase(tableData, tokenTime);
+			loadPlateNumberForBikeModel(bikeModel, new Callback() {
+				@Override
+				public void onSuccess() {
+					saveDataToFirebase(tableData);
+				}
+
+				@Override
+				public void onFailure(Exception e) {
+					Toast.makeText(services_activity.this, "Failed to load plate number", Toast.LENGTH_SHORT).show();
+				}
+			});
 		});
 
 		builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
@@ -290,36 +302,7 @@ public class services_activity extends AppCompatActivity {
 		dialog.show();
 	}
 
-	private void saveDataToFirebase(List<Map<String, String>> tableData, String tokenTime) {
-		if (bikeModel == null || plateNumber == null || tokenTime == null) {
-			Toast.makeText(this, "Bike model, plate number, or token time is null", Toast.LENGTH_SHORT).show();
-			return;
-		}
-
-		String email = sessionManager.getEmail();
-		if (email == null || email.isEmpty()) {
-			Log.e(TAG, "Email is null or empty in saveDataToFirebase");
-			Toast.makeText(this, R.string.error_null_email, Toast.LENGTH_SHORT).show();
-			return;
-		}
-
-		String sanitizedEmail = email.replace(".", ","); // Sanitize email
-		DatabaseReference servicesRef = usersRef.child(sanitizedEmail).child("bikes").child(plateNumber).child("services").child(tokenTime);
-
-		servicesRef.setValue(tableData)
-				.addOnSuccessListener(aVoid -> {
-					Toast.makeText(services_activity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
-					tableLayout.removeAllViews();
-					navigateToDetailsActivity();
-				})
-				.addOnFailureListener(e -> {
-					Log.e(TAG, "Error saving data", e);
-					Toast.makeText(services_activity.this, "Failed to save data", Toast.LENGTH_SHORT).show();
-				});
-	}
-
-
-	private void loadPlateNumberForBikeModel(String selectedBikeModel) {
+	private void loadPlateNumberForBikeModel(String selectedBikeModel, Callback callback) {
 		String email = sessionManager.getEmail();
 		if (email == null || email.isEmpty()) {
 			Log.e(TAG, "Email is null or empty in loadPlateNumberForBikeModel");
@@ -327,7 +310,7 @@ public class services_activity extends AppCompatActivity {
 			return;
 		}
 
-		String sanitizedEmail = email.replace(".", ","); // Sanitize email
+		String sanitizedEmail = email.replace(".", ",");
 		DatabaseReference userBikesRef = usersRef.child(sanitizedEmail).child("bikes");
 
 		userBikesRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -338,27 +321,73 @@ public class services_activity extends AppCompatActivity {
 					String bikeModelValue = bikeSnapshot.child("bikeModel").getValue(String.class);
 
 					if (bikeModelValue != null && bikeModelValue.equals(selectedBikeModel)) {
-						plateNumber = plateNumberKey; // Set plateNumber
-						break; // Exit loop once the matching plateNumber is found
+						plateNumber = plateNumberKey;
+						callback.onSuccess();
+						return;
 					}
 				}
+				callback.onFailure(new Exception("Plate number not found"));
 			}
 
 			@Override
 			public void onCancelled(@NonNull DatabaseError databaseError) {
-				Toast.makeText(services_activity.this, "Failed to load plate number", Toast.LENGTH_SHORT).show();
+				callback.onFailure(databaseError.toException());
 			}
 		});
 	}
 
+	private void saveDataToFirebase(List<Map<String, String>> tableData) {
+		String email = sessionManager.getEmail();
+		if (email == null || email.isEmpty()) {
+			Log.e(TAG, "Email is null or empty in saveDataToFirebase");
+			Toast.makeText(this, R.string.error_null_email, Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+		if (bikeModel == null || plateNumber == null || tokenTime == null || tokenDate == null) {
+			Toast.makeText(services_activity.this, "Required data is missing", Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+		String sanitizedEmail = email.replace(".", ",");
+		DatabaseReference serviceRef = usersRef.child(sanitizedEmail)
+				.child("bikes")
+				.child(plateNumber)
+				.child("services")
+				.child(tokenTime);
+
+		for (int i = 0; i < tableData.size(); i++) {
+			Map<String, String> rowData = tableData.get(i);
+			serviceRef.child(String.valueOf(i + 1)).child("part").setValue(rowData.get("part"));
+			serviceRef.child(String.valueOf(i + 1)).child("price").setValue(rowData.get("price"));
+		}
+
+		serviceRef.child("token_time").setValue(tokenTime);
+		serviceRef.child("token_date").setValue(tokenDate);
+
+		Toast.makeText(this, "Data saved successfully", Toast.LENGTH_SHORT).show();
+
+		navigateToDetailsActivity();
+	}
+
 	private void navigateToDetailsActivity() {
+		if (bikeModel == null || plateNumber == null || tokenTime == null || tokenDate == null) {
+			Toast.makeText(services_activity.this, "Required data is missing", Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+		Log.d(TAG, "Navigating to details_to_be_filled_activity");
 		Intent intent = new Intent(services_activity.this, details_to_be_filled_activity.class);
 		intent.putExtra("bikeModel", bikeModel);
 		intent.putExtra("plateNumber", plateNumber);
-		intent.putExtra("tokenTime", tokenTime); // Pass tokenTime
-
-
+		intent.putExtra("tokenTime", tokenTime);
+		intent.putExtra("tokenDate", tokenDate);
 		startActivity(intent);
-		finish(); // Optional: Finish current activity if you don't want to return to it
+		finish();
+	}
+
+	interface Callback {
+		void onSuccess();
+		void onFailure(Exception e);
 	}
 }

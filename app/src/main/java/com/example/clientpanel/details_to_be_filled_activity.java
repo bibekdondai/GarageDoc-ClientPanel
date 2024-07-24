@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -25,8 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Random;
 
 public class details_to_be_filled_activity extends Activity {
 
@@ -35,11 +32,13 @@ public class details_to_be_filled_activity extends Activity {
 	private TableLayout upperTable;
 	private EditText txtModel;
 	private EditText txtVehicleNo;
-	private TextView txtTokenTime; // Add TextView for token time
+	private TextView txtTokenDate;
+	private TextView txtTokenTime;
 	private FirebaseDatabase firebaseDatabase;
 	private DatabaseReference bikePartsRef;
 	private SessionManager sessionManager;
 	private Button btnAddPartService;
+	private String tokenDate;
 	private String tokenTime;
 	private String plateNumber;
 
@@ -50,7 +49,9 @@ public class details_to_be_filled_activity extends Activity {
 
 		initializeComponents();
 		retrieveIntentData();
-		setupFirebase();
+		if (isDataValid()) {
+			setupFirebase();
+		}
 		setupButtonListeners();
 	}
 
@@ -58,7 +59,8 @@ public class details_to_be_filled_activity extends Activity {
 		txtModel = findViewById(R.id.txt_model);
 		txtVehicleNo = findViewById(R.id.txt_vehicleno);
 		upperTable = findViewById(R.id.upper_table);
-		txtTokenTime = findViewById(R.id.txt_token_time); // Initialize token time TextView
+		txtTokenDate = findViewById(R.id.txt_token_date);
+		txtTokenTime = findViewById(R.id.txt_token_time);
 		btnAddPartService = findViewById(R.id.btn_add_part_service);
 		sessionManager = new SessionManager(this);
 		firebaseDatabase = FirebaseDatabase.getInstance();
@@ -69,12 +71,17 @@ public class details_to_be_filled_activity extends Activity {
 		if (intent != null) {
 			String bikeModel = intent.getStringExtra("bikeModel");
 			plateNumber = intent.getStringExtra("plateNumber");
+			tokenDate = intent.getStringExtra("tokenDate");
 			tokenTime = intent.getStringExtra("tokenTime");
 
-			if (bikeModel != null && plateNumber != null && tokenTime != null) {
+			if (bikeModel != null && !bikeModel.isEmpty() &&
+					plateNumber != null && !plateNumber.isEmpty() &&
+					tokenDate != null && !tokenDate.isEmpty() &&
+					tokenTime != null && !tokenTime.isEmpty()) {
+
 				txtModel.setText(bikeModel);
 				txtVehicleNo.setText(plateNumber);
-				// Format and set token time
+				txtTokenDate.setText("Token Date: " + formatTokenDate(tokenDate));
 				txtTokenTime.setText("Token Time: " + formatTokenTime(tokenTime));
 			} else {
 				showToast("Required data is missing.");
@@ -82,6 +89,22 @@ public class details_to_be_filled_activity extends Activity {
 		} else {
 			showToast("No data received.");
 		}
+	}
+
+	private boolean isDataValid() {
+		if (plateNumber == null || plateNumber.isEmpty()) {
+			showToast("Plate number is missing.");
+			return false;
+		}
+		if (tokenDate == null || tokenDate.isEmpty()) {
+			showToast("Token date is missing.");
+			return false;
+		}
+		if (tokenTime == null || tokenTime.isEmpty()) {
+			showToast("Token time is missing.");
+			return false;
+		}
+		return true;
 	}
 
 	private void setupFirebase() {
@@ -92,8 +115,10 @@ public class details_to_be_filled_activity extends Activity {
 					.child(sanitizedEmail)
 					.child("bikes")
 					.child(plateNumber)
-					.child("services");
-			fetchBikePartsData(tokenTime);
+					.child("services")
+
+					.child(tokenTime); // Token Time
+			fetchBikePartsData();
 		} else {
 			showToast("Email is not available.");
 		}
@@ -108,29 +133,30 @@ public class details_to_be_filled_activity extends Activity {
 		});
 	}
 
-	private void fetchBikePartsData(String tokenTime) {
-		if (tokenTime == null || tokenTime.isEmpty()) {
-			showToast("Token time is invalid.");
-			return;
+	private void fetchBikePartsData() {
+		if (bikePartsRef != null) {
+			bikePartsRef.addValueEventListener(new ValueEventListener() {
+				@Override
+				public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+					Log.d(TAG, "DataSnapshot: " + dataSnapshot.toString());
+					updateTableLayout(dataSnapshot);
+				}
+
+				@Override
+				public void onCancelled(@NonNull DatabaseError databaseError) {
+					Log.e(TAG, "Error fetching bike parts data", databaseError.toException());
+				}
+			});
+		} else {
+			showToast("Firebase reference is not set up correctly.");
 		}
-
-		bikePartsRef.child(tokenTime).addValueEventListener(new ValueEventListener() {
-			@Override
-			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-				updateTableLayout(dataSnapshot);
-			}
-
-			@Override
-			public void onCancelled(@NonNull DatabaseError databaseError) {
-				Log.e(TAG, "Error fetching bike parts data", databaseError.toException());
-			}
-		});
 	}
 
 	private void updateTableLayout(DataSnapshot dataSnapshot) {
 		upperTable.removeAllViews();
 
-		if (!dataSnapshot.exists() || !dataSnapshot.hasChildren()) {
+		// Check if the data snapshot contains service data
+		if (!dataSnapshot.exists()) {
 			showToast("No service data available.");
 			return;
 		}
@@ -144,17 +170,22 @@ public class details_to_be_filled_activity extends Activity {
 		}
 		upperTable.addView(headerRow);
 
-		// Add data rows
+		// Iterate through the child nodes to fetch part data
 		for (DataSnapshot partSnapshot : dataSnapshot.getChildren()) {
+			// Skip token_time and token_date keys
+			if (partSnapshot.getKey().equals("token_time") || partSnapshot.getKey().equals("token_date")) {
+				continue;
+			}
+
 			String partName = partSnapshot.child("part").getValue(String.class);
 			String partPrice = partSnapshot.child("price").getValue(String.class);
-			String remarks = partSnapshot.child("remarks").getValue(String.class);
+			Log.d(TAG, "Part: " + partName + ", Price: " + partPrice);
 
 			if (partName != null && partPrice != null) {
 				TableRow row = new TableRow(this);
 				row.addView(createTextView(partName, false));
 				row.addView(createTextView(partPrice, false));
-				row.addView(createTextView(remarks != null ? remarks : generateRandomRemark(), false));
+				row.addView(createTextView(generateRandomRemark(), false));
 				upperTable.addView(row);
 			}
 		}
@@ -174,16 +205,14 @@ public class details_to_be_filled_activity extends Activity {
 
 	private String generateRandomRemark() {
 		String[] remarks = {"N/A"};
-		Random random = new Random();
-		int index = random.nextInt(remarks.length);
+		int index = (int) (Math.random() * remarks.length);
 		return remarks[index];
 	}
 
 	private String formatTokenTime(String tokenTime) {
 		try {
-			// Assuming tokenTime is in the format "yyyy-MM-dd HH:mm:ss"
-			SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-			SimpleDateFormat outputFormat = new SimpleDateFormat("MMM dd, yyyy hh:mm a", Locale.getDefault());
+			SimpleDateFormat inputFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+			SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
 			Date date = inputFormat.parse(tokenTime);
 			return outputFormat.format(date);
 		} catch (Exception e) {
@@ -192,7 +221,19 @@ public class details_to_be_filled_activity extends Activity {
 		}
 	}
 
+	private String formatTokenDate(String tokenDate) {
+		try {
+			SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+			SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+			Date date = inputFormat.parse(tokenDate);
+			return outputFormat.format(date);
+		} catch (Exception e) {
+			Log.e(TAG, "Error formatting token date", e);
+			return tokenDate; // Return the original tokenDate if formatting fails
+		}
+	}
+
 	private void showToast(String message) {
-		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 }
